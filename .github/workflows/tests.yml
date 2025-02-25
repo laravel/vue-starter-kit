@@ -31,8 +31,8 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
-      - name: Install Node Dependencies
-        run: npm ci
+      - name: Create SQLite Database
+        run: touch database/database.sqlite
 
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
@@ -45,6 +45,9 @@ jobs:
 
       - name: Publish Ziggy Configuration
         run: php artisan ziggy:generate
+
+      - name: Install Node Dependencies
+        run: npm ci
 
       - name: Build Assets
         run: npm run build
