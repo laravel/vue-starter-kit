@@ -1,16 +1,25 @@
 <script setup lang="ts">
-import { TransitionRoot } from '@headlessui/vue';
-import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
-
 import DeleteUser from '@/components/DeleteUser.vue';
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import InputError from '@/components/InputError.vue';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { getInitials } from '@/composables/useInitials';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { type BreadcrumbItem, type SharedData, type User } from '@/types';
+import { TransitionRoot } from '@headlessui/vue';
+import { Head, Link, router, useForm, usePage } from '@inertiajs/vue3';
+import { ref } from 'vue';
+
+interface ProfileForm {
+    _method: string;
+    name: string;
+    email: string;
+    photo?: File | null;
+}
 
 interface Props {
     mustVerifyEmail: boolean;
@@ -29,15 +38,55 @@ const breadcrumbs: BreadcrumbItem[] = [
 const page = usePage<SharedData>();
 const user = page.props.auth.user as User;
 
-const form = useForm({
+const form = useForm<Required<ProfileForm>>({
+    _method: 'patch',
     name: user.name,
     email: user.email,
+    photo: null,
 });
 
+const photoPreview = ref<string | null>(null);
+const photoInput = ref<HTMLInputElement | null>(null);
+
 const submit = () => {
-    form.patch(route('profile.update'), {
+    if (photoInput.value?.files?.length) {
+        form.photo = photoInput.value.files[0];
+    }
+    form.post(route('profile.update'), {
         preserveScroll: true,
+        onSuccess: () => clearPhotoFileInput(),
     });
+};
+
+const selectNewPhoto = () => {
+    photoInput.value?.click();
+};
+
+const updatePhotoPreview = () => {
+    const photo = photoInput.value?.files?.[0];
+    if (!photo) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        photoPreview.value = e.target?.result as string;
+    };
+    reader.readAsDataURL(photo);
+};
+
+const deletePhoto = () => {
+    router.delete(route('profile-photo.destroy'), {
+        preserveScroll: true,
+        onSuccess: () => {
+            photoPreview.value = null;
+            clearPhotoFileInput();
+        },
+    });
+};
+
+const clearPhotoFileInput = () => {
+    if (photoInput.value) {
+        photoInput.value.value = '';
+    }
 };
 </script>
 
@@ -50,6 +99,23 @@ const submit = () => {
                 <HeadingSmall title="Profile information" description="Update your name and email address" />
 
                 <form @submit.prevent="submit" class="space-y-6">
+                    <div class="grid gap-2">
+                        <Label for="photo">Photo</Label>
+                        <input id="photo" ref="photoInput" type="file" class="hidden" @change="updatePhotoPreview" accept="image/*" />
+
+                        <div class="flex items-center gap-4">
+                            <Avatar class="h-20 w-20">
+                                <AvatarImage :src="photoPreview || user.avatar || ''" :alt="user.name" />
+                                <AvatarFallback>{{ getInitials(user.name) }}</AvatarFallback>
+                            </Avatar>
+
+                            <Button type="button" variant="outline" @click.prevent="selectNewPhoto"> Select New Photo </Button>
+
+                            <Button v-if="user.avatar" type="button" variant="outline" @click.prevent="deletePhoto"> Remove Photo </Button>
+                        </div>
+                        <InputError class="mt-2" :message="form.errors.photo" />
+                    </div>
+
                     <div class="grid gap-2">
                         <Label for="name">Name</Label>
                         <Input id="name" class="mt-1 block w-full" v-model="form.name" required autocomplete="name" placeholder="Full name" />
