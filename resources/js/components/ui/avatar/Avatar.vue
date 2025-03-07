@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils';
-import { AvatarRoot } from 'radix-vue';
+import { AvatarRoot } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
 import { avatarVariant, type AvatarVariants } from '.';
 

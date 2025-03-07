@@ -9,7 +9,7 @@ import {
     useForwardPropsEmits,
     type DialogContentEmits,
     type DialogContentProps,
-} from 'radix-vue';
+} from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 import { sheetVariants, type SheetVariants } from '.';
 

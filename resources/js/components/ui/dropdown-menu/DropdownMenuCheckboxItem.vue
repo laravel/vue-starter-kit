@@ -7,7 +7,7 @@ import {
     useForwardPropsEmits,
     type DropdownMenuCheckboxItemEmits,
     type DropdownMenuCheckboxItemProps,
-} from 'radix-vue';
+} from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
 const props = defineProps<DropdownMenuCheckboxItemProps & { class?: HTMLAttributes['class'] }>();

@@ -1,4 +1,4 @@
-import { createContext } from 'radix-vue';
+import { createContext } from 'reka-ui';
 import type { ComputedRef, Ref } from 'vue';
 
 export const SIDEBAR_COOKIE_NAME = 'sidebar:state';

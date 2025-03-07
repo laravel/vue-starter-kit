@@ -6,7 +6,7 @@ import {
     useForwardPropsEmits,
     type DropdownMenuContentEmits,
     type DropdownMenuContentProps,
-} from 'radix-vue';
+} from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
 const props = withDefaults(defineProps<DropdownMenuContentProps & { class?: HTMLAttributes['class'] }>(), {
