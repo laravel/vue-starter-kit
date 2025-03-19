@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/vue3';
 interface Props {
     href: string;
     tabindex?: number;
-    method?: string;
+    method?: 'get' | 'post' | 'put' | 'patch' | 'delete';
     as?: string;
 }
 

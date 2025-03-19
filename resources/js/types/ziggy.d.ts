@@ -1,12 +1,11 @@
-import { Config, RouteParams } from 'ziggy-js';
+import { Router as ZiggyRouter, RouteParams } from 'ziggy-js';
+
+type AppRouter = {
+    (): ZiggyRouter;
+    (name: string, params?: RouteParams<typeof name> | undefined, absolute?: boolean): string;
+};
 
 declare global {
-    function route(): Config;
-    function route(name: string, params?: RouteParams<typeof name> | undefined, absolute?: boolean): string;
-}
-
-declare module '@vue/runtime-core' {
-    interface ComponentCustomProperties {
-        route: typeof route;
-    }
+    // eslint-disable-next-line no-var
+    var route: AppRouter;
 }

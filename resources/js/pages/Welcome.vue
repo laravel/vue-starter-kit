@@ -215,7 +215,7 @@ import { Head, Link } from '@inertiajs/vue3';
                             />
                         </g>
                         <g
-                            :style="{ mixBlendMode: 'plus-darker' }"
+                            :style="`mixBlendMode: 'plus-darker'`"
                             class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300"
                         >
                             <path
