@@ -96,4 +96,34 @@ class ProfileUpdateTest extends TestCase
 
         $this->assertNotNull($user->fresh());
     }
+
+    public function test_user_can_upload_and_remove_avatar()
+    {
+        \Storage::fake('public');
+
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->patch('/settings/profile', [
+            'name' => 'Test User',
+            'email' => $user->email,
+            'profile_photo' => \Illuminate\Http\UploadedFile::fake()->image('avatar.jpg'),
+        ]);
+
+        $response->assertRedirect('/settings/profile');
+
+        $user->refresh();
+        $this->assertNotNull($user->profile_photo_path);
+        \Storage::disk('public')->assertExists($user->profile_photo_path);
+
+        $response = $this->actingAs($user)->patch('/settings/profile', [
+            'name' => 'Test User',
+            'email' => $user->email,
+            'remove_avatar' => '1',
+        ]);
+
+        $response->assertRedirect('/settings/profile');
+
+        $user->refresh();
+        $this->assertNull($user->profile_photo_path);
+    }
 }
