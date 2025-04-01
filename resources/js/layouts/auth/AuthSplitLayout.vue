@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import AppLogoIcon from '@/components/AppLogoIcon.vue';
+import { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
 
-const page = usePage();
+const page = usePage<SharedData>();
 const name = page.props.name;
 const quote = page.props.quote;
 
@@ -20,7 +21,7 @@ defineProps<{
                 <AppLogoIcon class="mr-2 size-8 fill-current text-white" />
                 {{ name }}
             </Link>
-            <div v-if="quote" class="relative z-20 mt-auto">
+            <div v-if="quote && quote" class="relative z-20 mt-auto">
                 <blockquote class="space-y-2">
                     <p class="text-lg">&ldquo;{{ quote.message }}&rdquo;</p>
                     <footer class="text-sm text-neutral-300">{{ quote.author }}</footer>
