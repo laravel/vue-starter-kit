@@ -73,5 +73,10 @@ export default {
             },
         },
     },
-    plugins: [require('tailwindcss-animate')],
+    plugins: [
+        require('tailwindcss-animate'),
+        function ({ addVariant }) {
+            addVariant('starting', '@starting-style');
+        },
+    ],
 };

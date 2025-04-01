@@ -1,22 +1,29 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
+
+const page = usePage();
+const auth = computed(() => page.props.auth);
 </script>
 
 <template>
     <Head title="Welcome">
-        <link rel="preconnect" href="https://rsms.me/" />
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link href="https://fonts.bunny.net/css?family=inter:400,500" rel="stylesheet" />
     </Head>
+
     <div class="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] dark:bg-[#0a0a0a] lg:justify-center lg:p-8">
         <header class="not-has-[nav]:hidden mb-6 w-full max-w-[335px] text-sm lg:max-w-4xl">
             <nav class="flex items-center justify-end gap-4">
-                <Link
-                    v-if="$page.props.auth.user"
-                    :href="route('dashboard')"
-                    class="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
-                >
-                    Dashboard
-                </Link>
+                <template v-if="auth.user">
+                    <Link
+                        :href="route('dashboard')"
+                        class="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
+                    >
+                        Dashboard
+                    </Link>
+                </template>
+
                 <template v-else>
                     <Link
                         :href="route('login')"
@@ -33,7 +40,8 @@ import { Head, Link } from '@inertiajs/vue3';
                 </template>
             </nav>
         </header>
-        <div class="duration-750 starting:opacity-0 flex w-full items-center justify-center opacity-100 transition-opacity lg:grow">
+
+        <div class="duration-700 starting:opacity-0 flex w-full items-center justify-center opacity-100 transition-opacity lg:grow">
             <main class="flex w-full max-w-[335px] flex-col-reverse overflow-hidden rounded-lg lg:max-w-4xl lg:flex-row">
                 <div
                     class="flex-1 rounded-bl-lg rounded-br-lg bg-white p-6 pb-12 text-[13px] leading-[20px] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:bg-[#161615] dark:text-[#EDEDEC] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] lg:rounded-br-none lg:rounded-tl-lg lg:p-20"
@@ -53,17 +61,16 @@ import { Head, Link } from '@inertiajs/vue3';
                                     <span class="h-1.5 w-1.5 rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A]" />
                                 </span>
                             </span>
-                            <span>
-                                Read the
-                                <a
+                            <span
+                                >Read the<a
                                     href="https://laravel.com/docs"
                                     target="_blank"
                                     class="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
                                 >
                                     <span>Documentation</span>
                                     <svg
-                                        width="{10}"
-                                        height="{11}"
+                                        width="10"
+                                        height="11"
                                         viewBox="0 0 10 11"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -84,17 +91,16 @@ import { Head, Link } from '@inertiajs/vue3';
                                     <span class="h-1.5 w-1.5 rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A]" />
                                 </span>
                             </span>
-                            <span>
-                                Watch video tutorials at
-                                <a
+                            <span
+                                >Watch video tutorials at<a
                                     href="https://laracasts.com"
                                     target="_blank"
                                     class="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
                                 >
                                     <span>Laracasts</span>
                                     <svg
-                                        width="{10}"
-                                        height="{11}"
+                                        width="10"
+                                        height="11"
                                         viewBox="0 0 10 11"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +128,7 @@ import { Head, Link } from '@inertiajs/vue3';
                     class="relative -mb-px aspect-[335/376] w-full shrink-0 overflow-hidden rounded-t-lg bg-[#fff2f2] dark:bg-[#1D0002] lg:-ml-px lg:mb-0 lg:aspect-auto lg:w-[438px] lg:rounded-r-lg lg:rounded-t-none"
                 >
                     <svg
-                        class="duration-750 starting:translate-y-6 starting:opacity-0 w-full max-w-none translate-y-0 text-[#F53003] opacity-100 transition-all dark:text-[#F61500]"
+                        class="duration-700 starting:translate-y-6 starting:opacity-0 w-full max-w-none translate-y-0 text-[#F53003] opacity-100 transition-all dark:text-[#F61500]"
                         viewBox="0 0 438 104"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +159,7 @@ import { Head, Link } from '@inertiajs/vue3';
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-                        <g class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300">
+                        <g class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300">
                             <path
                                 d="M188.263 355.73L188.595 355.73C195.441 348.845 205.766 339.761 219.569 328.477C232.93 317.193 242.978 308.205 249.714 301.511C256.34 294.626 260.867 287.358 263.296 279.708C265.725 272.058 264.565 264.121 259.816 255.896C254.516 246.716 247.062 239.352 237.454 233.805C227.957 228.067 217.908 225.198 207.307 225.198C196.927 225.197 190.136 227.97 186.934 233.516C183.621 238.872 184.726 246.331 190.247 255.894L125.647 255.891C116.371 239.825 112.395 225.481 113.72 212.858C115.265 200.235 121.559 190.481 132.602 183.596C143.754 176.52 158.607 172.982 177.159 172.983C196.594 172.984 215.863 176.523 234.968 183.6C253.961 190.486 271.299 200.241 286.98 212.864C302.661 225.488 315.14 239.833 324.416 255.899C333.03 270.817 336.841 283.918 335.847 295.203C335.075 306.487 331.376 316.336 324.75 324.751C318.346 333.167 308.408 343.494 294.936 355.734L377.094 355.737L405.917 405.656L217.087 405.649L188.263 355.73Z"
                                 fill="black"
@@ -192,8 +198,7 @@ import { Head, Link } from '@inertiajs/vue3';
                             />
                         </g>
                         <g
-                            :style="{ mixBlendMode: 'hard-light' }"
-                            class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300"
+                            class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 mix-blend-hard-light transition-all delay-300"
                         >
                             <path
                                 d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.725 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z"
@@ -215,8 +220,7 @@ import { Head, Link } from '@inertiajs/vue3';
                             />
                         </g>
                         <g
-                            :style="{ mixBlendMode: 'plus-darker' }"
-                            class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300"
+                            class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 mix-blend-plus-darker transition-all delay-300"
                         >
                             <path
                                 d="M230.951 281.792L231.282 281.793C238.128 274.907 248.453 265.823 262.256 254.539C275.617 243.256 285.666 234.267 292.402 227.573C299.027 220.688 303.554 213.421 305.983 205.771C308.412 198.12 307.253 190.183 302.504 181.959C297.203 172.778 289.749 165.415 280.142 159.868C270.645 154.13 260.596 151.26 249.995 151.26C239.615 151.26 232.823 154.033 229.621 159.579C226.309 164.934 227.413 172.393 232.935 181.956L168.335 181.954C159.058 165.888 155.082 151.543 156.407 138.92C157.953 126.298 164.247 116.544 175.289 109.659C186.442 102.583 201.294 99.045 219.846 99.0457C239.281 99.0464 258.551 102.585 277.655 109.663C296.649 116.549 313.986 126.303 329.667 138.927C345.349 151.551 357.827 165.895 367.104 181.961C375.718 196.88 379.528 209.981 378.535 221.265C377.762 232.549 374.063 242.399 367.438 250.814C361.033 259.229 351.095 269.557 337.624 281.796L419.782 281.8L448.605 331.719L259.774 331.712L230.951 281.792Z"
@@ -237,7 +241,7 @@ import { Head, Link } from '@inertiajs/vue3';
                                 stroke-width="1"
                             />
                         </g>
-                        <g class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300">
+                        <g class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300">
                             <path
                                 d="M188.467 355.363L188.798 355.363C195.644 348.478 205.969 339.393 219.772 328.11C233.133 316.826 243.181 307.837 249.917 301.144C253.696 297.217 256.792 293.166 259.205 288.991C261.024 285.845 262.455 282.628 263.499 279.341C265.928 271.691 264.768 263.753 260.02 255.529C254.719 246.349 247.265 238.985 237.657 233.438C228.16 227.7 218.111 224.831 207.51 224.83C197.13 224.83 190.339 227.603 187.137 233.149C183.824 238.504 184.929 245.963 190.45 255.527L125.851 255.524C116.574 239.458 112.598 225.114 113.923 212.491C114.615 206.836 116.261 201.756 118.859 197.253C122.061 191.704 126.709 187.03 132.805 183.229C143.958 176.153 158.81 172.615 177.362 172.616C196.797 172.617 216.067 176.156 235.171 183.233C254.164 190.119 271.502 199.874 287.183 212.497C302.864 225.121 315.343 239.466 324.62 255.532C333.233 270.45 337.044 283.551 336.05 294.835C335.46 303.459 333.16 311.245 329.151 318.194C327.915 320.337 326.515 322.4 324.953 324.384C318.549 332.799 308.611 343.127 295.139 355.367L377.297 355.37L406.121 405.289L217.29 405.282L188.467 355.363Z"
                                 stroke="#1B1B18"
@@ -438,8 +442,7 @@ import { Head, Link } from '@inertiajs/vue3';
                             />
                         </g>
                         <g
-                            :style="{ mixBlendMode: 'hard-light' }"
-                            class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300"
+                            class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 mix-blend-hard-light transition-all delay-300"
                         >
                             <path
                                 d="M246.544 254.79L246.875 254.79C253.722 247.905 264.046 238.82 277.849 227.537C291.21 216.253 301.259 207.264 307.995 200.57C314.62 193.685 319.147 186.418 321.577 178.768C324.006 171.117 322.846 163.18 318.097 154.956C312.796 145.775 305.342 138.412 295.735 132.865C286.238 127.127 276.189 124.258 265.588 124.257C255.208 124.257 248.416 127.03 245.214 132.576C241.902 137.931 243.006 145.39 248.528 154.953L183.928 154.951C174.652 138.885 170.676 124.541 172 111.918C173.546 99.2946 179.84 89.5408 190.882 82.6559C202.035 75.5798 216.887 72.0421 235.439 72.0428C254.874 72.0435 274.144 75.5825 293.248 82.6598C312.242 89.5457 329.579 99.3005 345.261 111.924C360.942 124.548 373.421 138.892 382.697 154.958C391.311 169.877 395.121 182.978 394.128 194.262C393.355 205.546 389.656 215.396 383.031 223.811C376.627 232.226 366.688 242.554 353.217 254.794L435.375 254.797L464.198 304.716L275.367 304.709L246.544 254.79Z"
@@ -453,8 +456,7 @@ import { Head, Link } from '@inertiajs/vue3';
                             />
                         </g>
                         <g
-                            :style="{ mixBlendMode: 'hard-light' }"
-                            class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300"
+                            class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 mix-blend-hard-light transition-all delay-300"
                         >
                             <path
                                 d="M67.41 125.402L44.5515 125.401L15.5625 75.1953L101.364 75.1985L233.886 304.712L170.942 304.71L67.41 125.402Z"
@@ -473,7 +475,7 @@ import { Head, Link } from '@inertiajs/vue3';
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-                        <g class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300">
+                        <g class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300">
                             <path
                                 d="M188.263 355.73L188.595 355.73C195.441 348.845 205.766 339.761 219.569 328.477C232.93 317.193 242.978 308.205 249.714 301.511C256.34 294.626 260.867 287.358 263.296 279.708C265.725 272.058 264.565 264.121 259.816 255.896C254.516 246.716 247.062 239.352 237.454 233.805C227.957 228.067 217.908 225.198 207.307 225.198C196.927 225.197 190.136 227.97 186.934 233.516C183.621 238.872 184.726 246.331 190.247 255.894L125.647 255.891C116.371 239.825 112.395 225.481 113.72 212.858C115.265 200.235 121.559 190.481 132.602 183.596C143.754 176.52 158.607 172.982 177.159 172.983C196.594 172.984 215.863 176.523 234.968 183.6C253.961 190.486 271.299 200.241 286.98 212.864C302.661 225.488 315.14 239.833 324.416 255.899C333.03 270.817 336.841 283.918 335.847 295.203C335.075 306.487 331.376 316.336 324.75 324.751C318.346 333.167 308.408 343.494 294.936 355.734L377.094 355.737L405.917 405.656L217.087 405.649L188.263 355.73Z"
                                 fill="black"
@@ -512,8 +514,7 @@ import { Head, Link } from '@inertiajs/vue3';
                             />
                         </g>
                         <g
-                            class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300"
-                            :style="{ mixBlendMode: 'hard-light' }"
+                            class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 mix-blend-hard-light transition-all delay-300"
                         >
                             <path
                                 d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.725 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z"
@@ -534,7 +535,7 @@ import { Head, Link } from '@inertiajs/vue3';
                                 stroke-width="1"
                             />
                         </g>
-                        <g class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300">
+                        <g class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300">
                             <path
                                 d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.726 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z"
                                 stroke="#FF750F"
@@ -546,7 +547,7 @@ import { Head, Link } from '@inertiajs/vue3';
                                 stroke-width="1"
                             />
                         </g>
-                        <g class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300">
+                        <g class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300">
                             <path
                                 d="M188.467 355.363L188.798 355.363C195.644 348.478 205.969 339.393 219.772 328.11C233.133 316.826 243.181 307.837 249.917 301.144C253.696 297.217 256.792 293.166 259.205 288.991C261.024 285.845 262.455 282.628 263.499 279.341C265.928 271.691 264.768 263.753 260.02 255.529C254.719 246.349 247.265 238.985 237.657 233.438C228.16 227.7 218.111 224.831 207.51 224.83C197.13 224.83 190.339 227.603 187.137 233.149C183.824 238.504 184.929 245.963 190.45 255.527L125.851 255.524C116.574 239.458 112.598 225.114 113.923 212.491C114.615 206.836 116.261 201.756 118.859 197.253C122.061 191.704 126.709 187.03 132.805 183.229C143.958 176.153 158.81 172.615 177.362 172.616C196.797 172.617 216.067 176.156 235.171 183.233C254.164 190.119 271.502 199.874 287.183 212.497C302.864 225.121 315.343 239.466 324.62 255.532C333.233 270.45 337.044 283.551 336.05 294.835C335.46 303.459 333.16 311.245 329.151 318.194C327.915 320.337 326.515 322.4 324.953 324.384C318.549 332.799 308.611 343.127 295.139 355.367L377.297 355.37L406.121 405.289L217.29 405.282L188.467 355.363Z"
                                 stroke="#FF750F"
@@ -747,8 +748,7 @@ import { Head, Link } from '@inertiajs/vue3';
                             />
                         </g>
                         <g
-                            class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300"
-                            :style="{ mixBlendMode: 'hard-light' }"
+                            class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 mix-blend-hard-light transition-all delay-300"
                         >
                             <path
                                 d="M246.544 254.79L246.875 254.79C253.722 247.905 264.046 238.82 277.849 227.537C291.21 216.253 301.259 207.264 307.995 200.57C314.62 193.685 319.147 186.418 321.577 178.768C324.006 171.117 322.846 163.18 318.097 154.956C312.796 145.775 305.342 138.412 295.735 132.865C286.238 127.127 276.189 124.258 265.588 124.257C255.208 124.257 248.416 127.03 245.214 132.576C241.902 137.931 243.006 145.39 248.528 154.953L183.928 154.951C174.652 138.885 170.676 124.541 172 111.918C173.546 99.2946 179.84 89.5408 190.882 82.6559C202.035 75.5798 216.887 72.0421 235.439 72.0428C254.874 72.0435 274.144 75.5825 293.248 82.6598C312.242 89.5457 329.579 99.3005 345.261 111.924C360.942 124.548 373.421 138.892 382.697 154.958C391.311 169.877 395.121 182.978 394.128 194.262C393.355 205.546 389.656 215.396 383.031 223.811C376.627 232.226 366.688 242.554 353.217 254.794L435.375 254.797L464.198 304.716L275.367 304.709L246.544 254.79Z"
@@ -762,8 +762,7 @@ import { Head, Link } from '@inertiajs/vue3';
                             />
                         </g>
                         <g
-                            class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300"
-                            :style="{ mixBlendMode: 'hard-light' }"
+                            class="duration-700 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 mix-blend-hard-light transition-all delay-300"
                         >
                             <path
                                 d="M67.41 125.402L44.5515 125.401L15.5625 75.1953L101.364 75.1985L233.886 304.712L170.942 304.71L67.41 125.402Z"
@@ -782,6 +781,7 @@ import { Head, Link } from '@inertiajs/vue3';
                 </div>
             </main>
         </div>
-        <div class="h-14.5 hidden lg:block"></div>
+
+        <div class="hidden h-[3.625rem] lg:block"></div>
     </div>
 </template>
