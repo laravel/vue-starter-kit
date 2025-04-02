@@ -18,12 +18,13 @@
         "eslint-plugin-vue": "^9.32.0",
         "prettier": "^3.4.2",
         "prettier-plugin-organize-imports": "^4.1.0",
-        "prettier-plugin-tailwindcss": "^0.6.9",
+        "prettier-plugin-tailwindcss": "^0.6.11",
         "typescript-eslint": "^8.23.0",
         "vue-tsc": "^2.2.4"
     },
     "dependencies": {
         "@inertiajs/vue3": "^2.0.0-beta.3",
+        "@tailwindcss/vite": "^4.1.1",
         "@vitejs/plugin-vue": "^5.2.1",
         "@vueuse/core": "^12.0.0",
         "autoprefixer": "^10.4.20",
@@ -35,7 +36,7 @@
         "lucide-vue-next": "^0.468.0",
         "reka-ui": "^2.0.0",
         "tailwind-merge": "^2.5.5",
-        "tailwindcss": "^3.4.1",
+        "tailwindcss": "^4.1.1",
         "tailwindcss-animate": "^1.0.7",
         "typescript": "^5.2.2",
         "vite": "^6.2.0",
