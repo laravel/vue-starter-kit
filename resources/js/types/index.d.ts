@@ -14,7 +14,9 @@ export interface BreadcrumbItem {
 export interface NavItem {
     title: string;
     href: string;
+    component: string | null;
     icon?: LucideIcon;
+    when?: boolean;
     isActive?: boolean;
 }
 

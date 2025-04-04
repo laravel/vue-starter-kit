@@ -15,8 +15,9 @@ const page = usePage<SharedData>();
         <SidebarGroupLabel>Platform</SidebarGroupLabel>
         <SidebarMenu>
             <SidebarMenuItem v-for="item in items" :key="item.title">
-                <SidebarMenuButton 
-                    as-child :is-active="item.href === page.url"
+                <SidebarMenuButton
+                    v-if="item.when ?? true"
+                    as-child :is-active="item.component === page.component"
                     :tooltip="item.title"
                 >
                     <Link :href="item.href">
