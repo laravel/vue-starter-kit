@@ -2,7 +2,7 @@
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { type NavItem } from '@/types';
+import type { NavItem, SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
 
 const sidebarNavItems: NavItem[] = [
@@ -20,7 +20,7 @@ const sidebarNavItems: NavItem[] = [
     },
 ];
 
-const page = usePage();
+const page = usePage<SharedData>();
 
 const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.location).pathname : '';
 </script>

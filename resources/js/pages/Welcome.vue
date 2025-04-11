@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { SharedData } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
+
+const props = defineProps<SharedData>();
 </script>
 
 <template>
@@ -11,7 +14,7 @@ import { Head, Link } from '@inertiajs/vue3';
         <header class="not-has-[nav]:hidden mb-6 w-full max-w-[335px] text-sm lg:max-w-4xl">
             <nav class="flex items-center justify-end gap-4">
                 <Link
-                    v-if="$page.props.auth.user"
+                    v-if="props.auth.user"
                     :href="route('dashboard')"
                     class="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
                 >
@@ -214,6 +217,11 @@ import { Head, Link } from '@inertiajs/vue3';
                                 stroke-width="1"
                             />
                         </g>
+                        <!-- Workaround: -->
+                        <!-- 'plus-darker' is a valid value for the mixBlendMode key according to MDN -->
+                        <!-- However, the csstype library, which is used by @vue/runtime-dom, does not support this value. -->
+                        <!-- @see https://developer.mozilla.org/de/docs/Web/CSS/mix-blend-mode -->
+                        <!-- @vue-ignore -->
                         <g
                             :style="{ mixBlendMode: 'plus-darker' }"
                             class="duration-750 starting:translate-y-4 starting:opacity-0 translate-y-0 opacity-100 transition-all delay-300"
