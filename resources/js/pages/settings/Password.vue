@@ -3,7 +3,7 @@ import InputError from '@/components/InputError.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { useTemplateRef } from 'vue';
 
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import { Button } from '@/components/ui/button';
@@ -18,8 +18,8 @@ const breadcrumbItems: BreadcrumbItem[] = [
     },
 ];
 
-const passwordInput = ref<HTMLInputElement | null>(null);
-const currentPasswordInput = ref<HTMLInputElement | null>(null);
+const passwordInput = useTemplateRef('passwordInput');
+const currentPasswordInput = useTemplateRef('currentPasswordInput');
 
 const form = useForm({
     current_password: '',
@@ -34,15 +34,15 @@ const updatePassword = () => {
         onError: (errors: any) => {
             if (errors.password) {
                 form.reset('password', 'password_confirmation');
-                if (passwordInput.value instanceof HTMLInputElement) {
-                    passwordInput.value.focus();
+                if (passwordInput.value?.$el instanceof HTMLInputElement) {
+                    passwordInput.value.$el.focus();
                 }
             }
 
             if (errors.current_password) {
                 form.reset('current_password');
-                if (currentPasswordInput.value instanceof HTMLInputElement) {
-                    currentPasswordInput.value.focus();
+                if (currentPasswordInput.value?.$el instanceof HTMLInputElement) {
+                    currentPasswordInput.value.$el.focus();
                 }
             }
         },

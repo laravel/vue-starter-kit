@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { useTemplateRef } from 'vue';
 
 // Components
 import HeadingSmall from '@/components/HeadingSmall.vue';
@@ -19,7 +19,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-const passwordInput = ref<HTMLInputElement | null>(null);
+const passwordInput = useTemplateRef('passwordInput');
 
 const form = useForm({
     password: '',
@@ -31,7 +31,7 @@ const deleteUser = (e: Event) => {
     form.delete(route('profile.destroy'), {
         preserveScroll: true,
         onSuccess: () => closeModal(),
-        onError: () => passwordInput.value?.focus(),
+        onError: () => passwordInput.value?.$el.focus(),
         onFinish: () => form.reset(),
     });
 };
