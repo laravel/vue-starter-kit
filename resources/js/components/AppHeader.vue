@@ -32,29 +32,33 @@ const props = withDefaults(defineProps<Props>(), {
 const page = usePage();
 const auth = computed(() => page.props.auth);
 
-const isCurrentRoute = computed(() => (url: string) => page.url === url);
+const isCurrentRoute = computed(() => (component: string) => page.component === component);
 
 const activeItemStyles = computed(
-    () => (url: string) => (isCurrentRoute.value(url) ? 'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100' : ''),
+    () => (component: string) => (isCurrentRoute.value(component) ? 'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100' : ''),
 );
 
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: '/dashboard',
+        component: 'Dashboard',
         icon: LayoutGrid,
-    },
+        // when: !!auth.value.user, // to show/hide when on a condition
+    }
 ];
 
 const rightNavItems: NavItem[] = [
     {
         title: 'Repository',
         href: 'https://github.com/laravel/vue-starter-kit',
+        component: null,
         icon: Folder,
     },
     {
         title: 'Documentation',
         href: 'https://laravel.com/docs/starter-kits',
+        component: null,
         icon: BookOpen,
     },
 ];
@@ -79,16 +83,17 @@ const rightNavItems: NavItem[] = [
                             </SheetHeader>
                             <div class="flex h-full flex-1 flex-col justify-between space-y-4 py-6">
                                 <nav class="-mx-3 space-y-1">
-                                    <Link
-                                        v-for="item in mainNavItems"
-                                        :key="item.title"
-                                        :href="item.href"
-                                        class="flex items-center gap-x-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent"
-                                        :class="activeItemStyles(item.href)"
-                                    >
-                                        <component v-if="item.icon" :is="item.icon" class="h-5 w-5" />
-                                        {{ item.title }}
-                                    </Link>
+                                    <template v-for="item in mainNavItems" :key="item.title">
+                                        <Link
+                                            v-if="item.when ?? true"
+                                            :href="item.href"
+                                            class="flex items-center gap-x-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent"
+                                            :class="activeItemStyles(item.component ?? '')"
+                                        >
+                                            <component v-if="item.icon" :is="item.icon" class="h-5 w-5" />
+                                            {{ item.title }}
+                                        </Link>
+                                    </template>
                                 </nav>
                                 <div class="flex flex-col space-y-4">
                                     <a
@@ -117,16 +122,16 @@ const rightNavItems: NavItem[] = [
                     <NavigationMenu class="ml-10 flex h-full items-stretch">
                         <NavigationMenuList class="flex h-full items-stretch space-x-2">
                             <NavigationMenuItem v-for="(item, index) in mainNavItems" :key="index" class="relative flex h-full items-center">
-                                <Link :href="item.href">
+                                <Link :href="item.href" v-if="item.when ?? true">
                                     <NavigationMenuLink
-                                        :class="[navigationMenuTriggerStyle(), activeItemStyles(item.href), 'h-9 cursor-pointer px-3']"
+                                        :class="[navigationMenuTriggerStyle(), activeItemStyles(item.component ?? ''), 'h-9 cursor-pointer px-3']"
                                     >
                                         <component v-if="item.icon" :is="item.icon" class="mr-2 h-4 w-4" />
                                         {{ item.title }}
                                     </NavigationMenuLink>
                                 </Link>
                                 <div
-                                    v-if="isCurrentRoute(item.href)"
+                                    v-if="isCurrentRoute(item.component ?? '')"
                                     class="absolute bottom-0 left-0 h-0.5 w-full translate-y-px bg-black dark:bg-white"
                                 ></div>
                             </NavigationMenuItem>
