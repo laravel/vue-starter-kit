@@ -38,7 +38,7 @@ class AuthenticatedSessionController extends Controller
             // Store the user ID and remember preference in the session
             $request->session()->put([
                 'login.id' => $user->getKey(),
-                'login.remember' => $request->boolean('remember')
+                'login.remember' => $request->boolean('remember'),
             ]);
 
             return redirect()->route('two-factor.challenge');

@@ -2,13 +2,12 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Actions\TwoFactorAuth\GenerateNewRecoveryCodes;
+use App\Actions\TwoFactorAuth\GenerateQrCodeAndSecretKey;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-use App\Actions\TwoFactorAuth\GenerateQrCodeAndSecretKey;
-use App\Actions\TwoFactorAuth\GenerateNewRecoveryCodes;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Hash;
+use Tests\TestCase;
 
 class TwoFactorAuthTest extends TestCase
 {
@@ -38,13 +37,13 @@ class TwoFactorAuthTest extends TestCase
 
         // Simulate enabling 2FA via POST
         $response = $this->post('/settings/two-factor');
-        
+
         // Assert JSON response with expected structure
         $response->assertStatus(200)
-                 ->assertJsonStructure([
-                     'qrCode',
-                     'secret'
-                 ]);
+            ->assertJsonStructure([
+                'qrCode',
+                'secret',
+            ]);
 
         $user->refresh();
         $this->assertNotNull($user->two_factor_secret);
@@ -57,17 +56,17 @@ class TwoFactorAuthTest extends TestCase
         $user = User::factory()->create();
 
         // Generate QR code and secret key
-        $generateQrAndSecret = new GenerateQrCodeAndSecretKey();
+        $generateQrAndSecret = new GenerateQrCodeAndSecretKey;
         [$qrCode, $secret] = $generateQrAndSecret($user);
 
         // Generate recovery codes
-        $generateCodes = new GenerateNewRecoveryCodes();
+        $generateCodes = new GenerateNewRecoveryCodes;
         $recoveryCodes = $generateCodes($user);
 
         // Manually enable 2FA for the user
         $user->forceFill([
-            'two_factor_secret' => encrypt($secret),
-            'two_factor_recovery_codes' => encrypt(json_encode($recoveryCodes)),
+            'two_factor_secret' => $secret,
+            'two_factor_recovery_codes' => $recoveryCodes,
             'two_factor_confirmed_at' => now(),
         ])->save();
 
@@ -91,17 +90,17 @@ class TwoFactorAuthTest extends TestCase
         $user = User::factory()->create();
 
         // Generate QR code and secret key
-        $generateQrAndSecret = new GenerateQrCodeAndSecretKey();
+        $generateQrAndSecret = new GenerateQrCodeAndSecretKey;
         [$qrCode, $secret] = $generateQrAndSecret($user);
 
         // Generate recovery codes
-        $generateCodes = new GenerateNewRecoveryCodes();
+        $generateCodes = new GenerateNewRecoveryCodes;
         $recoveryCodes = $generateCodes($user);
 
         // Manually enable 2FA for the user
         $user->forceFill([
-            'two_factor_secret' => encrypt($secret),
-            'two_factor_recovery_codes' => encrypt(json_encode($recoveryCodes)),
+            'two_factor_secret' => $secret,
+            'two_factor_recovery_codes' => $recoveryCodes,
             'two_factor_confirmed_at' => now(),
         ])->save();
 
@@ -122,17 +121,17 @@ class TwoFactorAuthTest extends TestCase
         $user = User::factory()->create();
 
         // Generate QR code and secret key
-        $generateQrAndSecret = new GenerateQrCodeAndSecretKey();
+        $generateQrAndSecret = new GenerateQrCodeAndSecretKey;
         [$qrCode, $secret] = $generateQrAndSecret($user);
 
         // Generate recovery codes
-        $generateCodes = new GenerateNewRecoveryCodes();
+        $generateCodes = new GenerateNewRecoveryCodes;
         $recoveryCodes = $generateCodes($user);
 
         // Manually enable 2FA for the user
         $user->forceFill([
-            'two_factor_secret' => encrypt($secret),
-            'two_factor_recovery_codes' => encrypt(json_encode($recoveryCodes)),
+            'two_factor_secret' => $secret,
+            'two_factor_recovery_codes' => $recoveryCodes,
             'two_factor_confirmed_at' => now(),
         ])->save();
 
@@ -150,7 +149,7 @@ class TwoFactorAuthTest extends TestCase
 
         // Verify the recovery code was removed
         $user->refresh();
-        $updatedRecoveryCodes = json_decode(decrypt($user->two_factor_recovery_codes));
+        $updatedRecoveryCodes = $user->two_factor_recovery_codes;
         $this->assertCount(count($recoveryCodes) - 1, $updatedRecoveryCodes);
         $this->assertNotContains($recoveryCode, $updatedRecoveryCodes);
 
@@ -162,7 +161,7 @@ class TwoFactorAuthTest extends TestCase
     {
         // Clear session to ensure we're testing as a guest
         Session::flush();
-        
+
         $response = $this->get('/two-factor-challenge');
         $response->assertRedirect('/login');
     }
@@ -174,7 +173,7 @@ class TwoFactorAuthTest extends TestCase
         // Authenticate the user but don't set the login.id session
         // which would indicate a pending 2FA challenge
         Session::flush();
-        
+
         $response = $this->actingAs($user)
             ->get('/two-factor-challenge');
 
@@ -183,21 +182,21 @@ class TwoFactorAuthTest extends TestCase
     }
 
     public function test_user_with_two_factor_confirmed_can_access_dashboard()
-    {   
+    {
         $user = User::factory()->create();
 
         // Generate QR code and secret key
-        $generateQrAndSecret = new GenerateQrCodeAndSecretKey();
+        $generateQrAndSecret = new GenerateQrCodeAndSecretKey;
         [$qrCode, $secret] = $generateQrAndSecret($user);
 
         // Generate recovery codes
-        $generateCodes = new GenerateNewRecoveryCodes();
+        $generateCodes = new GenerateNewRecoveryCodes;
         $recoveryCodes = $generateCodes($user);
 
         // Manually enable 2FA for the user
         $user->forceFill([
-            'two_factor_secret' => encrypt($secret),
-            'two_factor_recovery_codes' => encrypt(json_encode($recoveryCodes)),
+            'two_factor_secret' => $secret,
+            'two_factor_recovery_codes' => $recoveryCodes,
             'two_factor_confirmed_at' => now(),
         ])->save();
 
@@ -207,7 +206,7 @@ class TwoFactorAuthTest extends TestCase
         // Attempt to access dashboard
         $response = $this->actingAs($user)
             ->get('/dashboard');
-            
+
         // In the test environment, the middleware might not be active
         // so we just verify we can access the dashboard (status 200)
         $response->assertStatus(200);
@@ -218,23 +217,23 @@ class TwoFactorAuthTest extends TestCase
         $user = User::factory()->create();
 
         // Generate QR code and secret key
-        $generateQrAndSecret = new GenerateQrCodeAndSecretKey();
+        $generateQrAndSecret = new GenerateQrCodeAndSecretKey;
         [$qrCode, $secret] = $generateQrAndSecret($user);
 
         // Generate recovery codes
-        $generateCodes = new GenerateNewRecoveryCodes();
+        $generateCodes = new GenerateNewRecoveryCodes;
         $recoveryCodes = $generateCodes($user);
 
         // Manually enable 2FA for the user
         $user->forceFill([
-            'two_factor_secret' => encrypt($secret),
-            'two_factor_recovery_codes' => encrypt(json_encode($recoveryCodes)),
+            'two_factor_secret' => $secret,
+            'two_factor_recovery_codes' => $recoveryCodes,
             'two_factor_confirmed_at' => now(),
         ])->save();
 
         // Test disabling 2FA
         $this->actingAs($user);
-        
+
         // Simulate disabling 2FA via DELETE
         $response = $this->delete('/settings/two-factor');
         $response->assertStatus(200);

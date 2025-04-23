@@ -9,15 +9,14 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class TwoFactorAuthChallengeController extends Controller
 {
     /**
      * Attempt to authenticate a new session using the two factor authentication code.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
     public function store(Request $request)
@@ -49,64 +48,61 @@ class TwoFactorAuthChallengeController extends Controller
     /**
      * Authenticate using a one-time password (OTP).
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     protected function authenticateUsingCode(Request $request, User $user)
     {
-        $secret = decrypt($user->two_factor_secret);
+        $secret = $user->two_factor_secret;
         $valid = app(VerifyTwoFactorCode::class)($secret, $request->code);
-        
+
         if ($valid) {
             app(CompleteTwoFactorAuthentication::class)($user);
             RateLimiter::clear($this->throttleKey($user));
+
             return redirect()->intended(route('dashboard', absolute: false));
         }
-        
+
         RateLimiter::hit($this->throttleKey($user));
+
         return back()->withErrors(['code' => __('The provided two factor authentication code was invalid.')]);
     }
 
     /**
      * Authenticate using a recovery code.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     protected function authenticateUsingRecoveryCode(Request $request, User $user)
     {
-        $recoveryCodes = json_decode(decrypt($user->two_factor_recovery_codes), true);
-        
+        $recoveryCodes = $user->two_factor_recovery_codes;
+
         // Process the recovery code - this handles validation and removing the used code
         $updatedCodes = app(ProcessRecoveryCode::class)($recoveryCodes, $request->recovery_code);
-        
+
         // If ProcessRecoveryCode returns false, the code was invalid
         if ($updatedCodes === false) {
             RateLimiter::hit($this->throttleKey($user));
+
             return back()->withErrors(['recovery_code' => __('The provided two factor authentication recovery code was invalid.')]);
         }
-        
+
         // Update the user's recovery codes, removing the used code
-        $user->two_factor_recovery_codes = encrypt(json_encode($updatedCodes));
+        $user->two_factor_recovery_codes = $updatedCodes;
         $user->save();
-        
+
         // Complete the authentication process
         app(CompleteTwoFactorAuthentication::class)($user);
-        
+
         // Clear rate limiter after successful authentication
         RateLimiter::clear($this->throttleKey($user));
-        
+
         // Redirect to the intended page
         return redirect()->intended(route('dashboard', absolute: false));
     }
-    
+
     /**
      * Ensure the 2FA challenge is not rate limited.
      *
-     * @param  \App\Models\User  $user
-     * @return void
      *
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -127,13 +123,9 @@ class TwoFactorAuthChallengeController extends Controller
 
     /**
      * Get the rate limiting throttle key for the given user.
-     *
-     * @param  \App\Models\User  $user
-     * @return string
      */
     protected function throttleKey(User $user): string
     {
-        return Str::transliterate($user->id . '|2fa|' . request()->ip());
+        return Str::transliterate($user->id.'|2fa|'.request()->ip());
     }
 }
-
