@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { nextTick } from 'vue';
 
 // Components
 import HeadingSmall from '@/components/HeadingSmall.vue';
@@ -19,8 +19,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-const passwordInput = ref<HTMLInputElement | null>(null);
-
 const form = useForm({
     password: '',
 });
@@ -31,7 +29,13 @@ const deleteUser = (e: Event) => {
     form.delete(route('profile.destroy'), {
         preserveScroll: true,
         onSuccess: () => closeModal(),
-        onError: () => passwordInput.value?.focus(),
+        onError: () => {
+            nextTick(() => {
+                const formElement = e.target as HTMLFormElement;
+                const passwordInput = formElement.password as HTMLInputElement;
+                passwordInput.focus();
+            });
+        },
         onFinish: () => form.reset(),
     });
 };
@@ -66,7 +70,7 @@ const closeModal = () => {
 
                         <div class="grid gap-2">
                             <Label for="password" class="sr-only">Password</Label>
-                            <Input id="password" type="password" name="password" ref="passwordInput" v-model="form.password" placeholder="Password" />
+                            <Input id="password" type="password" name="password" v-model="form.password" placeholder="Password" />
                             <InputError :message="form.errors.password" />
                         </div>
 
