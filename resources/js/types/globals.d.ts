@@ -1,8 +1,4 @@
-import type { route as routeFn } from 'ziggy-js';
-
-declare global {
-    const route: typeof routeFn;
-}
+import { AppPageProps } from '@/types/index';
 
 // Extend ImportMeta interface for Vite...
 declare module 'vite/client' {
@@ -15,4 +11,8 @@ declare module 'vite/client' {
         readonly env: ImportMetaEnv;
         readonly glob: <T>(pattern: string) => Record<string, () => Promise<T>>;
     }
+}
+
+declare module '@inertiajs/core' {
+    interface PageProps extends InertiaPageProps, AppPageProps {}
 }
