@@ -22,6 +22,5 @@ declare module '@vue/runtime-core' {
         $inertia: typeof Router;
         $page: Page;
         $headManager: ReturnType<typeof createHeadManager>;
-        route: AppRouter;
     }
 }
