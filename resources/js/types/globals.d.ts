@@ -16,3 +16,12 @@ declare module 'vite/client' {
 declare module '@inertiajs/core' {
     interface PageProps extends InertiaPageProps, AppPageProps {}
 }
+
+declare module '@vue/runtime-core' {
+    interface ComponentCustomProperties {
+        $inertia: typeof Router;
+        $page: Page;
+        $headManager: ReturnType<typeof createHeadManager>;
+        route: AppRouter;
+    }
+}
