@@ -62,9 +62,9 @@ export function initializeTheme() {
     mediaQuery()?.addEventListener('change', handleSystemThemeChange);
 }
 
-export function useAppearance() {
-    const appearance = ref<Appearance>('system');
+const appearance = ref<Appearance>('system');
 
+export function useAppearance() {
     onMounted(() => {
         const savedAppearance = localStorage.getItem('appearance') as Appearance | null;
 
