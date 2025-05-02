@@ -6,14 +6,23 @@ export interface Auth {
     user: User;
 }
 
+export interface ILinkableItem{
+    href?: string;
+    type?:'href' | 'route';
+}
+
+export type LinkableItemType = ILinkableItem
+
 export interface BreadcrumbItem {
     title: string;
     href: string;
+    type?:'href' | 'route';
 }
 
 export interface NavItem {
     title: string;
     href: string;
+    type?:'href' | 'route';
     icon?: LucideIcon;
     isActive?: boolean;
 }
