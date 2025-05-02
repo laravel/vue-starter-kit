@@ -4,6 +4,8 @@ import path from 'path';
 import tailwindcss from "@tailwindcss/vite";
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
+import RekaResolver from 'reka-ui/resolver'
+import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
     plugins: [
@@ -21,6 +23,16 @@ export default defineConfig({
                 },
             },
         }),
+        Components({
+            dts: true,
+            resolvers: [
+              RekaResolver()
+      
+              // RekaResolver({
+              //   prefix: '' // use the prefix option to add Prefix to the imported components
+              // })
+            ],
+          }),
     ],
     resolve: {
         alias: {
