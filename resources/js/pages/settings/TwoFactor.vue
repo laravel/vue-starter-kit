@@ -226,7 +226,7 @@ const toggleRecoveryCodes = () => {
           </Dialog>
         </div>
 
-        <div v-if="confirmed" class="flex flex-col space-y-5">
+        <div v-if="confirmed" class="flex flex-col items-start justify-start space-y-5">
           <Badge
             variant="outline"
             class="bg-green-50 text-green-700 border-green-200 hover:bg-green-50"
