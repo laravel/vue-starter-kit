@@ -11,7 +11,7 @@ createServer((page) =>
     createInertiaApp({
         page,
         render: renderToString,
-        title: (title) => `${title} - ${appName}`,
+        title: (title) => title ? `${title} - ${appName}` : appName,
         resolve: resolvePage,
         setup: ({ App, props, plugin }) =>
             createSSRApp({ render: () => h(App, props) })
