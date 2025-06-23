@@ -11,7 +11,7 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\LaravelPasskeys\Models\Concerns\HasPasskeys;
 use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
 
-class User extends Authenticatable implements HassPasskeys
+class User extends Authenticatable implements HasPasskeys
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory;
