@@ -5,17 +5,17 @@ import type { BreadcrumbItem } from '@/types';
 import 'vue-sonner/style.css';
 
 interface Props {
-    breadcrumbs?: BreadcrumbItem[];
+	breadcrumbs?: BreadcrumbItem[];
 }
 
 withDefaults(defineProps<Props>(), {
-    breadcrumbs: () => [],
+	breadcrumbs: () => [],
 });
 </script>
 
 <template>
-    <Toaster class="pointer-events-auto" />
-    <AppLayout :breadcrumbs="breadcrumbs">
-        <slot />
-    </AppLayout>
+	<Toaster class="pointer-events-auto" />
+	<AppLayout :breadcrumbs="breadcrumbs">
+		<slot />
+	</AppLayout>
 </template>

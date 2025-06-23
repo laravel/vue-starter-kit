@@ -6,22 +6,22 @@ import { defineConfig } from 'vite';
 import { transformer } from './resources/js/lib/vite-plugin-transformer';
 
 export default defineConfig({
-    plugins: [
-        laravel({
-            input: ['resources/js/app.ts'],
-            ssr: 'resources/js/ssr.ts',
-            refresh: true,
-        }),
-        wayfinder(),
-        transformer(),
-        tailwindcss(),
-        vue({
-            template: {
-                transformAssetUrls: {
-                    base: null,
-                    includeAbsolute: false,
-                },
-            },
-        }),
-    ],
+	plugins: [
+		laravel({
+			input: ['resources/js/app.ts'],
+			ssr: 'resources/js/ssr.ts',
+			refresh: true,
+		}),
+		wayfinder(),
+		transformer(),
+		tailwindcss(),
+		vue({
+			template: {
+				transformAssetUrls: {
+					base: null,
+					includeAbsolute: false,
+				},
+			},
+		}),
+	],
 });

@@ -8,16 +8,16 @@ import { createSSRApp, h } from 'vue';
 const pinia = createPinia();
 
 createServer(
-    (page) =>
-        createInertiaApp({
-            page,
-            render: renderToString,
-            title: resolveTitle,
-            resolve: resolvePage,
-            setup: ({ App, props, plugin }) =>
-                createSSRApp({ render: () => h(App, props) })
-                    .use(plugin)
-                    .use(pinia),
-        }),
-    { cluster: true },
+	(page) =>
+		createInertiaApp({
+			page,
+			render: renderToString,
+			title: resolveTitle,
+			resolve: resolvePage,
+			setup: ({ App, props, plugin }) =>
+				createSSRApp({ render: () => h(App, props) })
+					.use(plugin)
+					.use(pinia),
+		}),
+	{ cluster: true },
 );
