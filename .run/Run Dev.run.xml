@@ -1,0 +1,22 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run Dev" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="dev" />
+    </scripts>
+    <node-interpreter value="$USER_HOME$/.bun/bin/bun" />
+    <package-manager value="$USER_HOME$/.bun/bin/bun" />
+    <envs />
+    <method v="2">
+      <option name="NpmBeforeRunTask" enabled="true">
+        <package-json value="$PROJECT_DIR$/package.json" />
+        <command value="install" />
+        <arguments value="--frozen-lockfile" />
+        <node-interpreter value="$USER_HOME$/.bun/bin/bun" />
+        <package-manager value="$USER_HOME$/.bun/bin/bun" />
+        <envs />
+      </option>
+    </method>
+  </configuration>
+</component>

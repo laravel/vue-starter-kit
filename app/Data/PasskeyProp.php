@@ -2,9 +2,9 @@
 
 namespace App\Data;
 
+use App\Models\Passkey;
 use Carbon\CarbonInterface;
 use Spatie\LaravelData\Data;
-use Spatie\LaravelPasskeys\Models\Passkey;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 
 #[TypeScript]

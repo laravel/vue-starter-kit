@@ -8,7 +8,6 @@ use Illuminate\Validation\Rules\Password;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
-use Illuminate\Contracts\Validation\Rule as RuleContract;
 
 #[TypeScript]
 class RegisterRequest extends Data
@@ -23,7 +22,7 @@ class RegisterRequest extends Data
 	}
 
     /**
-     * @return array<string, array<int, string|RuleContract>>
+     * @return array<string, array<int, mixed>>
      */
     public static function rules(ValidationContext $context): array
     {

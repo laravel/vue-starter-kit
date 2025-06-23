@@ -2,7 +2,6 @@
 
 namespace App\Data;
 
-use Illuminate\Contracts\Validation\Rule as RuleContract;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Spatie\LaravelData\Data;
@@ -22,7 +21,7 @@ class NewPasswordRequest extends Data
 	}
 
     /**
-     * @return array<string, array<int, string|RuleContract>>
+     * @return array<string, array<int, mixed>>
      */
     public static function rules(ValidationContext $context): array
     {

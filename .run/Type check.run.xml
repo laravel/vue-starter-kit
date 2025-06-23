@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Type check" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="type:check" />
+    </scripts>
+    <node-interpreter value="$USER_HOME$/.bun/bin/bun" />
+    <package-manager value="$USER_HOME$/.bun/bin/bun" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

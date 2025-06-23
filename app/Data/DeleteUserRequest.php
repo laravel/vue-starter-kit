@@ -2,7 +2,6 @@
 
 namespace App\Data;
 
-use Illuminate\Contracts\Validation\Rule as RuleContract;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
@@ -17,7 +16,7 @@ class DeleteUserRequest extends Data
 	}
 
     /**
-     * @return array<string, array<int, string|RuleContract>>
+     * @return array<string, array<int, mixed>>
      */
     public static function rules(ValidationContext $context): array
     {

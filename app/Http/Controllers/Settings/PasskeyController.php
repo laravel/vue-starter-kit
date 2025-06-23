@@ -6,6 +6,7 @@ use App\Data\PasskeyProp;
 use App\Data\PasskeyProps;
 use App\Data\PasskeyRegistrationOptionsRequest;
 use App\Data\StorePasskeyRequest;
+use App\Models\Passkey;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,6 @@ use Inertia\Inertia;
 use Inertia\Response;
 use Spatie\LaravelPasskeys\Actions\GeneratePasskeyRegisterOptionsAction;
 use Spatie\LaravelPasskeys\Actions\StorePasskeyAction;
-use Spatie\LaravelPasskeys\Models\Passkey;
 use Throwable;
 
 class PasskeyController

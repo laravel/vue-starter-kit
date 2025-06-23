@@ -3,7 +3,6 @@
 namespace App\Data;
 
 use App\Models\User;
-use Illuminate\Contracts\Validation\Rule as RuleContract;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Spatie\LaravelData\Data;
@@ -21,7 +20,7 @@ class ProfileUpdateRequest extends Data
     }
 
     /**
-     * @return array<string, array<int, string|RuleContract>>
+     * @return array<string, array<int, mixed>>
      */
     public static function rules(ValidationContext $context): array
     {

@@ -1,0 +1,19 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Rector" type="RectorRunConfigurationType" factoryName="RectorRunConfigurationType">
+    <option name="additionalOptions" />
+    <option name="pathsToProcess">
+      <list>
+        <option value="" />
+      </list>
+    </option>
+    <option name="rectorConfigPath" value="$PROJECT_DIR$/rector.php" />
+    <option name="additionalOptions" />
+    <option name="pathsToProcess">
+      <list>
+        <option value="" />
+      </list>
+    </option>
+    <option name="rectorConfigPath" value="$PROJECT_DIR$/rector.php" />
+    <method v="2" />
+  </configuration>
+</component>
