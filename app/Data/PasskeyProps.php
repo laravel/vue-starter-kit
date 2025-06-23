@@ -8,9 +8,9 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class PasskeyProps extends Data
 {
-    /**
-     * @param array<PasskeyProp> $passkeys
-     */
+	/**
+	 * @param array<PasskeyProp> $passkeys
+	 */
 	public function __construct(
 		public array $passkeys,
 	)

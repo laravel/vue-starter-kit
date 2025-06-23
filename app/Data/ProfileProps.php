@@ -9,8 +9,8 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class ProfileProps extends Data
 {
 	public function __construct(
-		public bool $mustVerifyEmail,
-        public ?string $status,
+		public bool    $mustVerifyEmail,
+		public ?string $status,
 	)
 	{
 	}

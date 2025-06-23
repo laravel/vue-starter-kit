@@ -15,6 +15,6 @@ class UriTransformer implements Transformer
 			return $value;
 		}
 
-        return $value->value();
+		return $value->value();
 	}
 }

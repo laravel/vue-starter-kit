@@ -1,7 +1,7 @@
 <?php
 
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +15,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 */
 
 pest()->extend(TestCase::class)
-    ->use(RefreshDatabase::class)
-    ->in('Feature');
+	->use(RefreshDatabase::class)
+	->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
@@ -44,5 +44,5 @@ expect()->extend('toBeOne', fn() => $this->toBe(1));
 
 function something(): void
 {
-    // ..
+	// ..
 }

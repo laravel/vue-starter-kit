@@ -11,17 +11,17 @@ use Inertia\Response;
 
 class PasswordController
 {
-    public function edit(): Response
-    {
-        return Inertia::render('settings/Password');
-    }
+	public function edit(): Response
+	{
+		return Inertia::render('settings/Password');
+	}
 
-    public function update(PasswordUpdateRequest $request): RedirectResponse
-    {
-        Auth::user()->update([
-            'password' => Hash::make($request->password),
-        ]);
+	public function update(PasswordUpdateRequest $request): RedirectResponse
+	{
+		Auth::user()->update([
+			'password' => Hash::make($request->password),
+		]);
 
-        return back();
-    }
+		return back();
+	}
 }

@@ -15,43 +15,43 @@ use Inertia\Response;
 
 class ProfileController
 {
-    public function edit(Request $request): Response
-    {
-        return Inertia::render('settings/Profile', new ProfileProps(
-            mustVerifyEmail: $request->user() instanceof MustVerifyEmail,
-            status: $request->session()->get('status'),
-        ));
-    }
+	public function edit(Request $request): Response
+	{
+		return Inertia::render('settings/Profile', new ProfileProps(
+			mustVerifyEmail: $request->user() instanceof MustVerifyEmail,
+			status: $request->session()->get('status'),
+		));
+	}
 
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $user = Auth::user();
+	public function update(ProfileUpdateRequest $request): RedirectResponse
+	{
+		$user = Auth::user();
 
-        $user->fill([
-            'name' => $request->name,
-            'email' => $request->email,
-        ]);
+		$user->fill([
+			'name' => $request->name,
+			'email' => $request->email,
+		]);
 
-        if ($user->isDirty('email')) {
-            $user->email_verified_at = null;
-        }
+		if ($user->isDirty('email')) {
+			$user->email_verified_at = null;
+		}
 
-        $user->save();
+		$user->save();
 
-        return to_route('profile.edit');
-    }
+		return to_route('profile.edit');
+	}
 
-    public function destroy(DeleteUserRequest $request): RedirectResponse
-    {
-        $user = Auth::user();
+	public function destroy(DeleteUserRequest $request): RedirectResponse
+	{
+		$user = Auth::user();
 
-        Auth::logout();
+		Auth::logout();
 
-        $user->delete();
+		$user->delete();
 
-        Session::invalidate();
-        Session::regenerateToken();
+		Session::invalidate();
+		Session::regenerateToken();
 
-        return redirect('/');
-    }
+		return redirect('/');
+	}
 }

@@ -15,13 +15,13 @@ class DeleteUserRequest extends Data
 	{
 	}
 
-    /**
-     * @return array<string, array<int, mixed>>
-     */
-    public static function rules(ValidationContext $context): array
-    {
-        return [
-            'password' => ['required', 'current_password'],
-        ];
-    }
+	/**
+	 * @return array<string, array<int, mixed>>
+	 */
+	public static function rules(ValidationContext $context): array
+	{
+		return [
+			'password' => ['required', 'current_password'],
+		];
+	}
 }

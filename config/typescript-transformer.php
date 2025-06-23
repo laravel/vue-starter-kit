@@ -1,15 +1,15 @@
 <?php
 
+use Carbon\Carbon;
+use Carbon\CarbonImmutable;
+use Carbon\CarbonInterface;
+use Spatie\LaravelData\Support\TypeScriptTransformer\DataTypeScriptTransformer;
+use Spatie\LaravelTypeScriptTransformer\Transformers\DtoTransformer;
+use Spatie\LaravelTypeScriptTransformer\Transformers\SpatieStateTransformer;
 use Spatie\TypeScriptTransformer\Collectors\DefaultCollector;
 use Spatie\TypeScriptTransformer\Collectors\EnumCollector;
-use Spatie\LaravelTypeScriptTransformer\Transformers\SpatieStateTransformer;
 use Spatie\TypeScriptTransformer\Transformers\EnumTransformer;
-use Spatie\LaravelTypeScriptTransformer\Transformers\DtoTransformer;
-use Carbon\CarbonInterface;
-use Carbon\CarbonImmutable;
-use Carbon\Carbon;
 use Spatie\TypeScriptTransformer\Writers\ModuleWriter;
-use Spatie\LaravelData\Support\TypeScriptTransformer\DataTypeScriptTransformer;
 
 return [
     /*

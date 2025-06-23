@@ -12,24 +12,24 @@ use Inertia\Response;
 
 class ConfirmablePasswordController
 {
-    public function show(): Response
-    {
-        return Inertia::render('auth/ConfirmPassword');
-    }
+	public function show(): Response
+	{
+		return Inertia::render('auth/ConfirmPassword');
+	}
 
-    public function store(ConfirmPasswordRequest $request): RedirectResponse
-    {
-        if (!Auth::guard('web')->validate([
-            'email' => Auth::user()->email,
-            'password' => $request->password,
-        ])) {
-            throw ValidationException::withMessages([
-                'password' => __('auth.password'),
-            ]);
-        }
+	public function store(ConfirmPasswordRequest $request): RedirectResponse
+	{
+		if (!Auth::guard('web')->validate([
+			'email' => Auth::user()->email,
+			'password' => $request->password,
+		])) {
+			throw ValidationException::withMessages([
+				'password' => __('auth.password'),
+			]);
+		}
 
-        Session::put('auth.password_confirmed_at', time());
+		Session::put('auth.password_confirmed_at', time());
 
-        return redirect()->intended(route('dashboard', absolute: false));
-    }
+		return redirect()->intended(route('dashboard', absolute: false));
+	}
 }

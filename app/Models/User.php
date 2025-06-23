@@ -13,29 +13,29 @@ use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
 
 class User extends Authenticatable implements HasPasskeys
 {
-    /** @use HasFactory<UserFactory> */
-    use HasFactory;
-    use Notifiable;
-    use InteractsWithPasskeys;
+	/** @use HasFactory<UserFactory> */
+	use HasFactory;
+	use Notifiable;
+	use InteractsWithPasskeys;
 
-    /**
-     * @var list<string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+	/**
+	 * @var list<string>
+	 */
+	protected $hidden = [
+		'password',
+		'remember_token',
+	];
 
-    /**
-     * @return array{avatar: 'Illuminate\Database\Eloquent\Casts\AsUri', email_verified_at: 'immutable_datetime', password: 'hashed', created_at: 'immutable_datetime'}
-     */
-    protected function casts(): array
-    {
-        return [
-            'avatar' => AsUri::class,
-            'email_verified_at' => 'immutable_datetime',
-            'password' => 'hashed',
-            'created_at' => 'immutable_datetime',
-        ];
-    }
+	/**
+	 * @return array{avatar: 'Illuminate\Database\Eloquent\Casts\AsUri', email_verified_at: 'immutable_datetime', password: 'hashed', created_at: 'immutable_datetime'}
+	 */
+	protected function casts(): array
+	{
+		return [
+			'avatar' => AsUri::class,
+			'email_verified_at' => 'immutable_datetime',
+			'password' => 'hashed',
+			'created_at' => 'immutable_datetime',
+		];
+	}
 }

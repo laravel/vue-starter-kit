@@ -8,10 +8,10 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PasskeyPolicy
 {
-    use HandlesAuthorization;
+	use HandlesAuthorization;
 
-    public function delete(User $user, Passkey $passkey): bool
-    {
-        return $user->id === $passkey->authenticatable_id;
-    }
+	public function delete(User $user, Passkey $passkey): bool
+	{
+		return $user->id === $passkey->authenticatable_id;
+	}
 }

@@ -13,31 +13,31 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class User extends Data
 {
-    public function __construct(
-        public int              $id,
-        public string           $name,
-        public string           $email,
-        #[WithTransformer(UriTransformer::class)]
-        public ?Uri             $avatar,
-        public ?CarbonInterface $email_verified_at,
-        public CarbonInterface  $created_at,
-    )
-    {
-    }
+	public function __construct(
+		public int              $id,
+		public string           $name,
+		public string           $email,
+		#[WithTransformer(UriTransformer::class)]
+		public ?Uri             $avatar,
+		public ?CarbonInterface $email_verified_at,
+		public CarbonInterface  $created_at,
+	)
+	{
+	}
 
-    public static function fromUser(?UserModel $user): ?self
-    {
-        if (!$user instanceof UserModel) {
-            return null;
-        }
+	public static function fromUser(?UserModel $user): ?self
+	{
+		if (!$user instanceof UserModel) {
+			return null;
+		}
 
-        return new self(
-            id: $user->id,
-            name: $user->name,
-            email: $user->email,
-            avatar: $user->avatar,
-            email_verified_at: $user->email_verified_at,
-            created_at: $user->created_at,
-        );
-    }
+		return new self(
+			id: $user->id,
+			name: $user->name,
+			email: $user->email,
+			avatar: $user->avatar,
+			email_verified_at: $user->email_verified_at,
+			created_at: $user->created_at,
+		);
+	}
 }

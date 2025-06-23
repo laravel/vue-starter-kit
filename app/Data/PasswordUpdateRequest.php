@@ -12,20 +12,20 @@ class PasswordUpdateRequest extends Data
 {
 	public function __construct(
 		public string $current_password,
-        public string $password,
-        public string $password_confirmation,
+		public string $password,
+		public string $password_confirmation,
 	)
 	{
 	}
 
-    /**
-     * @return array<string, array<int, mixed>>
-     */
-    public static function rules(ValidationContext $context): array
-    {
-        return [
-            'current_password' => ['required', 'current_password'],
-            'password' => ['required', 'confirmed', Password::defaults()],
-        ];
-    }
+	/**
+	 * @return array<string, array<int, mixed>>
+	 */
+	public static function rules(ValidationContext $context): array
+	{
+		return [
+			'current_password' => ['required', 'current_password'],
+			'password' => ['required', 'confirmed', Password::defaults()],
+		];
+	}
 }

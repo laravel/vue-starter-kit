@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 
 class EmailVerificationNotificationController
 {
-    public function store(Request $request): RedirectResponse
-    {
-        if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->intended(route('dashboard', absolute: false));
-        }
+	public function store(Request $request): RedirectResponse
+	{
+		if ($request->user()->hasVerifiedEmail()) {
+			return redirect()->intended(route('dashboard', absolute: false));
+		}
 
-        $request->user()->sendEmailVerificationNotification();
+		$request->user()->sendEmailVerificationNotification();
 
-        return back()->with('status', 'verification-link-sent');
-    }
+		return back()->with('status', 'verification-link-sent');
+	}
 }

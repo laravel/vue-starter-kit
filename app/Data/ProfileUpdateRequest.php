@@ -12,28 +12,28 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class ProfileUpdateRequest extends Data
 {
-    public function __construct(
-        public string $name,
-        public string $email,
-    )
-    {
-    }
+	public function __construct(
+		public string $name,
+		public string $email,
+	)
+	{
+	}
 
-    /**
-     * @return array<string, array<int, mixed>>
-     */
-    public static function rules(ValidationContext $context): array
-    {
-        return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => [
-                'required',
-                'string',
-                'lowercase',
-                'max:255',
-                Rule::email(),
-                Rule::unique(User::class)->ignore(Auth::id()),
-            ],
-        ];
-    }
+	/**
+	 * @return array<string, array<int, mixed>>
+	 */
+	public static function rules(ValidationContext $context): array
+	{
+		return [
+			'name' => ['required', 'string', 'max:255'],
+			'email' => [
+				'required',
+				'string',
+				'lowercase',
+				'max:255',
+				Rule::email(),
+				Rule::unique(User::class)->ignore(Auth::id()),
+			],
+		];
+	}
 }

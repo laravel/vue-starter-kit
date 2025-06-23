@@ -9,9 +9,9 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class LoginProps extends Data
 {
 	public function __construct(
-		public bool $canResetPassword,
-        public ?string $status,
-        public ?string $passkeyStatus,
+		public bool    $canResetPassword,
+		public ?string $status,
+		public ?string $passkeyStatus,
 	)
 	{
 	}

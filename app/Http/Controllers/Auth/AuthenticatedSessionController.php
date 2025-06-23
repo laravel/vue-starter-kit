@@ -14,31 +14,31 @@ use Inertia\Response;
 
 class AuthenticatedSessionController
 {
-    public function create(Request $request): Response
-    {
-        return Inertia::render('auth/Login', new LoginProps(
-            canResetPassword: Route::has('password.request'),
-            status: $request->session()->get('status'),
-            passkeyStatus: $request->session()->get('authenticatePasskey::message'),
-        ));
-    }
+	public function create(Request $request): Response
+	{
+		return Inertia::render('auth/Login', new LoginProps(
+			canResetPassword: Route::has('password.request'),
+			status: $request->session()->get('status'),
+			passkeyStatus: $request->session()->get('authenticatePasskey::message'),
+		));
+	}
 
-    public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
+	public function store(LoginRequest $request): RedirectResponse
+	{
+		$request->authenticate();
 
-        Session::regenerate();
+		Session::regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
-    }
+		return redirect()->intended(route('dashboard', absolute: false));
+	}
 
-    public function destroy(Request $request): RedirectResponse
-    {
-        Auth::guard('web')->logout();
+	public function destroy(Request $request): RedirectResponse
+	{
+		Auth::guard('web')->logout();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+		$request->session()->invalidate();
+		$request->session()->regenerateToken();
 
-        return redirect('/');
-    }
+		return redirect('/');
+	}
 }

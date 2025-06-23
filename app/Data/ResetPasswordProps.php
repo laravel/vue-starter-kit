@@ -8,10 +8,10 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class ResetPasswordProps extends Data
 {
-    public function __construct(
-        public string $email,
-        public string $token,
-    )
-    {
-    }
+	public function __construct(
+		public string $email,
+		public string $token,
+	)
+	{
+	}
 }

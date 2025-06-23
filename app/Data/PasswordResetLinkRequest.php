@@ -16,13 +16,13 @@ class PasswordResetLinkRequest extends Data
 	{
 	}
 
-    /**
-     * @return array<string, array<int, mixed>>
-     */
-    public static function rules(ValidationContext $context): array
-    {
-        return [
-            'email' => ['required', Rule::email()],
-        ];
-    }
+	/**
+	 * @return array<string, array<int, mixed>>
+	 */
+	public static function rules(ValidationContext $context): array
+	{
+		return [
+			'email' => ['required', Rule::email()],
+		];
+	}
 }

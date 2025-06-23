@@ -14,22 +14,22 @@ class RegisterRequest extends Data
 {
 	public function __construct(
 		public string $name,
-        public string $email,
-        public string $password,
-        public string $password_confirmation,
+		public string $email,
+		public string $password,
+		public string $password_confirmation,
 	)
 	{
 	}
 
-    /**
-     * @return array<string, array<int, mixed>>
-     */
-    public static function rules(ValidationContext $context): array
-    {
-        return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'max:255', Rule::email(), Rule::unique(User::class)],
-            'password' => ['required', 'confirmed', Password::defaults()],
-        ];
-    }
+	/**
+	 * @return array<string, array<int, mixed>>
+	 */
+	public static function rules(ValidationContext $context): array
+	{
+		return [
+			'name' => ['required', 'string', 'max:255'],
+			'email' => ['required', 'string', 'lowercase', 'max:255', Rule::email(), Rule::unique(User::class)],
+			'password' => ['required', 'confirmed', Password::defaults()],
+		];
+	}
 }

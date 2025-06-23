@@ -13,47 +13,47 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class LoginRequest extends Data
 {
-    public function __construct(
-        public string $email,
-        public string $password,
-        public bool $remember = false,
-    )
-    {
-    }
+	public function __construct(
+		public string $email,
+		public string $password,
+		public bool   $remember = false,
+	)
+	{
+	}
 
-    public function authenticate(): void
-    {
-        $this->ensureIsNotRateLimited();
+	public function authenticate(): void
+	{
+		$this->ensureIsNotRateLimited();
 
-        if (!Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
-            RateLimiter::hit($this->throttleKey());
+		if (!Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+			RateLimiter::hit($this->throttleKey());
 
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
-            ]);
-        }
+			throw ValidationException::withMessages([
+				'email' => trans('auth.failed'),
+			]);
+		}
 
-        RateLimiter::clear($this->throttleKey());
-    }
+		RateLimiter::clear($this->throttleKey());
+	}
 
-    public function ensureIsNotRateLimited(): void
-    {
-        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
-            return;
-        }
+	public function ensureIsNotRateLimited(): void
+	{
+		if (!RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+			return;
+		}
 
-        $seconds = RateLimiter::availableIn($this->throttleKey());
+		$seconds = RateLimiter::availableIn($this->throttleKey());
 
-        throw ValidationException::withMessages([
-            'email' => trans('auth.throttle', [
-                'seconds' => $seconds,
-                'minutes' => ceil($seconds / 60),
-            ]),
-        ]);
-    }
+		throw ValidationException::withMessages([
+			'email' => trans('auth.throttle', [
+				'seconds' => $seconds,
+				'minutes' => ceil($seconds / 60),
+			]),
+		]);
+	}
 
-    public function throttleKey(): string
-    {
-        return Str::transliterate(Str::lower($this->email) . '|' . Request::ip());
-    }
+	public function throttleKey(): string
+	{
+		return Str::transliterate(Str::lower($this->email) . '|' . Request::ip());
+	}
 }
