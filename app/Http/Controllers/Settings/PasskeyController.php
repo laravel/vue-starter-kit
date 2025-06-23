@@ -21,62 +21,62 @@ use Throwable;
 
 class PasskeyController
 {
-    public function edit(): Response
-    {
-        return Inertia::render('settings/Passkey', new PasskeyProps(
-            passkeys: Auth::user()->passkeys->map(fn(Passkey $passkey) => PasskeyProp::fromPasskey($passkey))->all(),
-        ));
-    }
+	public function edit(): Response
+	{
+		return Inertia::render('settings/Passkey', new PasskeyProps(
+			passkeys: Auth::user()->passkeys->map(fn(Passkey $passkey): PasskeyProp => PasskeyProp::fromPasskey($passkey))->all(),
+		));
+	}
 
-    public function generatePasskeyOptions(PasskeyRegistrationOptionsRequest $request): string
-    {
-        $generatePassKeyOptionsAction = app(GeneratePasskeyRegisterOptionsAction::class);
+	public function generatePasskeyOptions(PasskeyRegistrationOptionsRequest $request): string
+	{
+		$generatePassKeyOptionsAction = app(GeneratePasskeyRegisterOptionsAction::class);
 
-        $options = $generatePassKeyOptionsAction->execute(Auth::user());
+		$options = $generatePassKeyOptionsAction->execute(Auth::user());
 
-        if (!is_string($options)) {
-            throw ValidationException::withMessages([
-                'name' => __('passkeys::passkeys.error_something_went_wrong_generating_the_passkey'),
-            ]);
-        }
+		if (!is_string($options)) {
+			throw ValidationException::withMessages([
+				'name' => __('passkeys::passkeys.error_something_went_wrong_generating_the_passkey'),
+			]);
+		}
 
-        Session::put('passkey-registration-options', $options);
+		Session::put('passkey-registration-options', $options);
 
-        return $options;
-    }
+		return $options;
+	}
 
-    /**
-     * @throws Exception
-     */
-    public function store(StorePasskeyRequest $request): RedirectResponse
-    {
-        $storePasskeyAction = app(StorePasskeyAction::class);
+	/**
+	 * @throws Exception
+	 */
+	public function store(StorePasskeyRequest $request): RedirectResponse
+	{
+		$storePasskeyAction = app(StorePasskeyAction::class);
 
-        try {
-            $storePasskeyAction->execute(
-                authenticatable: Auth::user(),
-                passkeyJson: $request->passkey,
-                passkeyOptionsJson: Session::pull('passkey-registration-options'),
-                hostName: request()->getHost(),
-                additionalProperties: [
-                    'name' => $request->name
-                ],
-            );
-        } catch (Throwable) {
-            throw ValidationException::withMessages([
-                'name' => __('passkeys::passkeys.error_something_went_wrong_generating_the_passkey'),
-            ]);
-        }
+		try {
+			$storePasskeyAction->execute(
+				authenticatable: Auth::user(),
+				passkeyJson: $request->passkey,
+				passkeyOptionsJson: Session::pull('passkey-registration-options'),
+				hostName: request()->getHost(),
+				additionalProperties: [
+					'name' => $request->name,
+				],
+			);
+		} catch (Throwable) {
+			throw ValidationException::withMessages([
+				'name' => __('passkeys::passkeys.error_something_went_wrong_generating_the_passkey'),
+			]);
+		}
 
-        return back();
-    }
+		return back();
+	}
 
-    public function destroy(Passkey $passkey): RedirectResponse
-    {
-        Gate::authorize('delete', $passkey);
+	public function destroy(Passkey $passkey): RedirectResponse
+	{
+		Gate::authorize('delete', $passkey);
 
-        $passkey->delete();
+		$passkey->delete();
 
-        return back();
-    }
+		return back();
+	}
 }

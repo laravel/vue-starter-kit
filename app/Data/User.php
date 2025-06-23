@@ -27,7 +27,7 @@ class User extends Data
 
     public static function fromUser(?UserModel $user): ?self
     {
-        if ($user === null) {
+        if (!$user instanceof UserModel) {
             return null;
         }
 

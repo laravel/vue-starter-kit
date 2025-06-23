@@ -13,23 +13,23 @@ use Inertia\Response;
 
 class RegisteredUserController
 {
-    public function create(): Response
-    {
-        return Inertia::render('auth/Register');
-    }
+	public function store(RegisterRequest $request): RedirectResponse
+	{
+		$user = User::query()->create([
+			'name' => $request->name,
+			'email' => $request->email,
+			'password' => Hash::make($request->password),
+		]);
 
-    public function store(RegisterRequest $request): RedirectResponse
-    {
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+		event(new Registered($user));
 
-        event(new Registered($user));
+		Auth::login($user);
 
-        Auth::login($user);
+		return to_route('dashboard');
+	}
 
-        return to_route('dashboard');
-    }
+	public function create(): Response
+	{
+		return Inertia::render('auth/Register');
+	}
 }

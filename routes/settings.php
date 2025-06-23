@@ -6,7 +6,7 @@ use App\Http\Controllers\Settings\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function (): void {
     Route::redirect('settings', '/settings/profile');
 
     Route::get('settings/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -21,7 +21,5 @@ Route::middleware('auth')->group(function () {
     Route::post('settings/passkey', [PasskeyController::class, 'store'])->name('passkey.store');
     Route::delete('settings/passkey/{passkey}', [PasskeyController::class, 'destroy'])->name('passkey.destroy');
 
-    Route::get('settings/appearance', function () {
-        return Inertia::render('settings/Appearance');
-    })->name('appearance');
+    Route::get('settings/appearance', fn() => Inertia::render('settings/Appearance'))->name('appearance');
 });

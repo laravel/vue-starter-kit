@@ -1,5 +1,12 @@
 <?php
 
+use Spatie\LaravelPasskeys\Actions\GeneratePasskeyRegisterOptionsAction;
+use Spatie\LaravelPasskeys\Actions\StorePasskeyAction;
+use Spatie\LaravelPasskeys\Actions\GeneratePasskeyAuthenticationOptionsAction;
+use Spatie\LaravelPasskeys\Actions\FindPasskeyToAuthenticateAction;
+use App\Models\Passkey;
+use App\Models\User;
+
 return [
     /*
      * After a successful authentication attempt using a passkey
@@ -13,10 +20,10 @@ return [
      * by specifying your custom class name here.
      */
     'actions' => [
-        'generate_passkey_register_options' => Spatie\LaravelPasskeys\Actions\GeneratePasskeyRegisterOptionsAction::class,
-        'store_passkey' => Spatie\LaravelPasskeys\Actions\StorePasskeyAction::class,
-        'generate_passkey_authentication_options' => \Spatie\LaravelPasskeys\Actions\GeneratePasskeyAuthenticationOptionsAction::class,
-        'find_passkey' => Spatie\LaravelPasskeys\Actions\FindPasskeyToAuthenticateAction::class,
+        'generate_passkey_register_options' => GeneratePasskeyRegisterOptionsAction::class,
+        'store_passkey' => StorePasskeyAction::class,
+        'generate_passkey_authentication_options' => GeneratePasskeyAuthenticationOptionsAction::class,
+        'find_passkey' => FindPasskeyToAuthenticateAction::class,
     ],
 
     /*
@@ -24,7 +31,7 @@ return [
      */
     'relying_party' => [
         'name' => config('app.name'),
-        'id' => parse_url(config('app.url'), PHP_URL_HOST),
+        'id' => parse_url((string) config('app.url'), PHP_URL_HOST),
         'icon' => null,
     ],
 
@@ -34,7 +41,7 @@ return [
      * You can override this by specifying your own models
      */
     'models' => [
-        'passkey' => App\Models\Passkey::class,
-        'authenticatable' => env('AUTH_MODEL', App\Models\User::class),
+        'passkey' => Passkey::class,
+        'authenticatable' => env('AUTH_MODEL', User::class),
     ],
 ];

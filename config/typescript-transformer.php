@@ -1,7 +1,15 @@
 <?php
 
+use Spatie\TypeScriptTransformer\Collectors\DefaultCollector;
+use Spatie\TypeScriptTransformer\Collectors\EnumCollector;
+use Spatie\LaravelTypeScriptTransformer\Transformers\SpatieStateTransformer;
+use Spatie\TypeScriptTransformer\Transformers\EnumTransformer;
+use Spatie\LaravelTypeScriptTransformer\Transformers\DtoTransformer;
+use Carbon\CarbonInterface;
+use Carbon\CarbonImmutable;
+use Carbon\Carbon;
+use Spatie\TypeScriptTransformer\Writers\ModuleWriter;
 use Spatie\LaravelData\Support\TypeScriptTransformer\DataTypeScriptTransformer;
-use Spatie\TypeScriptTransformer\Formatters\PrettierFormatter;
 
 return [
     /*
@@ -20,8 +28,8 @@ return [
      */
 
     'collectors' => [
-        Spatie\TypeScriptTransformer\Collectors\DefaultCollector::class,
-        Spatie\TypeScriptTransformer\Collectors\EnumCollector::class,
+        DefaultCollector::class,
+        EnumCollector::class,
     ],
 
     /*
@@ -30,10 +38,10 @@ return [
      */
 
     'transformers' => [
-        Spatie\LaravelTypeScriptTransformer\Transformers\SpatieStateTransformer::class,
-        Spatie\TypeScriptTransformer\Transformers\EnumTransformer::class,
+        SpatieStateTransformer::class,
+        EnumTransformer::class,
         DataTypeScriptTransformer::class,
-        Spatie\LaravelTypeScriptTransformer\Transformers\DtoTransformer::class,
+        DtoTransformer::class,
     ],
 
     /*
@@ -45,9 +53,9 @@ return [
     'default_type_replacements' => [
         DateTime::class => 'string',
         DateTimeImmutable::class => 'string',
-        Carbon\CarbonInterface::class => 'string',
-        Carbon\CarbonImmutable::class => 'string',
-        Carbon\Carbon::class => 'string',
+        CarbonInterface::class => 'string',
+        CarbonImmutable::class => 'string',
+        Carbon::class => 'string',
     ],
 
     /*
@@ -62,7 +70,7 @@ return [
      * But you can also use the `ModuleWriter` or implement your own.
      */
 
-    'writer' => Spatie\TypeScriptTransformer\Writers\ModuleWriter::class,
+    'writer' => ModuleWriter::class,
 
     /*
      * The generated TypeScript file can be formatted. We ship a Prettier formatter
