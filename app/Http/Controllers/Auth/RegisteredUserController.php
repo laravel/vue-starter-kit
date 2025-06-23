@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Data\RegisterRequest;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
