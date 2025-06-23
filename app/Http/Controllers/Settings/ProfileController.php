@@ -28,8 +28,8 @@ class ProfileController
         $user = Auth::user();
 
         $user->fill([
-            'name' => $this->request->name,
-            'email' => $this->request->email,
+            'name' => $request->name,
+            'email' => $request->email,
         ]);
 
         if ($user->isDirty('email')) {
