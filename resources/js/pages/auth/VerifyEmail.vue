@@ -2,17 +2,18 @@
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import AuthLayout from '@/layouts/AuthLayout.vue';
+import { logout } from '@/routes';
+import { send } from '@/routes/verification';
+import { VerifyEmailPrompts } from '@/types/generated';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
-defineProps<{
-    status?: string;
-}>();
+defineProps<VerifyEmailPrompts>();
 
 const form = useForm({});
 
 const submit = () => {
-    form.post(route('verification.send'));
+    form.submit(send());
 };
 </script>
 
@@ -30,7 +31,7 @@ const submit = () => {
                 Resend verification email
             </Button>
 
-            <TextLink :href="route('logout')" method="post" as="button" class="mx-auto block text-sm"> Log out </TextLink>
+            <TextLink :href="logout()" method="post" as="button" class="mx-auto block text-sm"> Log out </TextLink>
         </form>
     </AuthLayout>
 </template>

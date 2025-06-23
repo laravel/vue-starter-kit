@@ -2,7 +2,7 @@
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { type NavItem } from '@/types';
+import type { NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
 
 const sidebarNavItems: NavItem[] = [
@@ -15,6 +15,10 @@ const sidebarNavItems: NavItem[] = [
         href: '/settings/password',
     },
     {
+        title: 'Passkey',
+        href: '/settings/passkey',
+    },
+    {
         title: 'Appearance',
         href: '/settings/appearance',
     },
@@ -22,7 +26,7 @@ const sidebarNavItems: NavItem[] = [
 
 const page = usePage();
 
-const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.location).pathname : '';
+const currentPath = page.url;
 </script>
 
 <template>
@@ -39,9 +43,7 @@ const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.locati
                         :class="['w-full justify-start', { 'bg-muted': currentPath === item.href }]"
                         as-child
                     >
-                        <Link :href="item.href">
-                            {{ item.title }}
-                        </Link>
+                        <Link :href="item.href">{{ item.title }}</Link>
                     </Button>
                 </nav>
             </aside>

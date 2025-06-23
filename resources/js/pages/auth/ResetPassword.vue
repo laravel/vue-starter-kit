@@ -4,17 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/AuthLayout.vue';
+import { store } from '@/routes/password';
+import { NewPasswordRequest, ResetPasswordProps } from '@/types/generated';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
-interface Props {
-    token: string;
-    email: string;
-}
+const props = defineProps<ResetPasswordProps>();
 
-const props = defineProps<Props>();
-
-const form = useForm({
+const form = useForm<NewPasswordRequest>({
     token: props.token,
     email: props.email,
     password: '',
@@ -22,7 +19,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('password.store'), {
+    form.submit(store(), {
         onFinish: () => {
             form.reset('password', 'password_confirmation');
         },

@@ -4,6 +4,10 @@
 /public/build
 /public/hot
 /public/storage
+/resources/js/actions
+/resources/js/routes
+/resources/js/wayfinder
+/resources/js/types/generated.d.ts
 /storage/*.key
 /storage/pail
 /vendor

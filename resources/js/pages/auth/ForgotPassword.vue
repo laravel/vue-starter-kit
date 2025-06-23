@@ -5,19 +5,20 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/AuthLayout.vue';
+import { login } from '@/routes';
+import { email } from '@/routes/password';
+import { ForgotPasswordProps, PasswordResetLinkRequest } from '@/types/generated';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
-defineProps<{
-    status?: string;
-}>();
+defineProps<ForgotPasswordProps>();
 
-const form = useForm({
+const form = useForm<PasswordResetLinkRequest>({
     email: '',
 });
 
 const submit = () => {
-    form.post(route('password.email'));
+    form.submit(email());
 };
 </script>
 
@@ -45,9 +46,9 @@ const submit = () => {
                 </div>
             </form>
 
-            <div class="space-x-1 text-center text-sm text-muted-foreground">
+            <div class="text-muted-foreground space-x-1 text-center text-sm">
                 <span>Or, return to</span>
-                <TextLink :href="route('login')">log in</TextLink>
+                <TextLink :href="login()">log in</TextLink>
             </div>
         </div>
     </AuthLayout>

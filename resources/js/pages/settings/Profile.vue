@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
-
 import DeleteUser from '@/components/DeleteUser.vue';
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import InputError from '@/components/InputError.vue';
@@ -9,14 +7,13 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
-import { type BreadcrumbItem, type User } from '@/types';
+import { update } from '@/routes/profile';
+import { send } from '@/routes/verification';
+import type { BreadcrumbItem } from '@/types';
+import type { ProfileProps, ProfileUpdateRequest, User } from '@/types/generated';
+import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
 
-interface Props {
-    mustVerifyEmail: boolean;
-    status?: string;
-}
-
-defineProps<Props>();
+defineProps<ProfileProps>();
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -28,13 +25,13 @@ const breadcrumbs: BreadcrumbItem[] = [
 const page = usePage();
 const user = page.props.auth.user as User;
 
-const form = useForm({
+const form = useForm<ProfileUpdateRequest>({
     name: user.name,
     email: user.email,
 });
 
 const submit = () => {
-    form.patch(route('profile.update'), {
+    form.submit(update(), {
         preserveScroll: true,
     });
 };
@@ -70,10 +67,10 @@ const submit = () => {
                     </div>
 
                     <div v-if="mustVerifyEmail && !user.email_verified_at">
-                        <p class="-mt-4 text-sm text-muted-foreground">
+                        <p class="text-muted-foreground -mt-4 text-sm">
                             Your email address is unverified.
                             <Link
-                                :href="route('verification.send')"
+                                :href="send()"
                                 method="post"
                                 as="button"
                                 class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"

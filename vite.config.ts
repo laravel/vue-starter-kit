@@ -1,8 +1,9 @@
+import { wayfinder } from '@laravel/vite-plugin-wayfinder';
+import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
-import path from 'path';
-import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
+import { transformer } from './resources/js/lib/vite-plugin-transformer';
 
 export default defineConfig({
     plugins: [
@@ -11,6 +12,8 @@ export default defineConfig({
             ssr: 'resources/js/ssr.ts',
             refresh: true,
         }),
+        wayfinder(),
+        transformer(),
         tailwindcss(),
         vue({
             template: {
@@ -21,9 +24,4 @@ export default defineConfig({
             },
         }),
     ],
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, './resources/js'),
-        },
-    },
 });

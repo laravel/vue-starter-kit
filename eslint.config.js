@@ -1,5 +1,6 @@
 import prettier from 'eslint-config-prettier';
 import vue from 'eslint-plugin-vue';
+import oxlint from 'eslint-plugin-oxlint';
 
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
 
@@ -16,4 +17,5 @@ export default defineConfigWithVueTs(
         },
     },
     prettier,
+    ...oxlint.configs['flat/recommended']
 );

@@ -18,13 +18,13 @@ const emits = defineEmits<{
   'update:open': [open: boolean]
 }>()
 
-const isMobile = useMediaQuery('(max-width: 768px)')
+const isMobile = useMediaQuery('(max-width: 768px)') as unknown as Ref<boolean>
 const openMobile = ref(false)
 
 const open = useVModel(props, 'open', emits, {
   defaultValue: props.defaultOpen ?? false,
   passive: (props.open === undefined) as false,
-}) as Ref<boolean>
+}) as unknown as Ref<boolean>
 
 function setOpen(value: boolean) {
   open.value = value // emits('update:open', value)

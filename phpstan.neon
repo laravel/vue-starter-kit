@@ -1,0 +1,14 @@
+includes:
+    - phar://phpstan.phar/conf/bleedingEdge.neon
+
+rules:
+    - Spatie\Ray\PHPStan\RemainingRayCallRule
+
+parameters:
+    editorUrl: '%%file%%:%%line%%'
+    editorUrlTitle: '%%file%%:%%line%%'
+
+    paths:
+        - app/
+
+    level: 8
