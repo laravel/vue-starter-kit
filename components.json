@@ -1,7 +1,7 @@
 {
 	"$schema": "https://shadcn-vue.com/schema.json",
 	"style": "default",
-	"typescript": true,
+	"tsx": true,
 	"tailwind": {
 		"config": "tailwind.config.js",
 		"css": "resources/css/app.css",

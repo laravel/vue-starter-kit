@@ -1,9 +1,9 @@
 import { resolvePage, resolveTitle } from '@/lib/utils';
 import { createInertiaApp } from '@inertiajs/vue3';
 import createServer from '@inertiajs/vue3/server';
-import { renderToString } from '@vue/server-renderer';
 import { createPinia } from 'pinia';
 import { createSSRApp, h } from 'vue';
+import { renderToString } from 'vue/server-renderer';
 
 const pinia = createPinia();
 
