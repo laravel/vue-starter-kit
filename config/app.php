@@ -123,4 +123,20 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Available Locales
+    |--------------------------------------------------------------------------
+    |
+    | This array defines the list of supported locales for your application.
+    | These will be used to validate user preferences, detect browser languages,
+    | and limit localization to only approved languages.
+    |
+    */
+
+    'available_locales' => [
+        'en',
+        'fr',
+    ],
+
 ];
