@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { store } from '@/actions/App/Http/Controllers/Auth/ConfirmablePasswordController';
+import { store } from '@/routes/password/confirm'
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
