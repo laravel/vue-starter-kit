@@ -88,7 +88,7 @@ const user = page.props.auth.user;
                     </div>
 
                     <div class="flex items-center gap-4">
-                        <Button :disabled="processing">Save</Button>
+                        <Button :disabled="processing" data-test="update-profile-button">Save</Button>
 
                         <Transition
                             enter-active-class="transition ease-in-out"

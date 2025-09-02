@@ -32,7 +32,7 @@ defineProps<{
                 </div>
 
                 <div class="my-6 flex items-center justify-start">
-                    <Button class="w-full" :disabled="processing">
+                    <Button class="w-full" :disabled="processing" data-test="email-password-reset-link-button">
                         <LoaderCircle v-if="processing" class="h-4 w-4 animate-spin" />
                         Email password reset link
                     </Button>
