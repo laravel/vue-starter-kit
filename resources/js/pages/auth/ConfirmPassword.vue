@@ -31,7 +31,7 @@ import { LoaderCircle } from 'lucide-vue-next';
                 </div>
 
                 <div class="flex items-center">
-                    <Button class="w-full" :disabled="processing">
+                    <Button class="w-full" :disabled="processing" data-test="confirm-password-button">
                         <LoaderCircle v-if="processing" class="h-4 w-4 animate-spin" />
                         Confirm Password
                     </Button>

@@ -84,7 +84,7 @@ const currentPasswordInput = ref<HTMLInputElement | null>(null);
                     </div>
 
                     <div class="flex items-center gap-4">
-                        <Button :disabled="processing">Save password</Button>
+                        <Button :disabled="processing" data-test="update-password-button">Save password</Button>
 
                         <Transition
                             enter-active-class="transition ease-in-out"

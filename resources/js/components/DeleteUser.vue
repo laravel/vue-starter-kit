@@ -33,7 +33,7 @@ const passwordInput = ref<InstanceType<typeof Input> | null>(null);
             </div>
             <Dialog>
                 <DialogTrigger as-child>
-                    <Button variant="destructive">Delete account</Button>
+                    <Button variant="destructive" data-test="delete-user-button">Delete account</Button>
                 </DialogTrigger>
                 <DialogContent>
                     <Form
@@ -75,7 +75,7 @@ const passwordInput = ref<InstanceType<typeof Input> | null>(null);
                                 </Button>
                             </DialogClose>
 
-                            <Button type="submit" variant="destructive" :disabled="processing"> Delete account </Button>
+                            <Button type="submit" variant="destructive" :disabled="processing" data-test="confirm-delete-user-button"> Delete account </Button>
                         </DialogFooter>
                     </Form>
                 </DialogContent>
