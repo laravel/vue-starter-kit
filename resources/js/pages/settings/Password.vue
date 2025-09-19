@@ -28,6 +28,8 @@ const currentPasswordInput = ref<HTMLInputElement | null>(null);
     <AppLayout :breadcrumbs="breadcrumbItems">
         <Head title="Password settings" />
 
+        <h1 class="sr-only">Password Settings</h1>
+
         <SettingsLayout>
             <div class="space-y-6">
                 <HeadingSmall
