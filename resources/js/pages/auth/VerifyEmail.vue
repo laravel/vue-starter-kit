@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import EmailVerificationNotificationController from '@/actions/App/Http/Controllers/Auth/EmailVerificationNotificationController';
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { logout } from '@/routes';
+import { send } from '@/routes/verification';
 import { Form, Head } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
@@ -28,7 +28,7 @@ defineProps<{
         </div>
 
         <Form
-            v-bind="EmailVerificationNotificationController.store.form()"
+            v-bind="send.form()"
             class="space-y-6 text-center"
             v-slot="{ processing }"
         >
