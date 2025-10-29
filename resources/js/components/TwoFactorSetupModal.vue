@@ -19,7 +19,7 @@ import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
 import { Form } from '@inertiajs/vue3';
 import { useClipboard } from '@vueuse/core';
-import { Check, Copy, Loader2, ScanLine } from 'lucide-vue-next';
+import { Check, Copy, ScanLine } from 'lucide-vue-next';
 import { computed, nextTick, ref, watch } from 'vue';
 
 interface Props {
