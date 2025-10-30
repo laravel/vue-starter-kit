@@ -5,7 +5,6 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit } from '@/routes/user-password';
 import { Form, Head } from '@inertiajs/vue3';
-import { ref } from 'vue';
 
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import { Button } from '@/components/ui/button';
@@ -19,9 +18,6 @@ const breadcrumbItems: BreadcrumbItem[] = [
         href: edit().url,
     },
 ];
-
-const passwordInput = ref<HTMLInputElement | null>(null);
-const currentPasswordInput = ref<HTMLInputElement | null>(null);
 </script>
 
 <template>
@@ -53,7 +49,6 @@ const currentPasswordInput = ref<HTMLInputElement | null>(null);
                         <Label for="current_password">Current password</Label>
                         <Input
                             id="current_password"
-                            ref="currentPasswordInput"
                             name="current_password"
                             type="password"
                             class="mt-1 block w-full"
@@ -67,7 +62,6 @@ const currentPasswordInput = ref<HTMLInputElement | null>(null);
                         <Label for="password">New password</Label>
                         <Input
                             id="password"
-                            ref="passwordInput"
                             name="password"
                             type="password"
                             class="mt-1 block w-full"
