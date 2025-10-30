@@ -26,5 +26,11 @@ const icon = computed(() => {
 </script>
 
 <template>
-    <component :is="icon" :class="className" :size="size" :stroke-width="strokeWidth" :color="color" />
+    <component
+        :is="icon"
+        :class="className"
+        :size="size"
+        :stroke-width="strokeWidth"
+        :color="color"
+    />
 </template>
