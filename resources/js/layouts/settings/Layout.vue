@@ -2,7 +2,7 @@
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { toUrl, urlIsActive } from '@/lib/utils';
+import { useActiveUrl } from '@/composables/useActiveUrl';
 import { edit as editAppearance } from '@/routes/appearance';
 import { edit as editProfile } from '@/routes/profile';
 import { show } from '@/routes/two-factor';
@@ -29,7 +29,7 @@ const sidebarNavItems: NavItem[] = [
     },
 ];
 
-const currentPath = typeof window !== undefined ? window.location.pathname : '';
+const { toUrl, urlIsActive } = useActiveUrl();
 </script>
 
 <template>
@@ -48,7 +48,7 @@ const currentPath = typeof window !== undefined ? window.location.pathname : '';
                         variant="ghost"
                         :class="[
                             'w-full justify-start',
-                            { 'bg-muted': urlIsActive(item.href, currentPath) },
+                            { 'bg-muted': urlIsActive(item.href) },
                         ]"
                         as-child
                     >
