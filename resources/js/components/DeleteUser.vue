@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
-import { Form } from '@inertiajs/vue3';
-import { useTemplateRef } from 'vue';
-
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import { Button } from '@/components/ui/button';
 import {
@@ -15,8 +12,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog';
-
-const passwordInput = useTemplateRef('passwordInput');
+import { Form } from '@inertiajs/vue3';
 </script>
 
 <template>
@@ -48,7 +44,7 @@ const passwordInput = useTemplateRef('passwordInput');
                             preserveScroll: true,
                         }"
                         class="space-y-6"
-                        v-slot="{ errors, processing, reset, clearErrors }"
+                        v-slot="{ processing, reset, clearErrors }"
                     >
                         <DialogHeader class="space-y-3">
                             <DialogTitle
