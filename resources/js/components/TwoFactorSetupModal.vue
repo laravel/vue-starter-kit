@@ -15,6 +15,7 @@ import {
     PinInputGroup,
     PinInputSlot,
 } from '@/components/ui/pin-input';
+import { useAppearance } from '@/composables/useAppearance';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
 import { Form } from '@inertiajs/vue3';
@@ -26,6 +27,8 @@ interface Props {
     requiresConfirmation: boolean;
     twoFactorEnabled: boolean;
 }
+
+const { resolvedAppearance } = useAppearance();
 
 const props = defineProps<Props>();
 const isOpen = defineModel<boolean>('isOpen');
@@ -173,6 +176,12 @@ watch(
                                     <div
                                         v-html="qrCodeSvg"
                                         class="flex aspect-square size-full items-center justify-center"
+                                        :style="{
+                                            filter:
+                                                resolvedAppearance === 'dark'
+                                                    ? 'invert(1) brightness(1.5)'
+                                                    : undefined,
+                                        }"
                                     />
                                 </div>
                             </div>
