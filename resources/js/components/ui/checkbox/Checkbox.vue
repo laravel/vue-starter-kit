@@ -1,24 +1,22 @@
 <script setup lang="ts">
-import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
-import { Check } from 'lucide-vue-next'
-import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
+import type { CheckboxRootEmits, CheckboxRootProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { Check } from "lucide-vue-next"
+import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from "reka-ui"
+import { cn } from "@/lib/utils"
 
-const props = defineProps<CheckboxRootProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<CheckboxRootProps & { class?: HTMLAttributes["class"] }>()
 const emits = defineEmits<CheckboxRootEmits>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
   <CheckboxRoot
+    v-slot="slotProps"
     data-slot="checkbox"
     v-bind="forwarded"
     :class="
@@ -27,9 +25,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   >
     <CheckboxIndicator
       data-slot="checkbox-indicator"
-      class="flex items-center justify-center text-current transition-none"
+      class="grid place-content-center text-current transition-none"
     >
-      <slot>
+      <slot v-bind="slotProps">
         <Check class="size-3.5" />
       </slot>
     </CheckboxIndicator>
