@@ -41,6 +41,9 @@ onUnmounted(() => {
 <template>
     <AppLayout :breadcrumbs="breadcrumbs">
         <Head title="Two-Factor Authentication" />
+
+        <h1 class="sr-only">Two-Factor Authentication Settings</h1>
+
         <SettingsLayout>
             <div class="space-y-6">
                 <HeadingSmall
