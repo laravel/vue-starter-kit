@@ -1,6 +1,7 @@
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 
-type Appearance = 'light' | 'dark' | 'system';
+export type ResolvedAppearance = 'light' | 'dark';
+type Appearance = ResolvedAppearance | 'system';
 
 export function updateTheme(value: Appearance) {
     if (typeof window === 'undefined') {
@@ -48,6 +49,11 @@ const getStoredAppearance = () => {
     return localStorage.getItem('appearance') as Appearance | null;
 };
 
+const prefersDark = (): boolean => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+};
+
 const handleSystemThemeChange = () => {
     const currentAppearance = getStoredAppearance();
 
@@ -80,6 +86,13 @@ export function useAppearance() {
         }
     });
 
+    const resolvedAppearance = computed<ResolvedAppearance>(() => {
+        if (appearance.value === 'system') {
+            return prefersDark() ? 'dark' : 'light';
+        }
+        return appearance.value;
+    });
+
     function updateAppearance(value: Appearance) {
         appearance.value = value;
 
@@ -94,6 +107,7 @@ export function useAppearance() {
 
     return {
         appearance,
+        resolvedAppearance,
         updateAppearance,
     };
 }
