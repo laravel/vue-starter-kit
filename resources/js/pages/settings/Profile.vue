@@ -36,6 +36,8 @@ const user = page.props.auth.user;
     <AppLayout :breadcrumbs="breadcrumbItems">
         <Head title="Profile settings" />
 
+        <h1 class="sr-only">Profile Settings</h1>
+
         <SettingsLayout>
             <div class="flex flex-col space-y-6">
                 <HeadingSmall
