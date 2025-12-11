@@ -10,17 +10,18 @@ import {
     DialogTitle,
 } from '@/components/ui/dialog';
 import {
-    PinInput,
-    PinInputGroup,
-    PinInputSlot,
-} from '@/components/ui/pin-input';
+    InputOTP,
+    InputOTPGroup,
+    InputOTPSlot,
+} from '@/components/ui/input-otp';
+import { Spinner } from '@/components/ui/spinner';
 import { useAppearance } from '@/composables/useAppearance';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
 import { Form } from '@inertiajs/vue3';
 import { useClipboard } from '@vueuse/core';
-import { Check, Copy, Loader2, ScanLine } from 'lucide-vue-next';
-import { computed, nextTick, ref, watch } from 'vue';
+import { Check, Copy, ScanLine } from 'lucide-vue-next';
+import { computed, nextTick, ref, useTemplateRef, watch } from 'vue';
 
 interface Props {
     requiresConfirmation: boolean;
@@ -37,10 +38,9 @@ const { qrCodeSvg, manualSetupKey, clearSetupData, fetchSetupData, errors } =
     useTwoFactorAuth();
 
 const showVerificationStep = ref(false);
-const code = ref<number[]>([]);
-const codeValue = computed<string>(() => code.value.join(''));
+const code = ref<string>('');
 
-const pinInputContainerRef = ref<HTMLElement | null>(null);
+const pinInputContainerRef = useTemplateRef('pinInputContainerRef');
 
 const modalConfig = computed<{
     title: string;
@@ -93,7 +93,7 @@ const resetModalState = () => {
     }
 
     showVerificationStep.value = false;
-    code.value = [];
+    code.value = '';
 };
 
 watch(
@@ -166,7 +166,7 @@ watch(
                                     v-if="!qrCodeSvg"
                                     class="absolute inset-0 z-10 flex aspect-square h-auto w-full animate-pulse items-center justify-center bg-background"
                                 >
-                                    <Loader2 class="size-6 animate-spin" />
+                                    <Spinner class="size-6" />
                                 </div>
                                 <div
                                     v-else
@@ -213,7 +213,7 @@ watch(
                                     v-if="!manualSetupKey"
                                     class="flex h-full w-full items-center justify-center bg-muted p-3"
                                 >
-                                    <Loader2 class="size-4 animate-spin" />
+                                    <Spinner />
                                 </div>
                                 <template v-else>
                                     <input
@@ -242,11 +242,11 @@ watch(
                     <Form
                         v-bind="confirm.form()"
                         reset-on-error
-                        @finish="code = []"
+                        @finish="code = ''"
                         @success="isOpen = false"
                         v-slot="{ errors, processing }"
                     >
-                        <input type="hidden" name="code" :value="codeValue" />
+                        <input type="hidden" name="code" :value="code" />
                         <div
                             ref="pinInputContainerRef"
                             class="relative w-full space-y-3"
@@ -254,23 +254,20 @@ watch(
                             <div
                                 class="flex w-full flex-col items-center justify-center space-y-3 py-2"
                             >
-                                <PinInput
+                                <InputOTP
                                     id="otp"
-                                    placeholder="○"
                                     v-model="code"
-                                    type="number"
-                                    otp
+                                    :maxlength="6"
+                                    :disabled="processing"
                                 >
-                                    <PinInputGroup>
-                                        <PinInputSlot
-                                            autofocus
-                                            v-for="(id, index) in 6"
-                                            :key="id"
-                                            :index="index"
-                                            :disabled="processing"
+                                    <InputOTPGroup>
+                                        <InputOTPSlot
+                                            v-for="index in 6"
+                                            :key="index"
+                                            :index="index - 1"
                                         />
-                                    </PinInputGroup>
-                                </PinInput>
+                                    </InputOTPGroup>
+                                </InputOTP>
                                 <InputError
                                     :message="
                                         errors?.confirmTwoFactorAuthentication
@@ -292,9 +289,7 @@ watch(
                                 <Button
                                     type="submit"
                                     class="w-auto flex-1"
-                                    :disabled="
-                                        processing || codeValue.length < 6
-                                    "
+                                    :disabled="processing || code.length < 6"
                                 >
                                     Confirm
                                 </Button>

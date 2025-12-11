@@ -4,11 +4,11 @@ import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Spinner } from '@/components/ui/spinner';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
 import { Form, Head } from '@inertiajs/vue3';
-import { LoaderCircle } from 'lucide-vue-next';
 </script>
 
 <template>
@@ -89,10 +89,7 @@ import { LoaderCircle } from 'lucide-vue-next';
                     :disabled="processing"
                     data-test="register-user-button"
                 >
-                    <LoaderCircle
-                        v-if="processing"
-                        class="h-4 w-4 animate-spin"
-                    />
+                    <Spinner v-if="processing" />
                     Create account
                 </Button>
             </div>

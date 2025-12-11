@@ -3,10 +3,10 @@ import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
-    PinInput,
-    PinInputGroup,
-    PinInputSlot,
-} from '@/components/ui/pin-input';
+    InputOTP,
+    InputOTPGroup,
+    InputOTPSlot,
+} from '@/components/ui/input-otp';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { store } from '@/routes/two-factor/login';
 import { Form, Head } from '@inertiajs/vue3';
@@ -41,11 +41,10 @@ const showRecoveryInput = ref<boolean>(false);
 const toggleRecoveryMode = (clearErrors: () => void): void => {
     showRecoveryInput.value = !showRecoveryInput.value;
     clearErrors();
-    code.value = [];
+    code.value = '';
 };
 
-const code = ref<number[]>([]);
-const codeValue = computed<string>(() => code.value.join(''));
+const code = ref<string>('');
 </script>
 
 <template>
@@ -61,31 +60,29 @@ const codeValue = computed<string>(() => code.value.join(''));
                     v-bind="store.form()"
                     class="space-y-4"
                     reset-on-error
-                    @error="code = []"
+                    @error="code = ''"
                     #default="{ errors, processing, clearErrors }"
                 >
-                    <input type="hidden" name="code" :value="codeValue" />
+                    <input type="hidden" name="code" :value="code" />
                     <div
                         class="flex flex-col items-center justify-center space-y-3 text-center"
                     >
                         <div class="flex w-full items-center justify-center">
-                            <PinInput
+                            <InputOTP
                                 id="otp"
-                                placeholder="○"
                                 v-model="code"
-                                type="number"
-                                otp
+                                :maxlength="6"
+                                :disabled="processing"
+                                autofocus
                             >
-                                <PinInputGroup>
-                                    <PinInputSlot
-                                        v-for="(id, index) in 6"
-                                        :key="id"
-                                        :index="index"
-                                        :disabled="processing"
-                                        autofocus
+                                <InputOTPGroup>
+                                    <InputOTPSlot
+                                        v-for="index in 6"
+                                        :key="index"
+                                        :index="index - 1"
                                     />
-                                </PinInputGroup>
-                            </PinInput>
+                                </InputOTPGroup>
+                            </InputOTP>
                         </div>
                         <InputError :message="errors.code" />
                     </div>
