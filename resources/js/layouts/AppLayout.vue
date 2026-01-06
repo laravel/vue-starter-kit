@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/app/AppSidebarLayout.vue';
-import AppSkipLink from '@/components/AppSkipLink.vue';
 import type { BreadcrumbItemType } from '@/types';
 
 interface Props {
@@ -13,7 +12,6 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-    <AppSkipLink />
     <AppLayout :breadcrumbs="breadcrumbs">
         <slot />
     </AppLayout>
