@@ -50,7 +50,10 @@ const getStoredAppearance = () => {
 };
 
 const prefersDark = (): boolean => {
-    if (typeof window === 'undefined') return false;
+    if (typeof window === 'undefined') {
+        return false;
+    }
+
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
 };
 
@@ -90,6 +93,7 @@ export function useAppearance() {
         if (appearance.value === 'system') {
             return prefersDark() ? 'dark' : 'light';
         }
+
         return appearance.value;
     });
 
