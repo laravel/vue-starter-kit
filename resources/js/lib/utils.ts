@@ -7,5 +7,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function toUrl(href: NonNullable<InertiaLinkProps['href']>) {
-    return typeof href === 'string' ? href : href.url;
+    return typeof href === 'string' ? href : href?.url;
 }
