@@ -31,6 +31,7 @@ import {
 import UserMenuContent from '@/components/UserMenuContent.vue';
 import { useActiveUrl } from '@/composables/useActiveUrl';
 import { getInitials } from '@/composables/useInitials';
+import { toUrl } from '@/lib/utils';
 import { dashboard } from '@/routes';
 import type { BreadcrumbItem, NavItem } from '@/types';
 import type { InertiaLinkProps } from '@inertiajs/vue3';
@@ -48,7 +49,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const page = usePage();
 const auth = computed(() => page.props.auth);
-const { urlIsActive, toUrl } = useActiveUrl();
+const { urlIsActive } = useActiveUrl();
 
 function activeItemStyles(url: NonNullable<InertiaLinkProps['href']>) {
     return urlIsActive(url)

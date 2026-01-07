@@ -6,7 +6,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { useActiveUrl } from '@/composables/useActiveUrl';
+import { toUrl } from '@/lib/utils';
 import { type NavItem } from '@/types';
 
 interface Props {
@@ -15,8 +15,6 @@ interface Props {
 }
 
 defineProps<Props>();
-
-const { toUrl } = useActiveUrl();
 </script>
 
 <template>
