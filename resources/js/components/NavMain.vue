@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Link } from '@inertiajs/vue3';
+
 import {
     SidebarGroup,
     SidebarGroupLabel,
@@ -8,7 +10,6 @@ import {
 } from '@/components/ui/sidebar';
 import { useActiveUrl } from '@/composables/useActiveUrl';
 import { type NavItem } from '@/types';
-import { Link } from '@inertiajs/vue3';
 
 defineProps<{
     items: NavItem[];
