@@ -24,7 +24,7 @@ export type AppPageProps<
     auth: Auth;
     sidebarOpen: boolean;
     [key: string]: unknown;
-}
+};
 
 export interface User {
     id: number;

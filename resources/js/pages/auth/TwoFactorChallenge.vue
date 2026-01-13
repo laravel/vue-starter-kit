@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { Form, Head } from '@inertiajs/vue3';
+import { computed, ref } from 'vue';
+
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,8 +12,6 @@ import {
 } from '@/components/ui/input-otp';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { store } from '@/routes/two-factor/login';
-import { Form, Head } from '@inertiajs/vue3';
-import { computed, ref } from 'vue';
 
 interface AuthConfigContent {
     title: string;
