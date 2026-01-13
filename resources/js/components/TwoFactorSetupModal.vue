@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { Form } from '@inertiajs/vue3';
+import { useClipboard } from '@vueuse/core';
+import { Check, Copy, ScanLine } from 'lucide-vue-next';
+import { computed, nextTick, ref, useTemplateRef, watch } from 'vue';
+
 import AlertError from '@/components/AlertError.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
@@ -9,18 +14,15 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
+import { Spinner } from '@/components/ui/spinner';
+import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
+
 import {
     PinInput,
     PinInputGroup,
     PinInputSlot,
 } from '@/components/ui/pin-input';
-import { Spinner } from '@/components/ui/spinner';
-import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
-import { Form } from '@inertiajs/vue3';
-import { useClipboard } from '@vueuse/core';
-import { Check, Copy, ScanLine } from 'lucide-vue-next';
-import { computed, nextTick, ref, useTemplateRef, watch } from 'vue';
 
 interface Props {
     requiresConfirmation: boolean;
