@@ -8,14 +8,14 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { useActiveUrl } from '@/composables/useActiveUrl';
+import { useCurrentUrl } from '@/composables/useCurrentUrl';
 import { type NavItem } from '@/types';
 
 defineProps<{
     items: NavItem[];
 }>();
 
-const { urlIsActive } = useActiveUrl();
+const { isCurrentUrl } = useCurrentUrl();
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const { urlIsActive } = useActiveUrl();
             <SidebarMenuItem v-for="item in items" :key="item.title">
                 <SidebarMenuButton
                     as-child
-                    :is-active="urlIsActive(item.href)"
+                    :is-active="isCurrentUrl(item.href)"
                     :tooltip="item.title"
                 >
                     <Link :href="item.href">
