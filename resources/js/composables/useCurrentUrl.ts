@@ -9,17 +9,28 @@ const currentUrlReactive = computed(
     () => new URL(page.url, window?.location.origin).pathname,
 );
 
-export function useActiveUrl() {
-    function urlIsActive(
+export function useCurrentUrl() {
+    function isCurrentUrl(
         urlToCheck: NonNullable<InertiaLinkProps['href']>,
         currentUrl?: string,
     ) {
         const urlToCompare = currentUrl ?? currentUrlReactive.value;
-        return toUrl(urlToCheck) === urlToCompare;
+        const urlString = toUrl(urlToCheck);
+
+        if (!urlString.startsWith('http')) {
+            return urlString === urlToCompare;
+        }
+
+        try {
+            const absoluteUrl = new URL(urlString);
+            return absoluteUrl.pathname === urlToCompare;
+        } catch {
+            return false;
+        }
     }
 
     return {
         currentUrl: readonly(currentUrlReactive),
-        urlIsActive,
+        isCurrentUrl,
     };
 }
