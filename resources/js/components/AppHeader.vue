@@ -34,7 +34,7 @@ import {
     TooltipTrigger,
 } from '@/components/ui/tooltip';
 import UserMenuContent from '@/components/UserMenuContent.vue';
-import { useActiveUrl } from '@/composables/useActiveUrl';
+import { useCurrentUrl } from '@/composables/useCurrentUrl';
 import { getInitials } from '@/composables/useInitials';
 import { toUrl } from '@/lib/utils';
 import { dashboard } from '@/routes';
@@ -50,10 +50,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 const page = usePage();
 const auth = computed(() => page.props.auth);
-const { urlIsActive } = useActiveUrl();
+const { isCurrentUrl } = useCurrentUrl();
 
 function activeItemStyles(url: NonNullable<InertiaLinkProps['href']>) {
-    return urlIsActive(url)
+    return isCurrentUrl(url)
         ? 'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'
         : '';
 }
@@ -177,7 +177,7 @@ const rightNavItems: NavItem[] = [
                                     {{ item.title }}
                                 </Link>
                                 <div
-                                    v-if="urlIsActive(item.href)"
+                                    v-if="isCurrentUrl(item.href)"
                                     class="absolute bottom-0 left-0 h-0.5 w-full translate-y-px bg-black dark:bg-white"
                                 ></div>
                             </NavigationMenuItem>
