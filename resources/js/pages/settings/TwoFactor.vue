@@ -3,7 +3,7 @@ import { Form, Head } from '@inertiajs/vue3';
 import { ShieldBan, ShieldCheck } from 'lucide-vue-next';
 import { onUnmounted, ref } from 'vue';
 
-import HeadingSmall from '@/components/HeadingSmall.vue';
+import Heading from '@/components/Heading.vue';
 import TwoFactorRecoveryCodes from '@/components/TwoFactorRecoveryCodes.vue';
 import TwoFactorSetupModal from '@/components/TwoFactorSetupModal.vue';
 import { Badge } from '@/components/ui/badge';
@@ -47,7 +47,8 @@ onUnmounted(() => {
 
         <SettingsLayout>
             <div class="space-y-6">
-                <HeadingSmall
+                <Heading
+                    variant="small"
                     title="Two-Factor Authentication"
                     description="Manage your two-factor authentication settings"
                 />
