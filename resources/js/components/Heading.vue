@@ -1,10 +1,7 @@
 <script setup lang="ts">
-interface Props {
-    title: string;
-    description?: string;
-}
+import type { HeadingProps } from '@/types';
 
-defineProps<Props>();
+defineProps<HeadingProps>();
 </script>
 
 <template>
