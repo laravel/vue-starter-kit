@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/vue3';
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { useActiveUrl } from '@/composables/useActiveUrl';
+import { useCurrentUrl } from '@/composables/useCurrentUrl';
 import { toUrl } from '@/lib/utils';
 import { edit as editAppearance } from '@/routes/appearance';
 import { edit as editProfile } from '@/routes/profile';
@@ -31,7 +31,7 @@ const sidebarNavItems: NavItem[] = [
     },
 ];
 
-const { urlIsActive } = useActiveUrl();
+const { isCurrentUrl } = useCurrentUrl();
 </script>
 
 <template>
@@ -53,7 +53,7 @@ const { urlIsActive } = useActiveUrl();
                         variant="ghost"
                         :class="[
                             'w-full justify-start',
-                            { 'bg-muted': urlIsActive(item.href) },
+                            { 'bg-muted': isCurrentUrl(item.href) },
                         ]"
                         as-child
                     >
