@@ -1,5 +1,7 @@
 import { computed, ref } from 'vue';
 
+import type { UseTwoFactorAuthReturn } from '@/types';
+
 import { qrCode, recoveryCodes, secretKey } from '@/routes/two-factor';
 
 const fetchJson = async <T>(url: string): Promise<T> => {
@@ -23,7 +25,7 @@ const hasSetupData = computed<boolean>(
     () => qrCodeSvg.value !== null && manualSetupKey.value !== null,
 );
 
-export const useTwoFactorAuth = () => {
+export const useTwoFactorAuth = (): UseTwoFactorAuthReturn => {
     const fetchQrCode = async (): Promise<void> => {
         try {
             const { svg } = await fetchJson<{ svg: string; url: string }>(

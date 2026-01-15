@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LinkComponentBaseProps, Method } from '@inertiajs/core';
+import type { LinkComponentBaseProps, Method } from '@inertiajs/core';
 import { Link } from '@inertiajs/vue3';
 
 interface Props {
