@@ -9,15 +9,9 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import type { BreadcrumbsProps } from '@/types';
 
-interface BreadcrumbItemType {
-    title: string;
-    href?: string;
-}
-
-defineProps<{
-    breadcrumbs: BreadcrumbItemType[];
-}>();
+defineProps<BreadcrumbsProps>();
 </script>
 
 <template>
