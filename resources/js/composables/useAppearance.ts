@@ -1,9 +1,14 @@
 import { computed, onMounted, ref } from 'vue';
 
-export type ResolvedAppearance = 'light' | 'dark';
-type Appearance = ResolvedAppearance | 'system';
+import type {
+    Appearance,
+    ResolvedAppearance,
+    UseAppearanceReturn,
+} from '@/types';
 
-export function updateTheme(value: Appearance) {
+export type { Appearance, ResolvedAppearance };
+
+export function updateTheme(value: Appearance): void {
     if (typeof window === 'undefined') {
         return;
     }
@@ -63,7 +68,7 @@ const handleSystemThemeChange = () => {
     updateTheme(currentAppearance || 'system');
 };
 
-export function initializeTheme() {
+export function initializeTheme(): void {
     if (typeof window === 'undefined') {
         return;
     }
@@ -78,7 +83,7 @@ export function initializeTheme() {
 
 const appearance = ref<Appearance>('system');
 
-export function useAppearance() {
+export function useAppearance(): UseAppearanceReturn {
     onMounted(() => {
         const savedAppearance = localStorage.getItem(
             'appearance',
