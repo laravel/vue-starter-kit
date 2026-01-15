@@ -3,16 +3,9 @@ import * as icons from 'lucide-vue-next';
 import { computed } from 'vue';
 
 import { cn } from '@/lib/utils';
+import type { IconProps } from '@/types';
 
-interface Props {
-    name: string;
-    class?: string;
-    size?: number | string;
-    color?: string;
-    strokeWidth?: number | string;
-}
-
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<IconProps>(), {
     class: '',
     size: 16,
     strokeWidth: 2,
