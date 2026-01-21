@@ -1,6 +1,5 @@
-import { onMounted, ref } from 'vue';
-
 import type { Appearance, UseAppearanceReturn } from '@/types';
+import { onMounted, ref } from 'vue';
 
 export type { Appearance };
 
