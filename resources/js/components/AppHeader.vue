@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { InertiaLinkProps } from '@inertiajs/vue3';
 import { Link, usePage } from '@inertiajs/vue3';
 import { BookOpen, Folder, LayoutGrid, Menu, Search } from 'lucide-vue-next';
 import { computed } from 'vue';
@@ -50,13 +49,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 const page = usePage();
 const auth = computed(() => page.props.auth);
-const { isCurrentUrl } = useCurrentUrl();
+const { isCurrentUrl, whenCurrentUrl } = useCurrentUrl();
 
-function activeItemStyles(url: NonNullable<InertiaLinkProps['href']>) {
-    return isCurrentUrl(url)
-        ? 'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'
-        : '';
-}
+const activeItemStyles =
+    'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100';
 
 const mainNavItems: NavItem[] = [
     {
@@ -114,7 +110,12 @@ const rightNavItems: NavItem[] = [
                                         :key="item.title"
                                         :href="item.href"
                                         class="flex items-center gap-x-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent"
-                                        :class="activeItemStyles(item.href)"
+                                        :class="
+                                            whenCurrentUrl(
+                                                item.href,
+                                                activeItemStyles,
+                                            )
+                                        "
                                     >
                                         <component
                                             v-if="item.icon"
@@ -164,7 +165,10 @@ const rightNavItems: NavItem[] = [
                                 <Link
                                     :class="[
                                         navigationMenuTriggerStyle(),
-                                        activeItemStyles(item.href),
+                                        whenCurrentUrl(
+                                            item.href,
+                                            activeItemStyles,
+                                        ),
                                         'h-9 cursor-pointer px-3',
                                     ]"
                                     :href="item.href"

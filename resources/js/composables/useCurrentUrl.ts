@@ -23,14 +23,24 @@ export function useCurrentUrl() {
 
         try {
             const absoluteUrl = new URL(urlString);
+
             return absoluteUrl.pathname === urlToCompare;
         } catch {
             return false;
         }
     }
 
+    function whenCurrentUrl(
+        urlToCheck: NonNullable<InertiaLinkProps['href']>,
+        ifTrue: any,
+        ifFalse: any = null,
+    ) {
+        return isCurrentUrl(urlToCheck) ? ifTrue : ifFalse;
+    }
+
     return {
         currentUrl: readonly(currentUrlReactive),
         isCurrentUrl,
+        whenCurrentUrl,
     };
 }
