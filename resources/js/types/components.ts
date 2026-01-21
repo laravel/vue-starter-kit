@@ -4,6 +4,7 @@ import type { BreadcrumbItem } from './navigation';
 export interface HeadingProps {
     title: string;
     description?: string;
+    variant?: 'default' | 'small';
 }
 
 export interface UserInfoProps {
@@ -18,12 +19,4 @@ export interface BreadcrumbsProps {
 export interface AlertErrorProps {
     errors: string[];
     title?: string;
-}
-
-export interface IconProps {
-    name: string;
-    class?: string;
-    size?: number | string;
-    color?: string;
-    strokeWidth?: number | string;
 }

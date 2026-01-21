@@ -1,11 +1,7 @@
 <script setup lang="ts">
-interface Props {
-    title: string;
-    description?: string;
-    variant?: 'default' | 'small';
-}
+import type { HeadingProps } from '@/types';
 
-withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<HeadingProps>(), {
     variant: 'default',
 });
 </script>
