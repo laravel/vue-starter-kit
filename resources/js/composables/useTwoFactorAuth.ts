@@ -1,7 +1,6 @@
-import { computed, ref } from 'vue';
-
 import { qrCode, recoveryCodes, secretKey } from '@/routes/two-factor';
 import type { UseTwoFactorAuthReturn } from '@/types';
+import { computed, ref } from 'vue';
 
 const fetchJson = async <T>(url: string): Promise<T> => {
     const response = await fetch(url, {

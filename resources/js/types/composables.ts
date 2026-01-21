@@ -1,6 +1,5 @@
 import type { InertiaLinkProps } from '@inertiajs/vue3';
 import type { ComputedRef, DeepReadonly, Ref } from 'vue';
-
 import type { Appearance, ResolvedAppearance } from './ui';
 
 export type UseCurrentUrlReturn = {
