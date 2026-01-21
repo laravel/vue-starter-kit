@@ -1,11 +1,14 @@
-import type {
-    Appearance,
-    ResolvedAppearance,
-    UseAppearanceReturn,
-} from '@/types';
+import type { Appearance, ResolvedAppearance } from '@/types';
+import type { ComputedRef, Ref } from 'vue';
 import { computed, onMounted, ref } from 'vue';
 
 export type { Appearance, ResolvedAppearance };
+
+export type UseAppearanceReturn = {
+    appearance: Ref<Appearance>;
+    resolvedAppearance: ComputedRef<ResolvedAppearance>;
+    updateAppearance: (value: Appearance) => void;
+};
 
 export function updateTheme(value: Appearance): void {
     if (typeof window === 'undefined') {
