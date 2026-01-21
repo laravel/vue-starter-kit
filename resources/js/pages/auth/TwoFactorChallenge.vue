@@ -12,20 +12,15 @@ import {
 } from '@/components/ui/input-otp';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { store } from '@/routes/two-factor/login';
+import type { TwoFactorConfigContent } from '@/types';
 
-interface AuthConfigContent {
-    title: string;
-    description: string;
-    toggleText: string;
-}
-
-const authConfigContent = computed<AuthConfigContent>(() => {
+const authConfigContent = computed<TwoFactorConfigContent>(() => {
     if (showRecoveryInput.value) {
         return {
             title: 'Recovery Code',
             description:
                 'Please confirm access to your account by entering one of your emergency recovery codes.',
-            toggleText: 'login using an authentication code',
+            buttonText: 'login using an authentication code',
         };
     }
 
@@ -33,7 +28,7 @@ const authConfigContent = computed<AuthConfigContent>(() => {
         title: 'Authentication Code',
         description:
             'Enter the authentication code provided by your authenticator application.',
-        toggleText: 'login using a recovery code',
+        buttonText: 'login using a recovery code',
     };
 });
 
@@ -97,7 +92,7 @@ const code = ref<string>('');
                             class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
                             @click="() => toggleRecoveryMode(clearErrors)"
                         >
-                            {{ authConfigContent.toggleText }}
+                            {{ authConfigContent.buttonText }}
                         </button>
                     </div>
                 </Form>
@@ -129,7 +124,7 @@ const code = ref<string>('');
                             class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
                             @click="() => toggleRecoveryMode(clearErrors)"
                         >
-                            {{ authConfigContent.toggleText }}
+                            {{ authConfigContent.buttonText }}
                         </button>
                     </div>
                 </Form>

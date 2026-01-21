@@ -3,29 +3,25 @@ import type { ComputedRef, DeepReadonly, Ref } from 'vue';
 
 import type { Appearance, ResolvedAppearance } from './ui';
 
-// useActiveUrl return type
-export interface UseActiveUrlReturn {
+export type UseActiveUrlReturn = {
     currentUrl: DeepReadonly<ComputedRef<string>>;
     urlIsActive: (
         urlToCheck: NonNullable<InertiaLinkProps['href']>,
         currentUrl?: string,
     ) => boolean;
-}
+};
 
-// useAppearance return type
-export interface UseAppearanceReturn {
+export type UseAppearanceReturn = {
     appearance: Ref<Appearance>;
     resolvedAppearance: ComputedRef<ResolvedAppearance>;
     updateAppearance: (value: Appearance) => void;
-}
+};
 
-// useInitials return type
-export interface UseInitialsReturn {
+export type UseInitialsReturn = {
     getInitials: (fullName?: string) => string;
-}
+};
 
-// useTwoFactorAuth return type
-export interface UseTwoFactorAuthReturn {
+export type UseTwoFactorAuthReturn = {
     qrCodeSvg: Ref<string | null>;
     manualSetupKey: Ref<string | null>;
     recoveryCodesList: Ref<string[]>;
@@ -38,4 +34,4 @@ export interface UseTwoFactorAuthReturn {
     fetchSetupKey: () => Promise<void>;
     fetchSetupData: () => Promise<void>;
     fetchRecoveryCodes: () => Promise<void>;
-}
+};

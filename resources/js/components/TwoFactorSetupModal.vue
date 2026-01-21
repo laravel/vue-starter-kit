@@ -23,6 +23,7 @@ import { Spinner } from '@/components/ui/spinner';
 import { useAppearance } from '@/composables/useAppearance';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
+import type { TwoFactorConfigContent } from '@/types';
 
 interface Props {
     requiresConfirmation: boolean;
@@ -43,11 +44,7 @@ const code = ref<string>('');
 
 const pinInputContainerRef = useTemplateRef('pinInputContainerRef');
 
-const modalConfig = computed<{
-    title: string;
-    description: string;
-    buttonText: string;
-}>(() => {
+const modalConfig = computed<TwoFactorConfigContent>(() => {
     if (props.twoFactorEnabled) {
         return {
             title: 'Two-Factor Authentication Enabled',

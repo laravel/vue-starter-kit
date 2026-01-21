@@ -3,9 +3,14 @@ import { computed } from 'vue';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useInitials } from '@/composables/useInitials';
-import type { UserInfoProps } from '@/types';
+import type { User } from '@/types';
 
-const props = withDefaults(defineProps<UserInfoProps>(), {
+interface Props {
+    user: User;
+    showEmail?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
     showEmail: false,
 });
 
