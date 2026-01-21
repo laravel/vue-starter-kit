@@ -3,13 +3,14 @@ import { usePage } from '@inertiajs/vue3';
 import { computed, readonly } from 'vue';
 
 import { toUrl } from '@/lib/utils';
+import type { UseCurrentUrlReturn } from '@/types';
 
 const page = usePage();
 const currentUrlReactive = computed(
     () => new URL(page.url, window?.location.origin).pathname,
 );
 
-export function useCurrentUrl() {
+export function useCurrentUrl(): UseCurrentUrlReturn {
     function isCurrentUrl(
         urlToCheck: NonNullable<InertiaLinkProps['href']>,
         currentUrl?: string,

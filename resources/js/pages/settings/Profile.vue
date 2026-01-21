@@ -13,9 +13,9 @@ import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit } from '@/routes/profile';
 import { type BreadcrumbItem } from '@/types';
 
-interface Props {
+type Props = {
     status?: string;
-}
+};
 
 defineProps<Props>();
 

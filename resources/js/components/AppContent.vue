@@ -3,10 +3,10 @@ import { computed } from 'vue';
 
 import { SidebarInset } from '@/components/ui/sidebar';
 
-interface Props {
+type Props = {
     variant?: 'header' | 'sidebar';
     class?: string;
-}
+};
 
 const props = defineProps<Props>();
 const className = computed(() => props.class);

@@ -2,12 +2,12 @@
 import type { LinkComponentBaseProps, Method } from '@inertiajs/core';
 import { Link } from '@inertiajs/vue3';
 
-interface Props {
+type Props = {
     href: LinkComponentBaseProps['href'];
     tabindex?: number;
     method?: Method;
     as?: string;
-}
+};
 
 defineProps<Props>();
 </script>

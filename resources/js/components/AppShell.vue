@@ -4,9 +4,9 @@ import { usePage } from '@inertiajs/vue3';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import type { AppShellVariant } from '@/types';
 
-interface Props {
+type Props = {
     variant?: AppShellVariant;
-}
+};
 
 defineProps<Props>();
 

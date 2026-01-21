@@ -1,6 +1,15 @@
 import { createContext } from "reka-ui"
+import type { ComputedRef, Ref } from 'vue';
 
-import type { SidebarContext } from '@/types';
+export type SidebarContext = {
+    state: ComputedRef<'expanded' | 'collapsed'>;
+    open: Ref<boolean>;
+    setOpen: (value: boolean) => void;
+    isMobile: Ref<boolean>;
+    openMobile: Ref<boolean>;
+    setOpenMobile: (value: boolean) => void;
+    toggleSidebar: () => void;
+};
 
 export const SIDEBAR_COOKIE_NAME = "sidebar_state"
 export const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
