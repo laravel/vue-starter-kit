@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3';
-
 import { dashboard, login } from '@/routes';
+import { Head, Link } from '@inertiajs/vue3';
 
 withDefaults(
     defineProps<{

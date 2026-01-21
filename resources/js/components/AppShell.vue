@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { SidebarProvider } from '@/components/ui/sidebar';
+import type { AppShellVariant } from '@/types';
 import { usePage } from '@inertiajs/vue3';
 
-import { SidebarProvider } from '@/components/ui/sidebar';
-
-interface Props {
-    variant?: 'header' | 'sidebar';
-}
+type Props = {
+    variant?: AppShellVariant;
+};
 
 defineProps<Props>();
 

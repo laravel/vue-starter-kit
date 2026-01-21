@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { Link, usePage } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid, Menu, Search } from 'lucide-vue-next';
-import { computed } from 'vue';
-
 import AppLogo from '@/components/AppLogo.vue';
 import AppLogoIcon from '@/components/AppLogoIcon.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
@@ -38,10 +34,13 @@ import { getInitials } from '@/composables/useInitials';
 import { toUrl } from '@/lib/utils';
 import { dashboard } from '@/routes';
 import type { BreadcrumbItem, NavItem } from '@/types';
+import { Link, usePage } from '@inertiajs/vue3';
+import { BookOpen, Folder, LayoutGrid, Menu, Search } from 'lucide-vue-next';
+import { computed } from 'vue';
 
-interface Props {
+type Props = {
     breadcrumbs?: BreadcrumbItem[];
-}
+};
 
 const props = withDefaults(defineProps<Props>(), {
     breadcrumbs: () => [],

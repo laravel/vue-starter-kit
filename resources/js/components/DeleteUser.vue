@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Form } from '@inertiajs/vue3';
-
 import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
@@ -14,6 +12,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog';
+import { Form } from '@inertiajs/vue3';
 </script>
 
 <template>
