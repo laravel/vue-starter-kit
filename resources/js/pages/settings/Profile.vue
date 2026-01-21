@@ -14,10 +14,10 @@ import { edit } from '@/routes/profile';
 import { send } from '@/routes/verification';
 import { type BreadcrumbItem } from '@/types';
 
-interface Props {
+type Props = {
     mustVerifyEmail: boolean;
     status?: string;
-}
+};
 
 defineProps<Props>();
 

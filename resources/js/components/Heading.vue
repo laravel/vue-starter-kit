@@ -1,9 +1,9 @@
 <script setup lang="ts">
-interface Props {
+type Props = {
     title: string;
     description?: string;
     variant?: 'default' | 'small';
-}
+};
 
 withDefaults(defineProps<Props>(), {
     variant: 'default',

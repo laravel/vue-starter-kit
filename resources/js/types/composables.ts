@@ -3,12 +3,17 @@ import type { ComputedRef, DeepReadonly, Ref } from 'vue';
 
 import type { Appearance, ResolvedAppearance } from './ui';
 
-export type UseActiveUrlReturn = {
+export type UseCurrentUrlReturn = {
     currentUrl: DeepReadonly<ComputedRef<string>>;
-    urlIsActive: (
+    isCurrentUrl: (
         urlToCheck: NonNullable<InertiaLinkProps['href']>,
         currentUrl?: string,
     ) => boolean;
+    whenCurrentUrl: <T, F = null>(
+        urlToCheck: NonNullable<InertiaLinkProps['href']>,
+        ifTrue: T,
+        ifFalse?: F,
+    ) => T | F;
 };
 
 export type UseAppearanceReturn = {

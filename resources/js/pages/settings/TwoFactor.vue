@@ -14,10 +14,10 @@ import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { disable, enable, show } from '@/routes/two-factor';
 import type { BreadcrumbItem } from '@/types';
 
-interface Props {
+type Props = {
     requiresConfirmation?: boolean;
     twoFactorEnabled?: boolean;
-}
+};
 
 withDefaults(defineProps<Props>(), {
     requiresConfirmation: false,

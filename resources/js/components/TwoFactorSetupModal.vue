@@ -25,10 +25,10 @@ import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
 import type { TwoFactorConfigContent } from '@/types';
 
-interface Props {
+type Props = {
     requiresConfirmation: boolean;
     twoFactorEnabled: boolean;
-}
+};
 
 const { resolvedAppearance } = useAppearance();
 

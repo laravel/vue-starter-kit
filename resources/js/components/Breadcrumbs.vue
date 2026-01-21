@@ -11,9 +11,9 @@ import {
 } from '@/components/ui/breadcrumb';
 import type { BreadcrumbItem as BreadcrumbItemType } from '@/types';
 
-interface Props {
+type Props = {
     breadcrumbs: BreadcrumbItemType[];
-}
+};
 
 defineProps<Props>();
 </script>
