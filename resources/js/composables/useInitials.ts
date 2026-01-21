@@ -1,4 +1,6 @@
-import type { UseInitialsReturn } from '@/types';
+export type UseInitialsReturn = {
+    getInitials: (fullName?: string) => string;
+};
 
 export function getInitials(fullName?: string): string {
     if (!fullName) return '';

@@ -1,7 +1,13 @@
-import type { Appearance, UseAppearanceReturn } from '@/types';
+import type { Appearance } from '@/types';
+import type { Ref } from 'vue';
 import { onMounted, ref } from 'vue';
 
 export type { Appearance };
+
+export type UseAppearanceReturn = {
+    appearance: Ref<Appearance>;
+    updateAppearance: (value: Appearance) => void;
+};
 
 export function updateTheme(value: Appearance): void {
     if (typeof window === 'undefined') {
