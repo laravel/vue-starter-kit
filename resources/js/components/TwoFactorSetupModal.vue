@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { Form } from '@inertiajs/vue3';
+import { useClipboard } from '@vueuse/core';
+import { Check, Copy, ScanLine } from 'lucide-vue-next';
+import { computed, nextTick, ref, useTemplateRef, watch } from 'vue';
 import AlertError from '@/components/AlertError.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
@@ -19,10 +23,6 @@ import { useAppearance } from '@/composables/useAppearance';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
 import type { TwoFactorConfigContent } from '@/types';
-import { Form } from '@inertiajs/vue3';
-import { useClipboard } from '@vueuse/core';
-import { Check, Copy, ScanLine } from 'lucide-vue-next';
-import { computed, nextTick, ref, useTemplateRef, watch } from 'vue';
 
 type Props = {
     requiresConfirmation: boolean;
