@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Form, Head, usePage } from '@inertiajs/vue3';
 import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
 import DeleteUser from '@/components/DeleteUser.vue';
 import Heading from '@/components/Heading.vue';
@@ -10,7 +11,6 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit } from '@/routes/profile';
 import { type BreadcrumbItem } from '@/types';
-import { Form, Head, usePage } from '@inertiajs/vue3';
 
 type Props = {
     status?: string;
