@@ -1,6 +1,6 @@
-import type { Appearance } from '@/types';
 import type { Ref } from 'vue';
 import { onMounted, ref } from 'vue';
+import type { Appearance } from '@/types';
 
 export type { Appearance };
 
