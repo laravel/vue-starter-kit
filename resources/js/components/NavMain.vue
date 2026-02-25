@@ -8,7 +8,7 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { useCurrentUrl } from '@/composables/useCurrentUrl';
-import { type NavItem } from '@/types';
+import type { NavItem } from '@/types';
 
 defineProps<{
     items: NavItem[];
