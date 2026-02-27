@@ -21,7 +21,7 @@ const sidebarNavItems: NavItem[] = [
         href: editPassword(),
     },
     {
-        title: 'Two-Factor Auth',
+        title: 'Two-factor auth',
         href: show(),
     },
     {
@@ -30,7 +30,7 @@ const sidebarNavItems: NavItem[] = [
     },
 ];
 
-const { isCurrentUrl } = useCurrentUrl();
+const { isCurrentOrParentUrl } = useCurrentUrl();
 </script>
 
 <template>
@@ -52,7 +52,7 @@ const { isCurrentUrl } = useCurrentUrl();
                         variant="ghost"
                         :class="[
                             'w-full justify-start',
-                            { 'bg-muted': isCurrentUrl(item.href) },
+                            { 'bg-muted': isCurrentOrParentUrl(item.href) },
                         ]"
                         as-child
                     >

@@ -93,7 +93,7 @@ const rightNavItems: NavItem[] = [
                         </SheetTrigger>
                         <SheetContent side="left" class="w-[300px] p-6">
                             <SheetTitle class="sr-only"
-                                >Navigation Menu</SheetTitle
+                                >Navigation menu</SheetTitle
                             >
                             <SheetHeader class="flex justify-start text-left">
                                 <AppLogoIcon

@@ -44,7 +44,7 @@ import { store } from '@/routes/password/confirm';
                         data-test="confirm-password-button"
                     >
                         <Spinner v-if="processing" />
-                        Confirm Password
+                        Confirm password
                     </Button>
                 </div>
             </div>
