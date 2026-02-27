@@ -8,7 +8,9 @@
         "dev": "vite",
         "format": "prettier --write resources/",
         "format:check": "prettier --check resources/",
-        "lint": "eslint . --fix"
+        "lint": "eslint . --fix",
+        "lint:check": "eslint .",
+        "types:check": "vue-tsc --noEmit"
     },
     "devDependencies": {
         "@eslint/js": "^9.19.0",
