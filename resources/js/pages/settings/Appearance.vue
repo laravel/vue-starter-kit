@@ -19,7 +19,7 @@ const breadcrumbItems: BreadcrumbItem[] = [
     <AppLayout :breadcrumbs="breadcrumbItems">
         <Head title="Appearance settings" />
 
-        <h1 class="sr-only">Appearance Settings</h1>
+        <h1 class="sr-only">Appearance settings</h1>
 
         <SettingsLayout>
             <div class="space-y-6">

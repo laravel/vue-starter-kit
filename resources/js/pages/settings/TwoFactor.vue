@@ -25,7 +25,7 @@ withDefaults(defineProps<Props>(), {
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Two-Factor Authentication',
+        title: 'Two-factor authentication',
         href: show(),
     },
 ];
@@ -40,15 +40,15 @@ onUnmounted(() => {
 
 <template>
     <AppLayout :breadcrumbs="breadcrumbs">
-        <Head title="Two-Factor Authentication" />
+        <Head title="Two-factor authentication" />
 
-        <h1 class="sr-only">Two-Factor Authentication Settings</h1>
+        <h1 class="sr-only">Two-factor authentication settings</h1>
 
         <SettingsLayout>
             <div class="space-y-6">
                 <Heading
                     variant="small"
-                    title="Two-Factor Authentication"
+                    title="Two-factor authentication"
                     description="Manage your two-factor authentication settings"
                 />
 
@@ -70,7 +70,7 @@ onUnmounted(() => {
                             v-if="hasSetupData"
                             @click="showSetupModal = true"
                         >
-                            <ShieldCheck />Continue Setup
+                            <ShieldCheck />Continue setup
                         </Button>
                         <Form
                             v-else

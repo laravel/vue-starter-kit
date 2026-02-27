@@ -61,7 +61,7 @@ const inputEmail = ref(props.email);
 
                 <div class="grid gap-2">
                     <Label for="password_confirmation">
-                        Confirm Password
+                        Confirm password
                     </Label>
                     <Input
                         id="password_confirmation"
