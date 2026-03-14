@@ -8,3 +8,6 @@
 
 CHANGELOG.md export-ignore
 README.md export-ignore
+.opencode/ export-ignore
+.claude/ export-ignore
+.starter-kit/ export-ignore
