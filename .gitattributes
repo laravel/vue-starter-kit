@@ -11,3 +11,4 @@ README.md export-ignore
 .opencode/ export-ignore
 .claude/ export-ignore
 .starter-kit/ export-ignore
+agents/ export-ignore
