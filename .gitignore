@@ -27,3 +27,4 @@ yarn-error.log
 /.vscode
 /.zed
 /agents
+/.claude/settings.local.json

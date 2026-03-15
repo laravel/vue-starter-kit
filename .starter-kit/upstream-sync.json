@@ -1,7 +1,1122 @@
 {
 	"version": 1,
 	"upstream": "laravel/vue-starter-kit",
-	"lastCheckedAt": null,
+	"lastCheckedAt": "2026-03-15T00:00:00Z",
 	"downstreamRepos": [],
-	"prs": {}
+	"prs": {
+		"108": {
+			"status": "skipped",
+			"title": "Adding the intertia config to use lowercase pages",
+			"upstreamMergedAt": "2025-06-05T19:44:58Z",
+			"reason": "already-covered — fork already has config/inertia.php with lowercase pages path",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/108"
+		},
+		"123": {
+			"status": "skipped",
+			"title": "fix: the concurrently command does not close all related processes on exit signal (CTRL + C)",
+			"upstreamMergedAt": "2025-06-05T19:16:59Z",
+			"reason": "already-covered — fork already has --kill-others flag in composer.json",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/123"
+		},
+		"127": {
+			"status": "skipped",
+			"title": "Fix various TypeScript issues, simplify ziggy-js integration and shared props usage",
+			"upstreamMergedAt": "2025-06-05T20:37:49Z",
+			"reason": "not-applicable — fork uses Wayfinder instead of Ziggy, different architecture",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/127"
+		},
+		"129": {
+			"status": "skipped",
+			"title": "Move appearance ref definition outside useAppearance()",
+			"upstreamMergedAt": "2025-06-05T19:37:35Z",
+			"reason": "already-covered — fork already has appearance ref as singleton outside function",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/129"
+		},
+		"137": {
+			"status": "skipped",
+			"title": "ui: fix AppHeader menu item",
+			"upstreamMergedAt": "2025-06-05T19:37:14Z",
+			"reason": "already-covered — fork already has Link without redundant NavigationMenuLink wrapper",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/137"
+		},
+		"138": {
+			"status": "skipped",
+			"title": "Remove nested submit button",
+			"upstreamMergedAt": "2025-06-05T19:36:54Z",
+			"reason": "already-covered — fork already has correct Button with type=submit, no nested button",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/138"
+		},
+		"140": {
+			"status": "skipped",
+			"title": "Update app.ts",
+			"upstreamMergedAt": "2025-06-05T19:36:39Z",
+			"reason": "already-covered — fork has same logic in resolveTitle function",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/140"
+		},
+		"141": {
+			"status": "skipped",
+			"title": "Fix logo line height",
+			"upstreamMergedAt": "2025-06-05T19:35:48Z",
+			"reason": "already-covered — fork already has leading-tight in AppLogo.vue",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/141"
+		},
+		"143": {
+			"status": "skipped",
+			"title": "Fix layout margin issue when sidebar is collapsed, after override by recent update",
+			"upstreamMergedAt": "2025-06-05T19:45:28Z",
+			"reason": "already-covered — fork already has ml-0 when sidebar is collapsed",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/143"
+		},
+		"144": {
+			"status": "skipped",
+			"title": "Remove redundant @layer base from app.css",
+			"upstreamMergedAt": "2025-06-05T19:35:37Z",
+			"reason": "not-applicable — fork has two distinct @layer base blocks, no redundancy",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/144"
+		},
+		"146": {
+			"status": "skipped",
+			"title": "fix: handle conflicting variable with same name",
+			"upstreamMergedAt": "2025-06-05T19:35:12Z",
+			"reason": "already-covered — fork imports BreadcrumbItem from @/types (better solution)",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/146"
+		},
+		"149": {
+			"status": "skipped",
+			"title": "Fix overflow-x on AppContent",
+			"upstreamMergedAt": "2025-07-04T11:59:18Z",
+			"reason": "already-covered — fork has overflow-x-hidden on AppContent and overflow-x-auto on Dashboard",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/149"
+		},
+		"150": {
+			"status": "skipped",
+			"title": "chore: make consistent breadcrumbItems variable name",
+			"upstreamMergedAt": "2025-07-04T11:59:32Z",
+			"reason": "cosmetic — variable naming consistency, low priority",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/150"
+		},
+		"152": {
+			"status": "skipped",
+			"title": "Enhance dynamic page title generation with fallback to app name",
+			"upstreamMergedAt": "2025-07-04T12:01:19Z",
+			"reason": "already-covered — fork already has title fallback logic in resolveTitle",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/152"
+		},
+		"153": {
+			"status": "skipped",
+			"title": "Update app.css - add missing `hsl()`",
+			"upstreamMergedAt": "2025-07-04T11:58:44Z",
+			"reason": "already-covered — fork already has hsl() wrapper for popover-foreground",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/153"
+		},
+		"154": {
+			"status": "skipped",
+			"title": "fix: augment 'vue' instead of '@vue/runtime-core'",
+			"upstreamMergedAt": "2025-07-04T11:58:28Z",
+			"reason": "already-covered — fork already uses declare module 'vue'",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/154"
+		},
+		"156": {
+			"status": "skipped",
+			"title": "Simplify vite.config.ts by removing the \"duplicate\" @ alias",
+			"upstreamMergedAt": "2025-07-04T11:58:03Z",
+			"reason": "already-covered — fork's vite.config.ts already simplified without alias",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/156"
+		},
+		"158": {
+			"status": "pending",
+			"title": "Fix: Fix PHPStan error by chaining Stringable methods for email+IP",
+			"upstreamMergedAt": "2025-08-21T15:07:15Z",
+			"reason": "low-priority — fork could adopt Stringable chaining in LoginRequest throttleKey() but not critical",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/158"
+		},
+		"159": {
+			"status": "pending",
+			"title": "Add throttle to authed password routes",
+			"upstreamMergedAt": "2025-07-24T17:54:23Z",
+			"adaptationNotes": "Adds throttle:6,1 to password confirmation and password update routes. Security improvement. Simple backport.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/159"
+		},
+		"160": {
+			"status": "pending",
+			"title": "Refactor `VerifyEmailController` to use `fulfill()`",
+			"upstreamMergedAt": "2025-07-24T17:50:07Z",
+			"adaptationNotes": "Simple refactor - replace markEmailAsVerified() with $request->fulfill(). No Data class adaptation needed.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/160"
+		},
+		"162": {
+			"status": "skipped",
+			"title": "Use `vue/server-renderer` instead of `@vue/server-renderer` for SSR",
+			"upstreamMergedAt": "2025-07-24T17:53:22Z",
+			"reason": "already-covered — fork already imports from vue/server-renderer",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/162"
+		},
+		"163": {
+			"status": "skipped",
+			"title": "Upgrade Vite to v7",
+			"upstreamMergedAt": "2025-07-24T23:03:48Z",
+			"reason": "already-covered — fork already has Vite 7",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/163"
+		},
+		"164": {
+			"status": "skipped",
+			"title": "fix: add cva in tailwindFunctions for prettier class sorting",
+			"upstreamMergedAt": "2025-07-24T17:55:30Z",
+			"reason": "already-covered — fork has cva in tailwindFunctions",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/164"
+		},
+		"165": {
+			"status": "skipped",
+			"title": "Update Settings Layout- Remove y spacing and update break for Separator",
+			"upstreamMergedAt": "2025-07-24T17:55:01Z",
+			"reason": "already-covered — fork has correct layout spacing",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/165"
+		},
+		"166": {
+			"status": "skipped",
+			"title": "Use `tsx` flag instead of `typescript`",
+			"upstreamMergedAt": "2025-07-24T17:53:03Z",
+			"reason": "already-covered — fork's components.json already has tsx: true",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/166"
+		},
+		"170": {
+			"status": "pending",
+			"title": "Remove TSX from components.json",
+			"upstreamMergedAt": "2025-08-14T15:45:00Z",
+			"reason": "conflicting — PR removes tsx, but fork (and #166) added it. Fork's current state with tsx is correct.",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/170"
+		},
+		"173": {
+			"status": "pending",
+			"title": "Migrate `useForm` to new Inertia `Form` component",
+			"upstreamMergedAt": "2025-08-15T19:21:32Z",
+			"adaptationNotes": "Migrates from useForm to Form component (Inertia v2 feature). Reduces boilerplate. Should work with Data classes.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/173"
+		},
+		"175": {
+			"status": "skipped",
+			"title": "Standardise function usage",
+			"upstreamMergedAt": "2025-08-21T15:03:32Z",
+			"reason": "cosmetic — code style standardization",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/175"
+		},
+		"176": {
+			"status": "pending",
+			"title": "Add Two Factor Authentication for Vue Starter Kit",
+			"upstreamMergedAt": "2025-09-10T13:55:18Z",
+			"adaptationNotes": "HIGH-RISK: Large PR (5253 lines). Adds Fortify-based 2FA. Must adapt all FormRequests to Data classes, integrate with existing auth architecture. Consider backporting after Login/Registration PRs.",
+			"confidence": "low",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/176"
+		},
+		"178": {
+			"status": "skipped",
+			"title": "Replace Ziggy with Wayfinder",
+			"upstreamMergedAt": "2025-08-25T14:31:41Z",
+			"reason": "already-covered — fork already uses Wayfinder",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/178"
+		},
+		"179": {
+			"status": "skipped",
+			"title": "Fix password input focus error",
+			"upstreamMergedAt": "2025-08-21T19:23:38Z",
+			"reason": "not-needed — fork uses different (possibly better) approach via form element",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/179"
+		},
+		"180": {
+			"status": "pending",
+			"title": "Remove obsolete page props cast",
+			"upstreamMergedAt": "2025-08-22T13:36:20Z",
+			"adaptationNotes": "Remove 'as User' type casts since types are inferred from page props. Simple cleanup.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/180"
+		},
+		"182": {
+			"status": "pending",
+			"title": "test: Add missing feature tests to ensure 100% coverage in starter kit",
+			"upstreamMergedAt": "2025-08-25T13:56:10Z",
+			"adaptationNotes": "Adds missing test coverage for auth flows. Review and adapt tests for fork's Data class architecture.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/182"
+		},
+		"183": {
+			"status": "pending",
+			"title": "Import full Wayfinder controllers for clarity",
+			"upstreamMergedAt": "2025-08-26T13:14:20Z",
+			"adaptationNotes": "Change from destructured imports to namespace imports (e.g., ProfileController.destroy instead of destroy). Improves code clarity.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/183"
+		},
+		"184": {
+			"status": "pending",
+			"title": "Use Named Routes for Tests",
+			"upstreamMergedAt": "2025-08-27T15:05:55Z",
+			"adaptationNotes": "Adds route names to POST endpoints and updates tests to use route() helper instead of hard-coded URLs. Best practice.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/184"
+		},
+		"185": {
+			"status": "pending",
+			"title": "Fix active state logic for sidebar menu items",
+			"upstreamMergedAt": "2025-09-02T16:23:19Z",
+			"adaptationNotes": "Adds urlIsActive() and toUrl() helpers to lib/utils.ts for better URL handling in navigation. Improves active state detection.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/185"
+		},
+		"186": {
+			"status": "pending",
+			"title": "Test Improvements",
+			"upstreamMergedAt": "2025-09-02T15:43:37Z",
+			"adaptationNotes": "Improves test quality: uses RateLimiter::increment for rate limit tests, adds Event::fake() assertions, uses factory()->unverified() pattern.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/186"
+		},
+		"187": {
+			"status": "pending",
+			"title": "Integrate PestPHP 4 Browser Tests",
+			"upstreamMergedAt": "2025-09-12T15:11:36Z",
+			"reason": "browser-tests — adds Pest browser testing, defer decision until user wants browser tests",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/187"
+		},
+		"188": {
+			"status": "pending",
+			"title": "Standardise routes name across starter kits",
+			"upstreamMergedAt": "2025-09-15T16:37:10Z",
+			"reason": "route-names — changes appearance to appearance.edit. Review if route naming matters",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/188"
+		},
+		"191": {
+			"status": "pending",
+			"title": "Add an error state in `useTwoFactorAuth.ts`",
+			"upstreamMergedAt": "2025-09-19T13:40:39Z",
+			"reason": "fortify-2fa — covered by PR #176 (2FA integration)",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/191"
+		},
+		"192": {
+			"status": "pending",
+			"title": "Update .gitattributes",
+			"upstreamMergedAt": "2025-09-12T15:37:48Z",
+			"reason": "cosmetic — gitattributes update",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/192"
+		},
+		"193": {
+			"status": "pending",
+			"title": "Bump dependencies to solve npm audit issues",
+			"upstreamMergedAt": "2025-09-15T16:32:24Z",
+			"reason": "dependencies — security updates (axios, vite). Fork should run npm audit and update independently",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/193"
+		},
+		"194": {
+			"status": "skipped",
+			"title": "Correct LoginRequest retrieved user type to allow null",
+			"upstreamMergedAt": "2025-09-15T16:57:51Z",
+			"reason": "already-covered — fork's LoginRequest Data class likely handles this correctly",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/194"
+		},
+		"195": {
+			"status": "skipped",
+			"title": "Update eslint.config.js",
+			"upstreamMergedAt": "2025-09-15T18:14:41Z",
+			"reason": "eslint-config — fork may have different config, low priority",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/195"
+		},
+		"196": {
+			"status": "pending",
+			"title": "Use and show the icon in the sidebarNavItems in the settings sidebar",
+			"upstreamMergedAt": "2025-09-18T14:04:59Z",
+			"adaptationNotes": "Adds icons to settings sidebar navigation items. Nice visual enhancement - shows icon component next to menu text.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/196"
+		},
+		"197": {
+			"status": "skipped",
+			"title": "Change Prettier print width from 150 to 80",
+			"upstreamMergedAt": "2025-09-18T16:49:47Z",
+			"reason": "code-style — user preference, fork uses 150 (keep as-is)",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/197"
+		},
+		"199": {
+			"status": "pending",
+			"title": "Add data-test attribute to sidebar menu button for testing",
+			"upstreamMergedAt": "2025-09-24T14:13:19Z",
+			"reason": "testing — adds data-test attributes for browser tests, covered by #187 if needed",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/199"
+		},
+		"200": {
+			"status": "pending",
+			"title": "Update preview",
+			"upstreamMergedAt": "2025-09-29T18:25:24Z",
+			"reason": "cosmetic — preview image update",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/200"
+		},
+		"201": {
+			"status": "pending",
+			"title": "Replace Login and Logout by replacing it with fortify",
+			"upstreamMergedAt": "2025-10-13T19:10:50Z",
+			"adaptationNotes": "HIGH-RISK: Foundation PR for Fortify integration. Replaces custom login with Fortify. Must adapt to use Data classes instead of FormRequests. Start here for Fortify adoption.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/201"
+		},
+		"202": {
+			"status": "pending",
+			"title": "Refactor the UserFactory to include withoutTwoFactor method",
+			"upstreamMergedAt": "2025-10-03T16:13:30Z",
+			"reason": "fortify-2fa — covered by PR #176 (2FA integration)",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/202"
+		},
+		"204": {
+			"status": "pending",
+			"title": "Update composer.json",
+			"upstreamMergedAt": "2025-10-09T13:27:01Z",
+			"reason": "dependencies — matches laravel/laravel composer.json, fork may differ",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/204"
+		},
+		"205": {
+			"status": "skipped",
+			"title": "Fix optionalDependencies for windows",
+			"upstreamMergedAt": "2025-10-13T16:46:54Z",
+			"reason": "platform-specific — adds win32 lightningcss dependencies for Windows users",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/205"
+		},
+		"206": {
+			"status": "pending",
+			"title": "Replace email verification with fortify",
+			"upstreamMergedAt": "2025-10-13T19:11:24Z",
+			"adaptationNotes": "Depends on PR #201. Replaces custom email verification with Fortify. Adapt to Data class pattern.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/206"
+		},
+		"207": {
+			"status": "pending",
+			"title": "Replace reset password with fortify",
+			"upstreamMergedAt": "2025-10-13T19:23:27Z",
+			"adaptationNotes": "Depends on PR #201. Replaces password reset with Fortify. Route name conflict noted: renames 'password.update' to 'user-password.update'. Adapt to Data classes.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/207"
+		},
+		"208": {
+			"status": "pending",
+			"title": "Replace register with fortify",
+			"upstreamMergedAt": "2025-10-20T14:42:33Z",
+			"adaptationNotes": "Depends on PRs #201, #206, #207. Completes Fortify auth migration. Adapt registration to Data classes.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/208"
+		},
+		"209": {
+			"status": "pending",
+			"title": "fix typo in User model hidden attributes",
+			"upstreamMergedAt": "2025-10-12T06:54:14Z",
+			"reason": "fortify-2fa — typo in 2FA field name, covered by PR #176",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/209"
+		},
+		"210": {
+			"status": "skipped",
+			"title": "chore: remove unwanted hash::make from factory",
+			"upstreamMergedAt": "2025-10-13T16:31:47Z",
+			"adaptationNotes": "Remove unnecessary Hash::make from UserFactory since model uses 'hashed' cast. Simple cleanup.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/210"
+		},
+		"211": {
+			"status": "pending",
+			"title": "Cast two factor confirmed at to datetime",
+			"upstreamMergedAt": "2025-10-13T16:53:50Z",
+			"reason": "fortify-2fa — covered by PR #176",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/211"
+		},
+		"213": {
+			"status": "pending",
+			"title": "Replace password reset and email verification with fortify",
+			"upstreamMergedAt": "2025-10-20T14:22:19Z",
+			"adaptationNotes": "Consolidation PR - may be redundant if #206 and #207 are backported separately. Review for any additional changes.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/213"
+		},
+		"217": {
+			"status": "pending",
+			"title": "Sync from base: drift:v12.9.0",
+			"upstreamMergedAt": "2025-10-29T17:03:58Z",
+			"reason": "auto-sync — Laravel skeleton sync",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/217"
+		},
+		"218": {
+			"status": "skipped",
+			"title": "Sync from base: drift:v12.9.0",
+			"upstreamMergedAt": "2025-10-29T17:04:13Z",
+			"reason": "auto-sync — Laravel skeleton sync (duplicate)",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/218"
+		},
+		"220": {
+			"status": "pending",
+			"title": "fix: 2fa qr code scan on dark color scheme issue",
+			"upstreamMergedAt": "2025-12-05T10:21:37Z",
+			"reason": "fortify-2fa — covered by PR #176 or later 2FA PRs",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/220"
+		},
+		"221": {
+			"status": "pending",
+			"title": "Refactor to use new shadcn-vue `Spinner` component",
+			"upstreamMergedAt": "2025-10-30T15:43:43Z",
+			"adaptationNotes": "Replace Loader2/LoaderCircle with new Spinner component from shadcn-vue. UI improvement.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/221"
+		},
+		"222": {
+			"status": "pending",
+			"title": "Replace direct template `ref` usage with `useTemplateRef` helper",
+			"upstreamMergedAt": "2025-10-30T15:41:48Z",
+			"adaptationNotes": "Vue 3.5 feature: use useTemplateRef() instead of ref name matching. Modern Vue pattern.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/222"
+		},
+		"224": {
+			"status": "pending",
+			"title": "Fix linting issue",
+			"upstreamMergedAt": "2025-11-04T20:38:13Z",
+			"reason": "linting — minor fix",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/224"
+		},
+		"225": {
+			"status": "pending",
+			"title": "Sync from base: drift:v12.10.0",
+			"upstreamMergedAt": "2025-11-04T16:25:26Z",
+			"reason": "auto-sync — Laravel skeleton sync",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/225"
+		},
+		"226": {
+			"status": "skipped",
+			"title": "Sync from base: drift:v12.10.0",
+			"upstreamMergedAt": "2025-11-04T16:26:16Z",
+			"reason": "auto-sync — Laravel skeleton sync (duplicate)",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/226"
+		},
+		"228": {
+			"status": "pending",
+			"title": "Sync from base: drift:v12.10.1",
+			"upstreamMergedAt": "2025-11-13T19:18:45Z",
+			"reason": "auto-sync — Laravel skeleton sync",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/228"
+		},
+		"229": {
+			"status": "skipped",
+			"title": "Sync from base: drift:v12.10.1",
+			"upstreamMergedAt": "2025-11-13T19:18:52Z",
+			"reason": "auto-sync — Laravel skeleton sync (duplicate)",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/229"
+		},
+		"231": {
+			"status": "skipped",
+			"title": "Revert Hash Changes",
+			"upstreamMergedAt": "2025-11-18T15:41:41Z",
+			"reason": "revert — reverts #210, which we're backporting, so this is not applicable",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/231"
+		},
+		"232": {
+			"status": "pending",
+			"title": "Upgrade to shadcn-vue v4",
+			"upstreamMergedAt": "2025-12-09T18:39:41Z",
+			"adaptationNotes": "MAJOR: Upgrades shadcn-vue to v4 (reka-ui 2.3.0→2.6.1). Updates all UI components with new patterns, adds input-otp, removes pin-input. Changes to New York style. Very large PR.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/232"
+		},
+		"234": {
+			"status": "pending",
+			"title": "Bump npm deps",
+			"upstreamMergedAt": "2025-12-10T14:01:43Z",
+			"adaptationNotes": "Security updates for npm dependencies. Review package-lock changes.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/234"
+		},
+		"235": {
+			"status": "pending",
+			"title": "Sync from base: drift:v12.11.0",
+			"upstreamMergedAt": "2025-12-09T16:51:40Z",
+			"adaptationNotes": "PHP 8.5 compatibility for PDO::MYSQL_ATTR_SSL_CA constant. Simple config change.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/235"
+		},
+		"236": {
+			"status": "skipped",
+			"title": "Sync from base: drift:v12.11.0",
+			"upstreamMergedAt": "2025-12-09T16:51:48Z",
+			"reason": "duplicate — identical to PR #235",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/236"
+		},
+		"237": {
+			"status": "skipped",
+			"title": "Upgrade to shadcn-vue v4",
+			"upstreamMergedAt": "2025-12-09T19:22:48Z",
+			"reason": "duplicate — covered by PR #232 (WorkOS variant)",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/237"
+		},
+		"239": {
+			"status": "skipped",
+			"title": "Sync changes from PR 198 to WorkOS variant",
+			"upstreamMergedAt": "2026-01-06T17:12:00Z",
+			"reason": "workos-sync — syncs accessibility improvements to WorkOS variant, covered by #198",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/239"
+		},
+		"240": {
+			"status": "pending",
+			"title": "Sync from base: drift:v12.11.1",
+			"upstreamMergedAt": "2026-01-07T10:54:58Z",
+			"adaptationNotes": "Config improvements: makes DB_SSLMODE configurable via env, fixes public disk URL trailing slash issue.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/240"
+		},
+		"241": {
+			"status": "skipped",
+			"title": "Sync from base: drift:v12.11.1",
+			"upstreamMergedAt": "2026-01-07T10:55:11Z",
+			"reason": "duplicate — identical to PR #240",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/241"
+		},
+		"242": {
+			"status": "skipped",
+			"title": "Sync changes from PR 223 to WorkOS variant",
+			"upstreamMergedAt": "2026-01-07T12:12:30Z",
+			"reason": "workos-sync — covered by #223",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/242"
+		},
+		"243": {
+			"status": "pending",
+			"title": "Update sidebar icon",
+			"upstreamMergedAt": "2026-01-07T13:42:06Z",
+			"adaptationNotes": "Shows different icons based on sidebar state (PanelLeftOpen when collapsed, PanelLeftClose when expanded). UI polish.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/243"
+		},
+		"244": {
+			"status": "skipped",
+			"title": "Sync changes from PR 243 to WorkOS variant",
+			"upstreamMergedAt": "2026-01-07T13:47:14Z",
+			"reason": "workos-sync — covered by #243",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/244"
+		},
+		"245": {
+			"status": "pending",
+			"title": "Bump Inertia version",
+			"upstreamMergedAt": "2026-01-07T18:02:05Z",
+			"adaptationNotes": "Updates @inertiajs/vue3 from ^2.0.11 to ^2.3.7. Includes Form component and other improvements.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/245"
+		},
+		"246": {
+			"status": "pending",
+			"title": "Add cursor pointer to user menu links",
+			"upstreamMergedAt": "2026-01-08T10:56:21Z",
+			"adaptationNotes": "Adds cursor-pointer class to Settings and Logout links in user menu. UX improvement.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/246"
+		},
+		"247": {
+			"status": "skipped",
+			"title": "Sync changes from PR 246 to WorkOS variant",
+			"upstreamMergedAt": "2026-01-08T11:01:18Z",
+			"reason": "workos-sync — covered by #246",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/247"
+		},
+		"248": {
+			"status": "skipped",
+			"title": "Bump Inertia version to latest",
+			"upstreamMergedAt": "2026-01-08T12:32:55Z",
+			"reason": "duplicate — same as #245",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/248"
+		},
+		"249": {
+			"status": "skipped",
+			"title": "Redirect to intended route",
+			"upstreamMergedAt": "2026-01-09T11:02:15Z",
+			"reason": "already-covered — fork's AuthenticatedSessionController already uses redirect()->intended()",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/249"
+		},
+		"250": {
+			"status": "pending",
+			"title": "Add verified middleware to settings",
+			"upstreamMergedAt": "2026-01-08T16:09:46Z",
+			"adaptationNotes": "Adds 'verified' middleware to settings routes group. Security improvement - prevents unverified users from accessing settings. Simple one-line change.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/250"
+		},
+		"251": {
+			"status": "skipped",
+			"title": "Update WORKOS_REDIRECT_URL to use APP_URL",
+			"upstreamMergedAt": "2026-01-08T16:42:20Z",
+			"reason": "not-applicable — WorkOS-specific config, fork doesn't use WorkOS",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/251"
+		},
+		"252": {
+			"status": "pending",
+			"title": "Skip verified middleware for email update",
+			"upstreamMergedAt": "2026-01-12T16:30:20Z",
+			"adaptationNotes": "Refines #250 by splitting settings routes: profile edit/update only needs 'auth' (users can update email when unverified), other routes need 'verified'. Depends on #250.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/252"
+		},
+		"253": {
+			"status": "pending",
+			"title": "Update tests to use PHP 8.5",
+			"upstreamMergedAt": "2026-01-12T10:27:09Z",
+			"adaptationNotes": "Updates tests for PHP 8.5 compatibility (property hooks, etc.). Review and backport test changes.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/253"
+		},
+		"254": {
+			"status": "skipped",
+			"title": "Update tests to use PHP 8.5",
+			"upstreamMergedAt": "2026-01-09T18:48:13Z",
+			"reason": "duplicate — covered by #253 (earlier version of same change)",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/254"
+		},
+		"255": {
+			"status": "pending",
+			"title": "Update assertStatus calls to use helper methods instead",
+			"upstreamMergedAt": "2026-01-12T17:13:36Z",
+			"adaptationNotes": "Test improvement: replaces assertStatus(200) with assertOk(), etc. Modern Laravel testing practice.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/255"
+		},
+		"256": {
+			"status": "pending",
+			"title": "Update inline validations to use FormRequest classes",
+			"upstreamMergedAt": "2026-01-12T16:25:31Z",
+			"adaptationNotes": "Extracts inline validation to FormRequest classes. Fork uses Data classes - verify all validations are covered by Data class rules().",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/256"
+		},
+		"257": {
+			"status": "pending",
+			"title": "Update inline validations to use FormRequest classes",
+			"upstreamMergedAt": "2026-01-12T16:25:31Z",
+			"adaptationNotes": "Fork already uses Data classes. Review to ensure fork's Data classes cover same validation as this PR adds to FormRequests.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/257"
+		},
+		"258": {
+			"status": "pending",
+			"title": "Add pint config file and util composer scripts for linting",
+			"upstreamMergedAt": "2026-01-12T17:19:02Z",
+			"adaptationNotes": "Adds pint.json config, composer lint/test:lint scripts, and integrates linting into test workflow. Developer workflow improvement.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/258"
+		},
+		"259": {
+			"status": "skipped",
+			"title": "Add pint config file and util composer scripts for linting",
+			"upstreamMergedAt": "2026-01-12T17:19:24Z",
+			"reason": "duplicate — WorkOS variant sync of #258",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/259"
+		},
+		"260": {
+			"status": "skipped",
+			"title": "Remove quote from Inertia shared data",
+			"upstreamMergedAt": "2026-01-12T19:15:41Z",
+			"reason": "already-covered — fork never had the inspirational quote feature",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/260"
+		},
+		"261": {
+			"status": "skipped",
+			"title": "Remove quote from Inertia shared data",
+			"upstreamMergedAt": "2026-01-12T19:15:51Z",
+			"reason": "duplicate — WorkOS variant sync of #260",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/261"
+		},
+		"262": {
+			"status": "pending",
+			"title": "Add Concerns namespace and refactor code to reuse traits for rules",
+			"upstreamMergedAt": "2026-01-13T20:13:08Z",
+			"adaptationNotes": "Adds app/Concerns for shared validation traits (PasswordValidationRules, ProfileValidationRules). Fork uses Data class rules() - evaluate if trait pattern beneficial for DRY rules.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/262"
+		},
+		"263": {
+			"status": "pending",
+			"title": "Add eslint-plugin-import",
+			"upstreamMergedAt": "2026-01-13T17:39:53Z",
+			"adaptationNotes": "Adds eslint-plugin-import for better import ordering and organization. Developer workflow improvement.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/263"
+		},
+		"264": {
+			"status": "skipped",
+			"title": "Add eslint-plugin-import",
+			"upstreamMergedAt": "2026-01-13T17:40:27Z",
+			"reason": "duplicate — WorkOS variant sync of #263",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/264"
+		},
+		"265": {
+			"status": "pending",
+			"title": "Remove package-lock.json",
+			"upstreamMergedAt": "2026-01-13T17:18:35Z",
+			"adaptationNotes": "Removes package-lock.json to avoid lock file conflicts in starter kit. Users generate their own locks.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/265"
+		},
+		"266": {
+			"status": "skipped",
+			"title": "Remove package-lock.json",
+			"upstreamMergedAt": "2026-01-13T17:18:28Z",
+			"reason": "duplicate — WorkOS variant sync of #265",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/266"
+		},
+		"267": {
+			"status": "skipped",
+			"title": "Add safer defaults to AppServiceProvider",
+			"upstreamMergedAt": "2026-01-13T20:15:22Z",
+			"reason": "duplicate — WorkOS variant sync of #268",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/267"
+		},
+		"268": {
+			"status": "pending",
+			"title": "Add safer defaults to AppServiceProvider",
+			"upstreamMergedAt": "2026-01-13T20:15:28Z",
+			"adaptationNotes": "Adds security/safety defaults: CarbonImmutable, DB::prohibitDestructiveCommands, Password::defaults. Important production safety improvements.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/268"
+		},
+		"269": {
+			"status": "pending",
+			"title": "Refactor components",
+			"upstreamMergedAt": "2026-01-19T20:02:39Z",
+			"adaptationNotes": "Consolidates HeadingSmall into Heading with variant prop, removes Icon component. Code cleanup and standardization.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/269"
+		},
+		"270": {
+			"status": "skipped",
+			"title": "Refactor components workos",
+			"upstreamMergedAt": "2026-01-19T20:04:23Z",
+			"reason": "duplicate — WorkOS variant sync of #269",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/270"
+		},
+		"271": {
+			"status": "skipped",
+			"title": "Refactor active URL composable",
+			"upstreamMergedAt": "2026-01-21T15:49:18Z",
+			"reason": "duplicate — WorkOS variant sync of #272",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/271"
+		},
+		"272": {
+			"status": "pending",
+			"title": "Refactor active URL composable",
+			"upstreamMergedAt": "2026-01-21T15:49:01Z",
+			"adaptationNotes": "Renames useActiveUrl to useCurrentUrl, adds whenCurrentUrl helper. Better naming and API.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/272"
+		},
+		"273": {
+			"status": "pending",
+			"title": "remove app/Actions/Fortify/PasswordValidationRules.php file",
+			"upstreamMergedAt": "2026-01-15T11:31:18Z",
+			"adaptationNotes": "Cleanup after moving to app/Concerns. Related to #262. Review after Fortify integration.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/273"
+		},
+		"274": {
+			"status": "skipped",
+			"title": "TypeScript types refactor",
+			"upstreamMergedAt": "2026-01-21T19:10:29Z",
+			"reason": "duplicate — WorkOS variant sync of #275",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/274"
+		},
+		"275": {
+			"status": "pending",
+			"title": "TypeScript types refactor",
+			"upstreamMergedAt": "2026-01-21T19:12:08Z",
+			"adaptationNotes": "Changes interface to type, enforces type imports, reorders imports. TypeScript best practices.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/275"
+		},
+		"276": {
+			"status": "pending",
+			"title": "Sync from base: drift:v12.11.2",
+			"upstreamMergedAt": "2026-01-21T10:51:45Z",
+			"adaptationNotes": "Laravel skeleton sync: GitHub Actions v6, queue --timeout=0, APP_URL default, migrations updates.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/276"
+		},
+		"277": {
+			"status": "skipped",
+			"title": "Sync from base: drift:v12.11.2",
+			"upstreamMergedAt": "2026-01-21T10:52:13Z",
+			"reason": "duplicate — WorkOS variant sync of #276",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/277"
+		},
+		"283": {
+			"status": "pending",
+			"title": "Initial Sync from Maestro",
+			"upstreamMergedAt": "2026-01-26T15:27:25Z",
+			"reason": "maestro-auto — automated sync, review individual changes in subsequent PRs",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/283"
+		},
+		"284": {
+			"status": "skipped",
+			"title": "Initial Sync from Maestro",
+			"upstreamMergedAt": "2026-01-26T15:26:59Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/284"
+		},
+		"286": {
+			"status": "pending",
+			"title": "Fix tooltip trigger for React and vue type testing errors",
+			"upstreamMergedAt": "2026-01-26T19:15:21Z",
+			"adaptationNotes": "Adds vue-shims.d.ts for proper Vue component typing. Standard TypeScript setup.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/286"
+		},
+		"287": {
+			"status": "pending",
+			"title": "Update from Maestro",
+			"upstreamMergedAt": "2026-01-26T19:16:16Z",
+			"reason": "maestro-auto — automated sync",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/287"
+		},
+		"290": {
+			"status": "skipped",
+			"title": "Bump WorkOS version for starter kits",
+			"upstreamMergedAt": "2026-02-04T13:32:32Z",
+			"reason": "not-applicable — WorkOS-specific",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/290"
+		},
+		"291": {
+			"status": "skipped",
+			"title": "Add docblock for configureDefaults method",
+			"upstreamMergedAt": "2026-02-04T18:47:09Z",
+			"reason": "cosmetic — covered when #268 is backported",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/291"
+		},
+		"292": {
+			"status": "skipped",
+			"title": "Add docblock for configureDefaults method",
+			"upstreamMergedAt": "2026-02-04T18:46:55Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/292"
+		},
+		"293": {
+			"status": "pending",
+			"title": "Inertia globals",
+			"upstreamMergedAt": "2026-02-11T16:25:28Z",
+			"adaptationNotes": "IMPORTANT: Changes Inertia type augmentation to use InertiaConfig.sharedPageProps. Adds .npmrc for hoisting. Required for modern Inertia typing.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/293"
+		},
+		"294": {
+			"status": "skipped",
+			"title": "Inertia globals",
+			"upstreamMergedAt": "2026-02-11T16:25:40Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/294"
+		},
+		"296": {
+			"status": "pending",
+			"title": "Refactor PlaceholderPattern to use useId instead of Math.random",
+			"upstreamMergedAt": "2026-02-12T10:30:46Z",
+			"adaptationNotes": "Uses Vue's useId() for unique IDs instead of Math.random(). Better practice for SSR.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/296"
+		},
+		"297": {
+			"status": "skipped",
+			"title": "Refactor PlaceholderPattern to use useId instead of Math.random",
+			"upstreamMergedAt": "2026-02-12T10:31:03Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/297"
+		},
+		"298": {
+			"status": "skipped",
+			"title": "Svelte Starter Kit",
+			"upstreamMergedAt": "2026-02-12T16:42:18Z",
+			"reason": "not-applicable — Svelte-specific changes, not relevant to Vue fork",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/298"
+		},
+		"299": {
+			"status": "skipped",
+			"title": "Svelte Starter Kit",
+			"upstreamMergedAt": "2026-02-12T16:42:10Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/299"
+		},
+		"300": {
+			"status": "skipped",
+			"title": "Bump WorkOS version for security issue fix",
+			"upstreamMergedAt": "2026-02-19T15:30:30Z",
+			"reason": "not-applicable — WorkOS-specific",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/300"
+		},
+		"301": {
+			"status": "pending",
+			"title": "Update workflow to fix issues with the concurrency check",
+			"upstreamMergedAt": "2026-02-25T15:50:47Z",
+			"adaptationNotes": "GitHub Actions workflow improvements for concurrency handling.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/301"
+		},
+		"302": {
+			"status": "skipped",
+			"title": "Update workflow to fix issues with the concurrency check",
+			"upstreamMergedAt": "2026-02-25T15:51:12Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/302"
+		},
+		"303": {
+			"status": "pending",
+			"title": "Improve Breadcrumb type and usage",
+			"upstreamMergedAt": "2026-02-26T12:09:00Z",
+			"adaptationNotes": "Improves breadcrumb types and usage patterns. Better type safety.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/303"
+		},
+		"304": {
+			"status": "skipped",
+			"title": "Improve Breadcrumb type and usage",
+			"upstreamMergedAt": "2026-02-26T12:09:11Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/304"
+		},
+		"305": {
+			"status": "pending",
+			"title": "General improvements",
+			"upstreamMergedAt": "2026-02-27T12:03:51Z",
+			"adaptationNotes": "Various code improvements and refinements. Review diff for specific changes.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/305"
+		},
+		"306": {
+			"status": "skipped",
+			"title": "General improvements",
+			"upstreamMergedAt": "2026-02-27T12:04:03Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/306"
+		},
+		"307": {
+			"status": "pending",
+			"title": "Improve tests workflows for Starter Kits",
+			"upstreamMergedAt": "2026-02-27T15:27:10Z",
+			"adaptationNotes": "Improves GitHub Actions test workflows.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/307"
+		},
+		"308": {
+			"status": "skipped",
+			"title": "Improve tests workflows for Starter Kits",
+			"upstreamMergedAt": "2026-02-27T15:26:59Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/308"
+		},
+		"310": {
+			"status": "pending",
+			"title": "Align app variant API across Vue, Svelte, and React",
+			"upstreamMergedAt": "2026-03-09T12:25:27Z",
+			"adaptationNotes": "Standardizes API patterns across framework variants. Review for consistency improvements.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/310"
+		},
+		"311": {
+			"status": "skipped",
+			"title": "Align app variant API across Vue, Svelte, and React",
+			"upstreamMergedAt": "2026-03-09T12:24:49Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/311"
+		},
+		"312": {
+			"status": "pending",
+			"title": "Add password visibility toggle to all starter kits",
+			"upstreamMergedAt": "2026-03-09T16:07:21Z",
+			"adaptationNotes": "IMPORTANT: Adds PasswordInput component with show/hide toggle. Great UX improvement for all password fields.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/312"
+		},
+		"313": {
+			"status": "skipped",
+			"title": "Add password visibility toggle to all starter kits",
+			"upstreamMergedAt": "2026-03-09T16:07:30Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/313"
+		},
+		"314": {
+			"status": "pending",
+			"title": "Browser tests & Fortify feature-aware skip guards",
+			"upstreamMergedAt": "2026-03-10T16:35:58Z",
+			"adaptationNotes": "Adds skipUnlessFortifyFeature() helpers for tests. Backport after Fortify is integrated.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/314"
+		},
+		"316": {
+			"status": "pending",
+			"title": "Update Starter Kits for changes in Laravel Skeleton",
+			"upstreamMergedAt": "2026-03-10T17:30:15Z",
+			"adaptationNotes": "Syncs changes from Laravel skeleton (drift). Review for config/dependency updates.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/316"
+		},
+		"317": {
+			"status": "skipped",
+			"title": "Update Starter Kits for changes in Laravel Skeleton",
+			"upstreamMergedAt": "2026-03-10T17:30:05Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/317"
+		},
+		"318": {
+			"status": "pending",
+			"title": "Make imports consistent",
+			"upstreamMergedAt": "2026-03-10T20:28:31Z",
+			"adaptationNotes": "Code style: standardizes import ordering and formatting.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/318"
+		},
+		"319": {
+			"status": "skipped",
+			"title": "Make imports consistent",
+			"upstreamMergedAt": "2026-03-10T20:28:34Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/319"
+		},
+		"320": {
+			"status": "pending",
+			"title": "ESLint/formatting updates",
+			"upstreamMergedAt": "2026-03-11T14:41:39Z",
+			"adaptationNotes": "ESLint config and code formatting updates.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/320"
+		},
+		"321": {
+			"status": "skipped",
+			"title": "ESLint/formatting updates",
+			"upstreamMergedAt": "2026-03-11T14:41:51Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/321"
+		},
+		"322": {
+			"status": "pending",
+			"title": "Fix SSR window reference error in current URL hooks",
+			"upstreamMergedAt": "2026-03-11T16:02:28Z",
+			"adaptationNotes": "IMPORTANT: Fixes SSR crash when useCurrentUrl accesses window. Critical for SSR.",
+			"confidence": "high",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/322"
+		},
+		"323": {
+			"status": "skipped",
+			"title": "Fix SSR window reference error in current URL hooks",
+			"upstreamMergedAt": "2026-03-11T16:02:17Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/323"
+		},
+		"324": {
+			"status": "pending",
+			"title": "Consolidate password and two-factor settings into a unified security page",
+			"upstreamMergedAt": "2026-03-12T18:13:47Z",
+			"adaptationNotes": "MAJOR: Merges password and 2FA into single Security page. Requires Fortify integration. Backport after #176 and related 2FA PRs.",
+			"confidence": "medium",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/324"
+		},
+		"325": {
+			"status": "skipped",
+			"title": "Consolidate password and two-factor settings into a unified security page",
+			"upstreamMergedAt": "2026-03-12T18:13:57Z",
+			"reason": "duplicate — WorkOS variant",
+			"url": "https://github.com/laravel/vue-starter-kit/pull/325"
+		}
+	}
 }
