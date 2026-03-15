@@ -54,6 +54,10 @@ class LoginRequest extends Data
 
 	public function throttleKey(): string
 	{
-		return Str::transliterate(Str::lower($this->email) . '|' . Request::ip());
+		return Str::of($this->email)
+			->lower()
+			->append('|' . Request::ip())
+			->transliterate()
+			->value();
 	}
 }
