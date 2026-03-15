@@ -124,10 +124,11 @@
 			"url": "https://github.com/laravel/vue-starter-kit/pull/156"
 		},
 		"158": {
-			"status": "pending",
+			"status": "backported",
 			"title": "Fix: Fix PHPStan error by chaining Stringable methods for email+IP",
 			"upstreamMergedAt": "2025-08-21T15:07:15Z",
-			"reason": "low-priority — fork could adopt Stringable chaining in LoginRequest throttleKey() but not critical",
+			"backportedAt": "2026-03-15T00:00:00Z",
+			"forkPR": "https://github.com/Plytas/vue-starter-kit/pull/1",
 			"url": "https://github.com/laravel/vue-starter-kit/pull/158"
 		},
 		"159": {
