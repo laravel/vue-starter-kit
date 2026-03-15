@@ -14,7 +14,10 @@ Route::middleware('auth')->group(function (): void {
 	Route::delete('settings/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 	Route::get('settings/password', [PasswordController::class, 'edit'])->name('password.edit');
-	Route::put('settings/password', [PasswordController::class, 'update'])->name('password.update');
+
+	Route::put('settings/password', [PasswordController::class, 'update'])
+		->middleware('throttle:6,1')
+		->name('password.update');
 
 	Route::get('settings/passkey', [PasskeyController::class, 'edit'])->name('passkey.edit');
 	Route::get('settings/passkey/register-options', [PasskeyController::class, 'generatePasskeyOptions'])->name('passkey.register-options');
