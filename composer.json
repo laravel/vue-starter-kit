@@ -9,7 +9,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.3",
+        "php": "^8.5",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/fortify": "^1.34",
         "laravel/framework": "^13.0",
@@ -23,7 +23,8 @@
         "laravel/sail": "^1.53",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.9",
-        "phpunit/phpunit": "^12.5.12"
+        "pestphp/pest": "^4.4",
+        "pestphp/pest-plugin-laravel": "4.x-dev@dev"
     },
     "autoload": {
         "psr-4": {
