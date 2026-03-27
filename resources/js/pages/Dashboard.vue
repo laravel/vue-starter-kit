@@ -2,16 +2,19 @@
 import { Head } from '@inertiajs/vue3';
 import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
 import { dashboard } from '@/routes';
+import type { Team } from '@/types';
 
 defineOptions({
-    layout: {
+    layout: (props: { currentTeam?: Team | null }) => ({
         breadcrumbs: [
             {
                 title: 'Dashboard',
-                href: dashboard(),
+                href: props.currentTeam
+                    ? dashboard(props.currentTeam.slug)
+                    : '/',
             },
         ],
-    },
+    }),
 });
 </script>
 
