@@ -258,6 +258,7 @@ watch(
                                     v-model="code"
                                     :maxlength="6"
                                     :disabled="processing"
+                                    autofocus
                                 >
                                     <InputOTPGroup>
                                         <InputOTPSlot
