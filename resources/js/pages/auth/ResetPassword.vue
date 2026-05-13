@@ -19,6 +19,7 @@ defineOptions({
 const props = defineProps<{
     token: string;
     email: string;
+    passwordRules: string;
 }>();
 
 const inputEmail = ref(props.email);
@@ -57,6 +58,7 @@ const inputEmail = ref(props.email);
                     class="mt-1 block w-full"
                     autofocus
                     placeholder="Password"
+                    :passwordrules="passwordRules"
                 />
                 <InputError :message="errors.password" />
             </div>
@@ -69,6 +71,7 @@ const inputEmail = ref(props.email);
                     autocomplete="new-password"
                     class="mt-1 block w-full"
                     placeholder="Confirm password"
+                    :passwordrules="passwordRules"
                 />
                 <InputError :message="errors.password_confirmation" />
             </div>

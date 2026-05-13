@@ -18,9 +18,10 @@ type Props = {
     canManageTwoFactor?: boolean;
     requiresConfirmation?: boolean;
     twoFactorEnabled?: boolean;
+    passwordRules: string;
 };
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
     canManageTwoFactor: false,
     requiresConfirmation: false,
     twoFactorEnabled: false,
@@ -89,6 +90,7 @@ onUnmounted(() => clearTwoFactorAuthData());
                     class="mt-1 block w-full"
                     autocomplete="new-password"
                     placeholder="New password"
+                    :passwordrules="props.passwordRules"
                 />
                 <InputError :message="errors.password" />
             </div>
@@ -101,6 +103,7 @@ onUnmounted(() => clearTwoFactorAuthData());
                     class="mt-1 block w-full"
                     autocomplete="new-password"
                     placeholder="Confirm password"
+                    :passwordrules="props.passwordRules"
                 />
                 <InputError :message="errors.password_confirmation" />
             </div>

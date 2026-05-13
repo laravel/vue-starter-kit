@@ -10,6 +10,10 @@ import { Spinner } from '@/components/ui/spinner';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
 
+defineProps<{
+    passwordRules: string;
+}>();
+
 defineOptions({
     layout: {
         title: 'Create an account',
@@ -66,6 +70,7 @@ defineOptions({
                     autocomplete="new-password"
                     name="password"
                     placeholder="Password"
+                    :passwordrules="passwordRules"
                 />
                 <InputError :message="errors.password" />
             </div>
@@ -79,6 +84,7 @@ defineOptions({
                     autocomplete="new-password"
                     name="password_confirmation"
                     placeholder="Confirm password"
+                    :passwordrules="passwordRules"
                 />
                 <InputError :message="errors.password_confirmation" />
             </div>
