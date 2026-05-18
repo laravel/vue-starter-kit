@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { Form, Head, Link, usePage } from '@inertiajs/vue3';
+import { Form, Head, usePage } from '@inertiajs/vue3';
+/* @chisel-email-verification */
+import { Link } from '@inertiajs/vue3';
+/* @end-chisel-email-verification */
 import { computed } from 'vue';
 import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
 import DeleteUser from '@/components/DeleteUser.vue';
@@ -9,14 +12,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { edit } from '@/routes/profile';
+/* @chisel-email-verification */
 import { send } from '@/routes/verification';
-
-type Props = {
-    mustVerifyEmail: boolean;
-    status?: string;
-};
-
-defineProps<Props>();
+/* @end-chisel-email-verification */
 
 defineOptions({
     layout: {
@@ -79,7 +77,8 @@ const user = computed(() => page.props.auth.user);
                 <InputError class="mt-2" :message="errors.email" />
             </div>
 
-            <div v-if="mustVerifyEmail && !user.email_verified_at">
+            <!-- @chisel-email-verification -->
+            <div v-if="page.props.mustVerifyEmail && !user.email_verified_at">
                 <p class="-mt-4 text-sm text-muted-foreground">
                     Your email address is unverified.
                     <Link
@@ -92,12 +91,13 @@ const user = computed(() => page.props.auth.user);
                 </p>
 
                 <div
-                    v-if="status === 'verification-link-sent'"
+                    v-if="page.props.status === 'verification-link-sent'"
                     class="mt-2 text-sm font-medium text-green-600"
                 >
                     A new verification link has been sent to your email address.
                 </div>
             </div>
+            <!-- @end-chisel-email-verification -->
 
             <div class="flex items-center gap-4">
                 <Button :disabled="processing" data-test="update-profile-button"

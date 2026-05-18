@@ -1,16 +1,10 @@
 <script setup lang="ts">
 import { Head, Link, usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';
-import { dashboard, login, register } from '@/routes';
-
-withDefaults(
-    defineProps<{
-        canRegister: boolean;
-    }>(),
-    {
-        canRegister: true,
-    },
-);
+import { dashboard, login } from '@/routes';
+/* @chisel-registration */
+import { register } from '@/routes';
+/* @end-chisel-registration */
 
 const page = usePage();
 const dashboardUrl = computed(() =>
@@ -44,13 +38,14 @@ const dashboardUrl = computed(() =>
                     >
                         Log in
                     </Link>
+                    <!-- @chisel-registration -->
                     <Link
-                        v-if="canRegister"
                         :href="register()"
                         class="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
                     >
                         Register
                     </Link>
+                    <!-- @end-chisel-registration -->
                 </template>
             </nav>
         </header>
