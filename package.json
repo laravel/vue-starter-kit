@@ -34,12 +34,13 @@
         "vue-tsc": "^2.2.4"
     },
     "dependencies": {
+        "@laravel/passkeys": "^0.2.0",
         "@inertiajs/vite": "^3.0.0",
         "@inertiajs/vue3": "^3.0.0",
         "@vueuse/core": "^12.8.2",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
-        "laravel-vite-plugin": "^3.1",
+        "laravel-vite-plugin": "^3.0.0",
         "lucide-vue-next": "^0.468.0",
         "reka-ui": "^2.6.1",
         "tailwind-merge": "^3.2.0",
