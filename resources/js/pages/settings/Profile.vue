@@ -39,7 +39,7 @@ const user = computed(() => page.props.auth.user);
     <div class="flex flex-col space-y-6">
         <Heading
             variant="small"
-            title="Profile information"
+            title="Profile"
             description="Update your name and email address"
         />
 
