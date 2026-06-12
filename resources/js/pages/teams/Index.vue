@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
-import { Eye, Pencil, Plus } from '@lucide/vue';
+import { Eye, LogOut, Pencil, Plus } from '@lucide/vue';
+import { ref } from 'vue';
 import CreateTeamModal from '@/components/CreateTeamModal.vue';
 import Heading from '@/components/Heading.vue';
+import LeaveTeamModal from '@/components/LeaveTeamModal.vue';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -19,6 +21,16 @@ type Props = {
 };
 
 defineProps<Props>();
+
+const leaveTeamDialogOpen = ref(false);
+const teamLeaving = ref<Team | null>(null);
+
+const canLeaveTeam = (team: Team) => !team.isPersonal && team.role !== 'owner';
+
+const openLeaveTeamDialog = (team: Team) => {
+    teamLeaving.value = team;
+    leaveTeamDialogOpen.value = true;
+};
 
 defineOptions({
     layout: {
@@ -57,7 +69,7 @@ defineOptions({
                 v-for="team in teams"
                 :key="team.id"
                 data-test="team-row"
-                class="flex items-center justify-between rounded-lg border p-4"
+                class="flex items-center justify-between gap-4 rounded-lg border p-4"
             >
                 <div class="flex items-center gap-4">
                     <div>
@@ -75,6 +87,22 @@ defineOptions({
 
                 <TooltipProvider>
                     <div class="flex items-center gap-2">
+                        <Tooltip v-if="canLeaveTeam(team)">
+                            <TooltipTrigger as-child>
+                                <Button
+                                    data-test="team-leave-button"
+                                    variant="ghost"
+                                    size="sm"
+                                    @click="openLeaveTeamDialog(team)"
+                                >
+                                    <LogOut class="h-4 w-4" />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>Leave team</p>
+                            </TooltipContent>
+                        </Tooltip>
+
                         <Tooltip v-if="team.role === 'member'">
                             <TooltipTrigger as-child>
                                 <Button
@@ -122,4 +150,6 @@ defineOptions({
             </p>
         </div>
     </div>
+
+    <LeaveTeamModal v-model:open="leaveTeamDialogOpen" :team="teamLeaving" />
 </template>
