@@ -79,7 +79,7 @@ defineOptions({
                                 Personal
                             </Badge>
                         </div>
-                        <span class="text-sm text-muted-foreground">
+                        <span class="text-muted-foreground text-sm">
                             {{ team.roleLabel }}
                         </span>
                     </div>
@@ -144,7 +144,7 @@ defineOptions({
 
             <p
                 v-if="teams.length === 0"
-                class="py-8 text-center text-muted-foreground"
+                class="text-muted-foreground py-8 text-center"
             >
                 You don't belong to any teams yet.
             </p>

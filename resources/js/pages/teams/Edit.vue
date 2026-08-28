@@ -185,7 +185,7 @@ const confirmCancelInvitation = (invitation: TeamInvitation) => {
                             <div class="font-medium">
                                 {{ member.name }}
                             </div>
-                            <div class="text-sm text-muted-foreground">
+                            <div class="text-muted-foreground text-sm">
                                 {{ member.email }}
                             </div>
                         </div>
@@ -271,15 +271,15 @@ const confirmCancelInvitation = (invitation: TeamInvitation) => {
                 >
                     <div class="flex items-center gap-4">
                         <div
-                            class="flex h-10 w-10 items-center justify-center rounded-full bg-muted"
+                            class="bg-muted flex h-10 w-10 items-center justify-center rounded-full"
                         >
-                            <Mail class="h-5 w-5 text-muted-foreground" />
+                            <Mail class="text-muted-foreground h-5 w-5" />
                         </div>
                         <div>
                             <div class="font-medium">
                                 {{ invitation.email }}
                             </div>
-                            <div class="text-sm text-muted-foreground">
+                            <div class="text-muted-foreground text-sm">
                                 {{ invitation.role_label }}
                             </div>
                         </div>
