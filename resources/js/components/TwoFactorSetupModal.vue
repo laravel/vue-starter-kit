@@ -114,10 +114,10 @@ watch(
         <DialogContent class="sm:max-w-md">
             <DialogHeader class="flex items-center justify-center">
                 <div
-                    class="mb-3 w-auto rounded-full border border-border bg-card p-0.5 shadow-sm"
+                    class="border-border bg-card mb-3 w-auto rounded-full border p-0.5 shadow-sm"
                 >
                     <div
-                        class="relative overflow-hidden rounded-full border border-border bg-muted p-2.5"
+                        class="border-border bg-muted relative overflow-hidden rounded-full border p-2.5"
                     >
                         <div
                             class="absolute inset-0 grid grid-cols-5 opacity-50"
@@ -125,7 +125,7 @@ watch(
                             <div
                                 v-for="i in 5"
                                 :key="`col-${i}`"
-                                class="border-r border-border last:border-r-0"
+                                class="border-border border-r last:border-r-0"
                             />
                         </div>
                         <div
@@ -134,11 +134,11 @@ watch(
                             <div
                                 v-for="i in 5"
                                 :key="`row-${i}`"
-                                class="border-b border-border last:border-b-0"
+                                class="border-border border-b last:border-b-0"
                             />
                         </div>
                         <ScanLine
-                            class="relative z-20 size-6 text-foreground"
+                            class="text-foreground relative z-20 size-6"
                         />
                     </div>
                 </div>
@@ -158,11 +158,11 @@ watch(
                             class="relative mx-auto flex max-w-md items-center overflow-hidden"
                         >
                             <div
-                                class="relative mx-auto aspect-square w-64 overflow-hidden rounded-lg border border-border"
+                                class="border-border relative mx-auto aspect-square w-64 overflow-hidden rounded-lg border"
                             >
                                 <div
                                     v-if="!qrCodeSvg"
-                                    class="absolute inset-0 z-10 flex aspect-square h-auto w-full animate-pulse items-center justify-center bg-background"
+                                    class="bg-background absolute inset-0 z-10 flex aspect-square h-auto w-full animate-pulse items-center justify-center"
                                 >
                                     <Spinner class="size-6" />
                                 </div>
@@ -194,9 +194,9 @@ watch(
                             class="relative flex w-full items-center justify-center"
                         >
                             <div
-                                class="absolute inset-0 top-1/2 h-px w-full bg-border"
+                                class="bg-border absolute inset-0 top-1/2 h-px w-full"
                             />
-                            <span class="relative bg-card px-2 py-1"
+                            <span class="bg-card relative px-2 py-1"
                                 >or, enter the code manually</span
                             >
                         </div>
@@ -205,11 +205,11 @@ watch(
                             class="flex w-full items-center justify-center space-x-2"
                         >
                             <div
-                                class="flex w-full items-stretch overflow-hidden rounded-xl border border-border"
+                                class="border-border flex w-full items-stretch overflow-hidden rounded-xl border"
                             >
                                 <div
                                     v-if="!manualSetupKey"
-                                    class="flex h-full w-full items-center justify-center bg-muted p-3"
+                                    class="bg-muted flex h-full w-full items-center justify-center p-3"
                                 >
                                     <Spinner />
                                 </div>
@@ -218,11 +218,11 @@ watch(
                                         type="text"
                                         readonly
                                         :value="manualSetupKey"
-                                        class="h-full w-full bg-background p-3 text-foreground"
+                                        class="bg-background text-foreground h-full w-full p-3"
                                     />
                                     <button
                                         @click="copy(manualSetupKey || '')"
-                                        class="relative block h-auto border-l border-border px-3 hover:bg-muted"
+                                        class="border-border hover:bg-muted relative block h-auto border-l px-3"
                                     >
                                         <Check
                                             v-if="copied"

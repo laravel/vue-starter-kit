@@ -79,7 +79,7 @@ const user = computed(() => page.props.auth.user);
 
             <!-- @chisel-email-verification -->
             <div v-if="page.props.mustVerifyEmail && !user.email_verified_at">
-                <p class="-mt-4 text-sm text-muted-foreground">
+                <p class="text-muted-foreground -mt-4 text-sm">
                     Your email address is unverified.
                     <Link
                         :href="send()"
