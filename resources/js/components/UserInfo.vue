@@ -32,12 +32,12 @@ const showAvatar = computed(
 
     <div class="grid flex-1 text-left text-sm leading-tight">
         <span class="truncate font-medium">{{ user.name }}</span>
-        <span v-if="team" class="truncate text-xs text-muted-foreground">{{
+        <span v-if="team" class="text-muted-foreground truncate text-xs">{{
             team.name
         }}</span>
         <span
             v-else-if="showEmail"
-            class="truncate text-xs text-muted-foreground"
+            class="text-muted-foreground truncate text-xs"
             >{{ user.email }}</span
         >
     </div>
