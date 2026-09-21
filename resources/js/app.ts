@@ -19,6 +19,15 @@ void createInertiaApp({
                 return AppLayout;
         }
     },
+    withApp: (app) => {
+        app.directive('focus', {
+            mounted: (el: HTMLElement, shouldFocus) => {
+                if (shouldFocus.value !== false) {
+                    el.focus();
+                }
+            },
+        });
+    },
     progress: {
         color: '#4B5563',
     },
