@@ -60,7 +60,7 @@ const handleCancel = () => {
 </script>
 
 <template>
-    <div v-if="!isSupported" class="text-muted-foreground text-sm">
+    <div v-if="!isSupported" class="text-sm text-muted-foreground">
         Passkeys are not supported in this browser.
     </div>
 
@@ -71,7 +71,7 @@ const handleCancel = () => {
     <form
         v-else
         @submit="handleSubmit"
-        class="border-border bg-muted/50 space-y-4 rounded-lg border p-4"
+        class="space-y-4 rounded-lg border border-border bg-muted/50 p-4"
     >
         <div class="grid gap-2">
             <Label for="passkey-name">Passkey name</Label>
@@ -80,10 +80,10 @@ const handleCancel = () => {
                 type="text"
                 v-model="name"
                 placeholder="e.g., MacBook Pro, iPhone"
-                class="border-foreground/20 mt-1 block w-full"
+                class="mt-1 block w-full border-foreground/20"
                 autofocus
             />
-            <p class="text-muted-foreground text-xs">
+            <p class="text-xs text-muted-foreground">
                 A name helps you identify this passkey later.
             </p>
         </div>

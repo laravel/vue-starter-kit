@@ -109,7 +109,7 @@ defineProps<{
         </div>
 
         <!-- @chisel-registration -->
-        <div class="text-muted-foreground text-center text-sm">
+        <div class="text-center text-sm text-muted-foreground">
             Don't have an account?
             <TextLink :href="register()" :tabindex="5">Sign up</TextLink>
         </div>
