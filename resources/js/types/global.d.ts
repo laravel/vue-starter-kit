@@ -1,3 +1,4 @@
+import type { Directive } from 'vue';
 import type { Auth } from '@/types/auth';
 import type { Team } from '@/types/teams';
 
@@ -28,6 +29,10 @@ declare module '@inertiajs/core' {
 }
 
 declare module 'vue' {
+    interface GlobalDirectives {
+        vFocus: Directive<HTMLElement, boolean | undefined>;
+    }
+
     interface ComponentCustomProperties {
         $inertia: typeof Router;
         $page: Page;
