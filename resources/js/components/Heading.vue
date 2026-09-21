@@ -21,7 +21,7 @@ withDefaults(defineProps<Props>(), {
         >
             {{ title }}
         </h2>
-        <p v-if="description" class="text-muted-foreground text-sm">
+        <p v-if="description" class="text-sm text-muted-foreground">
             {{ description }}
         </p>
     </header>
