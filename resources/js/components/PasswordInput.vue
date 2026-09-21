@@ -9,6 +9,7 @@ defineOptions({ inheritAttrs: false });
 
 const props = defineProps<{
     class?: HTMLAttributes['class'];
+    autofocus?: boolean;
 }>();
 
 const showPassword = ref(false);
@@ -23,6 +24,7 @@ defineExpose({
 <template>
     <div class="relative">
         <Input
+            v-focus="props.autofocus"
             ref="inputRef"
             :type="showPassword ? 'text' : 'password'"
             :class="cn('pr-10', props.class)"
