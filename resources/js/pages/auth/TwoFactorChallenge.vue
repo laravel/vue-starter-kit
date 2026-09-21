@@ -85,7 +85,7 @@ const toggleRecoveryMode = (clearErrors: () => void): void => {
                 <Button type="submit" class="w-full" :disabled="processing"
                     >Continue</Button
                 >
-                <div class="text-muted-foreground text-center text-sm">
+                <div class="text-center text-sm text-muted-foreground">
                     <span>or you can </span>
                     <button
                         type="button"
@@ -117,7 +117,7 @@ const toggleRecoveryMode = (clearErrors: () => void): void => {
                     >Continue</Button
                 >
 
-                <div class="text-muted-foreground text-center text-sm">
+                <div class="text-center text-sm text-muted-foreground">
                     <span>or you can </span>
                     <button
                         type="button"
