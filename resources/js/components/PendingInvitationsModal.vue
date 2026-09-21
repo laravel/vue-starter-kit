@@ -60,7 +60,7 @@ const declineInvitation = (invitation: DashboardInvitation) => {
                 >
                     <div class="space-y-1">
                         <p class="font-medium">{{ invitation.team.name }}</p>
-                        <p class="text-muted-foreground text-sm">
+                        <p class="text-sm text-muted-foreground">
                             {{ invitation.inviterName }} invited you to join
                             this team.
                         </p>

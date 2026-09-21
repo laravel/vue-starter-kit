@@ -95,7 +95,7 @@ onUnmounted(() => {
                 :class="
                     props.inHeader
                         ? 'h-8 gap-1 px-2'
-                        : 'data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground w-full justify-start px-2 has-[>svg]:px-2'
+                        : 'w-full justify-start px-2 has-[>svg]:px-2 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
                 "
             >
                 <Users
@@ -138,7 +138,7 @@ onUnmounted(() => {
             :align="props.inHeader ? 'end' : 'start'"
             :side-offset="props.inHeader ? undefined : 4"
         >
-            <DropdownMenuLabel class="text-muted-foreground text-xs">
+            <DropdownMenuLabel class="text-xs text-muted-foreground">
                 Teams
             </DropdownMenuLabel>
             <DropdownMenuItem
