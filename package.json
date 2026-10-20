@@ -35,7 +35,7 @@
         "concurrently": "^10.0.3",
         "typescript": "^5.2.2",
         "vite": "^8.0.0",
-        "vite-plus": "0.3.0",
+        "vite-plus": "1.1.0",
         "vue-tsc": "^2.2.4"
     },
     "optionalDependencies": {
