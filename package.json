@@ -32,9 +32,9 @@
         "@vitejs/plugin-vue": "^6.0.0",
         "concurrently": "^10.0.3",
         "typescript": "^5.2.2",
-        "vite": "^8.0.0",
-        "vite-plus": "0.3.0",
-        "vue-tsc": "^2.2.4"
+        "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",
+        "vite-plus": "1.4.0",
+        "vue-tsc": "^3.3.13"
     },
     "optionalDependencies": {
         "@laravel/multiplex": "^0.4.1",
@@ -44,5 +44,8 @@
         "@tailwindcss/oxide-win32-x64-msvc": "^4.0.1",
         "lightningcss-linux-x64-gnu": "^1.29.1",
         "lightningcss-win32-x64-msvc": "^1.29.1"
+    },
+    "overrides": {
+        "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0"
     }
 }
