@@ -20,7 +20,7 @@ import ManageTwoFactor from '@/components/ManageTwoFactor.vue';
 type Props = {
     passwordRules: string;
 } /* @chisel-passkeys */ & ManagePasskeysProps /* @end-chisel-passkeys */ /* @chisel-2fa */ &
-    ManageTwoFactorProps /* @end-chisel-2fa */;
+    ManageTwoFactorProps; /* @end-chisel-2fa */
 
 const props = defineProps<Props>();
 
